@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact — Hamo Australia Support">
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <div class="container contact-grid">
+      
+      <!-- Left Column: Coordinates & Studio Details -->
+      <div class="contact-details">
+        <span class="text-label" style="color: var(--accent); display: block; margin-bottom: 12px;">Get in Touch</span>
+        <h1 class="display-l" id="contact-heading" style="margin-bottom: 32px; text-transform: lowercase;">Coastal HQ.</h1>
+        <p class="text-body" style="color: var(--ink-soft); margin-bottom: 48px; max-width: 36ch;">
+          Whether you want to query standard transit times to Western Australia or ask about custom corporate order customisations, our kitchen table is always open.
+        </p>
+
+        <div class="info-blocks">
+          <div class="info-block">
+            <h4 class="text-label">Studio coordinates</h4>
+            <p class="text-body">
+              Hamo Pty Ltd<br />
+              Seven Mile beach road<br />
+              Gerringong, NSW 2534
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h4 class="text-label">Customer support</h4>
+            <p class="text-body">
+              <a href="mailto:hello@hamochairs.com.au" class="squiggle-link">hello@hamochairs.com.au</a><br />
+              Care hours: Mon – Fri, 9am – 5pm AEST
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h4 class="text-label">Social channels</h4>
+            <p class="text-body" style="display:flex; gap:16px;">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="squiggle-link">Instagram</a>
+              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="squiggle-link">Pinterest</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Sleek Editorial Form -->
+      <div class="contact-form-wrapper">
+        <h2 class="display-m" style="margin-bottom: 36px; text-transform: lowercase;">Send an inquiry.</h2>
+        
+        <form class="contact-form" id="contact-inquiry-form" aria-label="Hamo Inquiry Submission Form">
+          
+          <div class="field-group">
+            <label for="contact-name">Your name</label>
+            <input 
+              type="text" 
+              id="contact-name" 
+              name="name" 
+              placeholder="Natalie Pat" 
+              required 
+              class="form-control" 
+            />
+          </div>
+
+          <div class="field-group">
+            <label for="contact-email">Email address</label>
+            <input 
+              type="email" 
+              id="contact-email" 
+              name="email" 
+              placeholder="natalie@pat.com" 
+              required 
+              class="form-control" 
+            />
+          </div>
+
+          <div class="field-group">
+            <label for="contact-subject">Inquiry focus</label>
+            <select id="contact-subject" name="subject" class="form-control select-control" required>
+              <option value="" disabled selected>Select a subject...</option>
+              <option value="shipping">Shipping & transit timetables</option>
+              <option value="wholesale">Wholesale & boutique stocking</option>
+              <option value="warranty">Warranty & frame repair care</option>
+              <option value="feedback">General design appreciation</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="contact-message">Inquiry details</label>
+            <textarea 
+              id="contact-message" 
+              name="message" 
+              rows="5" 
+              placeholder="Describe your query..." 
+              required 
+              class="form-control text-control"
+            ></textarea>
+          </div>
+
+          <div class="form-checkbox">
+            <input type="checkbox" id="contact-optin" name="optin" class="sr-only" />
+            <label for="contact-optin" class="checkbox-box" tabindex="0" role="checkbox" aria-checked="false"></label>
+            <span>Subscribe to the Slow Letter for colour chapter alerts.</span>
+          </div>
+
+          <div style="margin-top: 40px;">
+            <button type="submit" class="btn btn--solid" style="width: 100%; min-height: 52px;">
+              Submit Inquiry
+            </button>
+          </div>
+
+          <div class="form-result-message hidden" id="form-success-feedback">
+            <span class="text-label" style="color: var(--accent); display: block; margin-bottom: 8px;">Success</span>
+            <p class="text-body" style="font-size:15px; margin: 0;">
+              Thank you for reaching out. Natalie or Pat will respond directly from Gerringong within 24 hours.
+            </p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-section {
+    padding-block: 60px 100px;
+    background-color: var(--paper);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  @media (min-width: 992px) {
+    .contact-grid {
+      grid-template-columns: 5fr 7fr;
+      gap: 96px;
+    }
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 100%;
+  }
+
+  .info-block h4 {
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+
+  .info-block p {
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Form Container Panel */
+  .contact-form-wrapper {
+    background-color: var(--paper-soft);
+    border: 1.5px solid var(--border);
+    padding: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .contact-form-wrapper {
+      padding: 48px;
+    }
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .select-control {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23181715' stroke-width='2'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 28px;
+    appearance: none;
+  }
+
+  :root.theme-dark .select-control {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23f5f1e8' stroke-width='2'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  }
+
+  .text-control {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-result-message {
+    background-color: var(--paper);
+    border: 1.5px solid var(--accent);
+    padding: 24px;
+    margin-top: 32px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hidden {
+    display: none !important;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Accessibility key bindings for custom checkboxes
+    const checkboxLabel = document.querySelector('.checkbox-box');
+    const checkboxInput = document.getElementById('contact-optin') as HTMLInputElement;
+
+    if (checkboxLabel && checkboxInput) {
+      checkboxLabel.addEventListener('click', () => {
+        const checked = checkboxInput.checked;
+        checkboxInput.checked = !checked;
+        checkboxLabel.setAttribute('aria-checked', String(!checked));
+      });
+
+      checkboxLabel.addEventListener('keydown', (e: any) => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          const checked = checkboxInput.checked;
+          checkboxInput.checked = !checked;
+          checkboxLabel.setAttribute('aria-checked', String(!checked));
+        }
+      });
+    }
+
+    // 2. Submit Inquiry validation & feedback simulation
+    const form = document.getElementById('contact-inquiry-form');
+    const successMsg = document.getElementById('form-success-feedback');
+
+    if (form && successMsg) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Show local mock confirmation message
+        successMsg.classList.remove('hidden');
+        
+        // Reset the form fields cleanly
+        (form as HTMLFormElement).reset();
+        if (checkboxLabel) {
+          checkboxLabel.setAttribute('aria-checked', 'false');
+        }
+
+        // Auto hide success overlay after 10 seconds
+        setTimeout(() => {
+          successMsg.classList.add('hidden');
+        }, 10000);
+      });
+    }
+  });
+</script>

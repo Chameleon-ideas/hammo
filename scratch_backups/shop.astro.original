@@ -1,0 +1,24 @@
+            <span class="text-annotation" style="font-size:9px; display:block; margin-top:4px; text-align:center;">Flat Profile</span>
+          </div>
+
+          <div class="thumb-card" aria-label="Carry Strap Assembly">
+            <svg viewBox="0 0 160 120" style="display:block; width:100%;">
+              <rect width="160" height="120" fill="var(--paper-soft)" />
+              <!-- Handwoven shoulder strap -->
+              <path d="M 30,80 Q 80,20 130,80" fill="none" stroke="var(--ink)" stroke-width="6" stroke-dasharray="4 2" />
+              <line x1="26" y1="80" x2="34" y2="80" stroke="var(--accent)" stroke-width="3" />
+              <line x1="126" y1="80" x2="134" y2="80" stroke="var(--accent)" stroke-width="3" />
+            </svg>
+            <span class="text-annotation" style="font-size:9px; display:block; margin-top:4px; text-align:center;">Shoulder Loop</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Sticky Checkout Config Panel -->
+      <div class="pdp-details">
+        <div class="details-sticky-wrapper">
+          
+          <!-- Product Title and Pricing -->
+          <div class="pdp-header">
+

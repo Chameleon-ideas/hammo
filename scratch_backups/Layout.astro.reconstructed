@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Premium Foldable Beach Chairs">
+  <!-- Asymmetric Hero Section -->
+  <section class="hero-section" aria-labelledby="hero-heading">
+    <div class="container grid-asymmetric-hero">
+      <div class="hero-content">
+        <span class="text-label text-terracotta" style="color: var(--accent); display: block; margin-bottom: 16px;">Designed in Gerringong, NSW</span>
+        <h1 class="display-xl" id="hero-heading" style="margin-bottom: 24px; text-transform: lowercase;">
+          Made for the long way down the coast.
+        </h1>
+        <p class="text-body" style="color: var(--ink-soft); margin-bottom: 32px; max-width: 48ch;">
+          A premium, flat-folding beach chair crafted with structural anodised aluminium and heavy-duty marine canvas. Engineered to weigh just 1.9 kg and carry easily over the sand.
+        </p>
+        <div class="hero-actions">
+          <a href="/shop" class="btn btn--solid">Shop the Chair — $249</a>
+          <a href="/about" class="btn btn--ghost" style="margin-left: 16px;">Our Story</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="media-frame">
+          <!-- Elegant Line Art / Blueprint Lifestyle Visual representing the chair in Gerringong coastal wind -->
+          <svg viewBox="0 0 600 450" class="hero-svg" aria-label="Hamo beach chair on the shore at dawn" role="img">
+            <defs>
+              <linearGradient id="sky-grad" x1="0%" y1="0%" x2="0%" y2="1
+<truncated 22134 bytes>
+ColorName = 'Bone Canvas';
+    let activeHex = '#EBE6DD';
+
+    swatches.forEach((swatch, idx) => {
+      swatch.addEventListener('click', () => {
+        // Toggle active classes
+        swatches.forEach(s => s.classList.remove('is-active'));
+        swatch.classList.add('is-active');
+
+        // Extract metadata attributes
+        const color = swatch.getAttribute('data-color') || 'bone';
+        const hex = swatch.getAttribute('data-hex') || '#EBE6DD';
+        const name = swatch.getAttribute('data-name') || 'Bone Canvas';
+        const desc = swatch.getAttribute('data-desc') || '';
+
+        // Update local memory
+        activeColor = color;
+        activeColorName = name;
+        activeHex = hex;
+
+        // Animate/Modify DOM Details
+        if (activeBadge) activeBadge.textContent = `Variant 0${idx + 1}`;
+        if (activeTitle) activeTitle.textContent = name;
+        if (activeDesc) activeDesc.textContent = desc;
+
+        // Transition the Canvas Sling path stroke color
+        if (chairSling) {
+          chairSling.style.stroke = hex;
+        }
+      });
+    });
+
+    // 2. Add To Cart Integration from Showcase
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', () => {
+        const hState = (window as any).HamoCart;
+        if (hState) {
+          hState.addItem(
+            `hamo-chair-${activeColor}`,
+            'The Hamo Chair',
+            activeColor,
+            activeColorName,
+            249,
+            '' // Will display clean custom SVG fallback inside cart drawer
+          );
+          
+          // Open Cart Drawer overlay
+          window.dispatchEvent(new CustomEvent('hamo-cart-open'));
+        }
+      });
+    }
+  });
+</script>

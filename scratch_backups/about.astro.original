@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Our Story — Crafted in Gerringong">
+  <!-- Introduction Spread Header -->
+  <section class="about-hero" aria-labelledby="about-hero-heading">
+    <div class="container">
+      <div class="about-hero-grid">
+        <div class="about-hero-text">
+          <span class="text-label" style="color: var(--accent); display: block; margin-bottom: 16px;">The Hamo Legacy</span>
+          <h1 class="display-xl" id="about-hero-heading" style="margin-bottom: 24px; text-transform: lowercase;">
+            Born from a simple sand walk.
+          </h1>
+          <p class="text-body" style="font-size: 18px; color: var(--ink-soft); line-height: 1.7; max-width: 48ch;">
+            We believe that high summer shouldn’t be hard work. Hamo was founded in Gerringong on the south coast of New South Wales by Natalie and Pat, a husband-and-wife team seeking a lighter, stronger, and more beautiful way to sit by the waves.
+          </p>
+        </div>
+        <div class="about-hero-visual">
+          <div class="media-frame">
+            <!-- Scenic SVG Graphic representing Gerringong Headlands, Werri Beach reef, sand waves -->
+            <svg viewBox="0 0 600 350" aria-label="Scenic graphic of Seven Mile Beach and Gerringong headlands" role="img">
+              <defs>
+                <linearGradient id="sand-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+

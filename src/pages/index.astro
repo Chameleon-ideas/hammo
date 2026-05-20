@@ -1,0 +1,950 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Premium Foldable Beach Chairs">
+  <!-- Asymmetric Hero Section -->
+  <section class="hero-section" aria-labelledby="hero-heading">
+    <div class="container grid-asymmetric-hero">
+      <div class="hero-content">
+        <span
+          class="text-label text-terracotta"
+          style="color: var(--accent); display: block; margin-bottom: 16px;"
+          >Designed in Gerringong, NSW</span
+        >
+        <h1 class="display-xl" id="hero-heading" style="margin-bottom: 24px; ">
+          Made for the long way down the coast.
+        </h1>
+        <p
+          class="text-body"
+          style="color: var(--ink-soft); margin-bottom: 32px; max-width: 48ch;"
+        >
+          A premium, flat-folding beach chair crafted with structural anodised
+          aluminium and heavy-duty marine canvas. Engineered to weigh just 1.9
+          kg and carry easily over the sand.
+        </p>
+        <div class="hero-actions">
+          <a href="/shop" class="btn btn--solid">Shop the Chair — $249</a>
+          <a href="/about" class="btn btn--ghost" style="margin-left: 16px;"
+            >Our Story</a
+          >
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="media-frame">
+          <!-- Elegant Line Art / Blueprint Lifestyle Visual representing the chair in Gerringong coastal wind -->
+          <svg
+            viewBox="0 0 600 450"
+            class="hero-svg"
+            aria-label="Hamo beach chair on the shore at dawn"
+            role="img"
+          >
+            <defs>
+              <linearGradient id="sky-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop
+                  offset="0%"
+                  stop-color="var(--paper-soft)"
+                  stop-opacity="0.1"></stop>
+                <stop
+                  offset="100%"
+                  stop-color="var(--paper-dark)"
+                  stop-opacity="0.6"></stop>
+              </linearGradient>
+            </defs>
+            <!-- Background Shoreline & Waves -->
+            <rect width="600" height="450" fill="var(--paper-soft)"></rect>
+            <path
+              d="M 0 350 Q 150 330, 300 360 T 600 340 L 600 450 L 0 450 Z"
+              fill="url(#sky-grad)"
+              opacity="0.3"></path>
+            <path
+              d="M 0 380 Q 200 360, 400 390 T 600 370 L 600 450 L 0 450 Z"
+              fill="var(--paper-dark)"
+              opacity="0.5"></path>
+
+            <!-- Sun horizon circle -->
+            <circle cx="450" cy="280" r="40" fill="var(--accent)" opacity="0.15"
+            ></circle>
+
+            <!-- Coastline grass stems (drawn in ink-mute) -->
+            <path
+              d="M 50 360 Q 45 310, 35 290 M 53 360 Q 55 320, 60 300 M 500 380 Q 505 340, 515 310"
+              stroke="var(--ink-mute)"
+              stroke-width="1.25"
+              fill="none"
+              opacity="0.4"></path>
+
+            <!-- Elegantly drawn chair profile -->
+            <g transform="translate(180, 150)">
+              <!-- Back leg / frame support -->
+              <line
+                x1="40"
+                y1="200"
+                x2="160"
+                y2="40"
+                stroke="var(--ink)"
+                stroke-width="6"
+                stroke-linecap="round"></line>
+              <line
+                x1="40"
+                y1="200"
+                x2="160"
+                y2="40"
+                stroke="var(--paper-soft)"
+                stroke-width="2.5"
+                stroke-linecap="round"></line>
+
+              <!-- Front leg / seat base support -->
+              <line
+                x1="180"
+                y1="200"
+                x2="30"
+                y2="90"
+                stroke="var(--ink)"
+                stroke-width="6"
+                stroke-linecap="round"></line>
+              <line
+                x1="180"
+                y1="200"
+                x2="30"
+                y2="90"
+                stroke="var(--paper-soft)"
+                stroke-width="2.5"
+                stroke-linecap="round"></line>
+
+              <!-- Rear anchor frame linkage -->
+              <path
+                d="M 40,200 L 180,200"
+                stroke="var(--ink)"
+                stroke-width="4"
+                stroke-linecap="round"></path>
+
+              <!-- Custom Anodised Aluminium Joint (The Heart of Hamo) -->
+              <circle cx="103" cy="142" r="10" fill="var(--ink)"></circle>
+              <circle cx="103" cy="142" r="6" fill="var(--accent)"></circle>
+
+              <!-- Canvas Sling (Terracotta Highlight in Hero) -->
+              <path
+                d="M 152,50 C 130,80 75,130 42,100"
+                fill="none"
+                stroke="var(--accent)"
+                stroke-width="12"
+                stroke-linecap="round"></path>
+              <!-- Wood Armrest piece -->
+              <path
+                d="M 70,60 L 150,60"
+                stroke="var(--ink)"
+                stroke-width="8"
+                stroke-linecap="round"></path>
+              <path
+                d="M 70,60 L 150,60"
+                stroke="var(--paper-dark)"
+                stroke-width="4"
+                stroke-linecap="round"></path>
+            </g>
+
+            <!-- Wind lines indicating fresh Gerringong sea breeze -->
+            <path
+              d="M 80 80 Q 180 90, 240 70 M 340 60 Q 420 50, 500 70"
+              stroke="var(--ink-mute)"
+              stroke-width="1"
+              stroke-dasharray="8 8"
+              fill="none"
+              opacity="0.3"></path>
+
+            <!-- Scale Coordinate Annotation -->
+            <text
+              x="24"
+              y="420"
+              font-family="var(--font-mono)"
+              font-size="11"
+              fill="var(--ink-soft)"
+              letter-spacing="0.1em">MODEL 01 / GERRI-COAST</text
+            >
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Benefits Section (Alternating Staggered Rows) -->
+  <section class="benefits-section" aria-label="Product Highlights">
+    <div class="container grid-staggered">
+      <!-- Staggered Item 1 -->
+      <div class="grid-staggered--item">
+        <div class="stagger-image">
+          <svg
+            viewBox="0 0 500 350"
+            aria-label="Hamo joint detail diagram"
+            role="img"
+          >
+            <rect width="500" height="350" fill="var(--paper-soft)"></rect>
+            <line
+              x1="0"
+              y1="175"
+              x2="500"
+              y2="175"
+              stroke="var(--border)"
+              stroke-width="1"
+              stroke-dasharray="4 4"></line>
+            <line
+              x1="250"
+              y1="0"
+              x2="250"
+              y2="350"
+              stroke="var(--border)"
+              stroke-width="1"
+              stroke-dasharray="4 4"></line>
+
+            <!-- Detailed joint circular design drawing -->
+            <circle
+              cx="250"
+              cy="175"
+              r="90"
+              fill="none"
+              stroke="var(--ink)"
+              stroke-width="1.5"></circle>
+            <circle
+              cx="250"
+              cy="175"
+              r="60"
+              fill="none"
+              stroke="var(--ink-soft)"
+              stroke-width="1"
+              stroke-dasharray="6 3"></circle>
+            <circle cx="250" cy="175" r="16" fill="var(--accent-soft)"></circle>
+            <circle cx="250" cy="175" r="6" fill="var(--accent)"></circle>
+
+            <!-- Intersecting aluminium tubes -->
+            <line
+              x1="130"
+              y1="260"
+              x2="370"
+              y2="90"
+              stroke="var(--ink)"
+              stroke-width="8"
+              stroke-linecap="round"
+              opacity="0.85"></line>
+            <line
+              x1="140"
+              y1="90"
+              x2="360"
+              y2="260"
+              stroke="var(--ink)"
+              stroke-width="8"
+              stroke-linecap="round"
+              opacity="0.85"></line>
+
+            <!-- Technical specs annotations -->
+            <text
+              x="310"
+              y="80"
+              font-family="var(--font-mono)"
+              font-size="11"
+              fill="var(--accent)">ANODISED SHELL</text
+            >
+            <path
+              d="M 300 85 L 270 120"
+              stroke="var(--accent)"
+              stroke-width="1.5"></path>
+
+            <text
+              x="60"
+              y="290"
+              font-family="var(--font-mono)"
+              font-size="11"
+              fill="var(--ink-soft)">1.9 KG ULTRA-WEIGHT</text
+            >
+            <path
+              d="M 170 280 L 210 210"
+              stroke="var(--ink-soft)"
+              stroke-width="1"></path>
+          </svg>
+        </div>
+        <div class="stagger-content">
+          <span
+            class="text-label"
+            style="color: var(--ink-soft); display: block; margin-bottom: 12px;"
+            >Portability Unlocked</span
+          >
+          <h2
+            class="display-m"
+            style="margin-bottom: 20px; text-transform: lowercase;"
+          >
+            1.9 kg over the shoulder.
+          </h2>
+          <p
+            class="text-body"
+            style="color: var(--ink-soft); margin-bottom: 24px;"
+          >
+            Every gram counts when climbing back up the Gerringong headland
+            stairs. By machining custom structural linkages out of marine-grade
+            T6 aluminium, we achieved a weight profile under 2 kilograms without
+            losing a single degree of recline stability.
+          </p>
+          <ul
+            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;"
+            class="text-body"
+          >
+            <li style="display:flex; align-items:flex-start; gap:12px;">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--accent)"
+                stroke-width="2.5"
+                style="margin-top:4px;"
+                ><polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Custom flat-profile carry strap loop</span>
+            </li>
+            <li style="display:flex; align-items:flex-start; gap:12px;">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--accent)"
+                stroke-width="2.5"
+                style="margin-top:4px;"
+                ><polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Collapses to just 5.5 cm thick when flat</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Staggered Item 2 -->
+      <div class="grid-staggered--item">
+        <div class="stagger-image">
+          <svg
+            viewBox="0 0 500 350"
+            aria-label="Hamo water-repelling canvas closeup illustration"
+            role="img"
+          >
+            <rect width="500" height="350" fill="var(--paper-soft)"></rect>
+            <!-- Grid pattern representing canvas weaving structure -->
+            <pattern
+              id="canvas-weave"
+              width="12"
+              height="12"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 0 6 L 12 6 M 6 0 L 6 12"
+                stroke="var(--border)"
+                stroke-width="0.75"></path>
+            </pattern>
+            <rect width="500" height="350" fill="url(#canvas-weave)"></rect>
+
+            <!-- Magnified water droplets on woven surface -->
+            <circle
+              cx="180"
+              cy="140"
+              r="28"
+              fill="var(--accent-soft)"
+              opacity="0.3"></circle>
+            <circle
+              cx="180"
+              cy="136"
+              r="24"
+              fill="none"
+              stroke="var(--accent)"
+              stroke-width="1.5"></circle>
+            <path
+              d="M 170 125 Q 185 115, 190 135"
+              stroke="var(--paper-soft)"
+              stroke-width="3"
+              fill="none"></path>
+
+            <circle
+              cx="320"
+              cy="220"
+              r="16"
+              fill="var(--accent-soft)"
+              opacity="0.3"></circle>
+            <circle
+              cx="320"
+              cy="217"
+              r="13"
+              fill="none"
+              stroke="var(--accent)"
+              stroke-width="1.25"></circle>
+
+            <!-- Annotation arrow -->
+            <path
+              d="M 280 140 Q 230 180, 208 152"
+              stroke="var(--ink)"
+              stroke-width="1"
+              fill="none"
+              stroke-dasharray="4 4"></path>
+            <text
+              x="290"
+              y="135"
+              font-family="var(--font-mono)"
+              font-size="11"
+              fill="var(--ink)">LOTUS-BEAD COATING</text
+            >
+          </svg>
+        </div>
+        <div class="stagger-content">
+          <span
+            class="text-label"
+            style="color: var(--ink-soft); display: block; margin-bottom: 12px;"
+            >Coastal Resilience</span
+          >
+          <h2
+            class="display-m"
+            style="margin-bottom: 20px; text-transform: lowercase;"
+          >
+            UV-treated marine canvas.
+          </h2>
+          <p
+            class="text-body"
+            style="color: var(--ink-soft); margin-bottom: 24px;"
+          >
+            A chair left on the deck should never bleed color or rot in the salt
+            air. Our custom double-weave acrylic canvas is dyed prior to thread
+            spun-processing, locking deep coastal hues into the absolute core of
+            the fibres.
+          </p>
+          <ul
+            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;"
+            class="text-body"
+          >
+            <li style="display:flex; align-items:flex-start; gap:12px;">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--accent)"
+                stroke-width="2.5"
+                style="margin-top:4px;"
+                ><polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Tested to UPF 50+ maximum sun blockade block rating</span>
+            </li>
+            <li style="display:flex; align-items:flex-start; gap:12px;">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--accent)"
+                stroke-width="2.5"
+                style="margin-top:4px;"
+                ><polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Anti-mould and hydrophobic saltwater treatments</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Color Range (Dynamic Full-Width Showcase) -->
+  <section
+    class="showcase-section"
+    aria-labelledby="showcase-heading"
+    style="background-color: var(--paper-soft); border-block: 1.5px solid var(--border); padding-block: 80px;"
+  >
+    <div class="container" style="max-width: 960px;">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <span class="text-label" style="color: var(--ink-soft);"
+          >Color Chapters</span
+        >
+        <h2
+          class="display-l"
+          id="showcase-heading"
+          style="margin-top: 12px; text-transform: lowercase;"
+        >
+          Find your beach tone.
+        </h2>
+      </div>
+
+      <!-- Large Interactive Display Panel -->
+      <div class="interactive-display-card">
+        <div class="showcase-visual">
+          <!-- Dynamic SVG Chair Frame showing active color. JS will dynamically modify its canvas fill properties -->
+          <svg
+            viewBox="0 0 500 380"
+            id="showcase-chair-svg"
+            aria-label="Dynamic representation of the Selected Hamo Chair"
+            role="img"
+          >
+            <rect
+              width="500"
+              height="380"
+              fill="var(--paper)"
+              style="transition: fill 0.3s ease;"></rect>
+            <!-- Shoreline shadow line -->
+            <ellipse
+              cx="250"
+              cy="310"
+              rx="160"
+              ry="10"
+              fill="var(--ink)"
+              opacity="0.06"></ellipse>
+
+            <g transform="translate(110, 80)">
+              <!-- Rear Leg frame -->
+              <line
+                x1="40"
+                y1="200"
+                x2="160"
+                y2="40"
+                stroke="var(--ink)"
+                stroke-width="6"
+                stroke-linecap="round"></line>
+              <line
+                x1="40"
+                y1="200"
+                x2="160"
+                y2="40"
+                stroke="var(--paper-soft)"
+                stroke-width="2.5"
+                stroke-linecap="round"></line>
+
+              <!-- Front Leg frame -->
+              <line
+                x1="180"
+                y1="200"
+                x2="30"
+                y2="90"
+                stroke="var(--ink)"
+                stroke-width="6"
+                stroke-linecap="round"></line>
+              <line
+                x1="180"
+                y1="200"
+                x2="30"
+                y2="90"
+                stroke="var(--paper-soft)"
+                stroke-width="2.5"
+                stroke-linecap="round"></line>
+
+              <line
+                x1="40"
+                y1="200"
+                x2="180"
+                y2="200"
+                stroke="var(--ink)"
+                stroke-width="4"
+                stroke-linecap="round"></line>
+
+              <circle cx="103" cy="142" r="10" fill="var(--ink)"></circle>
+              <circle cx="103" cy="142" r="6" fill="var(--accent)"></circle>
+
+              <!-- CANVAS SLING - Dynamically styled fill! -->
+              <path
+                id="showcase-canvas-path"
+                d="M 152,50 C 130,80 75,130 42,100"
+                fill="none"
+                stroke="#EBE6DD"
+                stroke-width="13"
+                stroke-linecap="round"
+                style="transition: stroke 0.4s ease;"></path>
+
+              <path
+                d="M 70,60 L 150,60"
+                stroke="var(--ink)"
+                stroke-width="8"
+                stroke-linecap="round"></path>
+              <path
+                d="M 70,60 L 150,60"
+                stroke="var(--paper-dark)"
+                stroke-width="4"
+                stroke-linecap="round"></path>
+            </g>
+          </svg>
+        </div>
+
+        <div class="showcase-controls">
+          <div class="swatch-details">
+            <span class="text-label" id="active-swatch-badge">Variant 01</span>
+            <h3
+              class="display-m"
+              id="active-swatch-title"
+              style="margin-block: 8px 12px; text-transform: lowercase;"
+            >
+              Bone Canvas
+            </h3>
+            <p
+              class="text-body"
+              id="active-swatch-desc"
+              style="color: var(--ink-soft); font-size: 15px; margin-bottom: 24px; min-height: 50px;"
+            >
+              Soft salt-brushed ivory inspired by the bleached shells of Seven
+              Mile Beach.
+            </p>
+          </div>
+
+          <!-- Circular swatches selector -->
+          <div
+            class="swatches-selector-row"
+            role="radiogroup"
+            aria-label="Select Hamo Chair Colourway"
+          >
+            <button
+              class="swatch-btn is-active"
+              data-color="bone"
+              data-hex="#EBE6DD"
+              data-name="Bone Canvas"
+              data-desc="Soft salt-brushed ivory inspired by the bleached shells of Seven Mile Beach."
+              aria-label="Bone Colorway"
+            >
+              <span class="swatch-inner" style="background-color: #EBE6DD;"
+              ></span>
+            </button>
+            <button
+              class="swatch-btn"
+              data-color="dune"
+              data-hex="#D2C9B9"
+              data-name="Dune Canvas"
+              data-desc="Warm beach grass beige that blends seamlessly with coastal granite headlands."
+              aria-label="Dune Colorway"
+            >
+              <span class="swatch-inner" style="background-color: #D2C9B9;"
+              ></span>
+            </button>
+            <button
+              class="swatch-btn"
+              data-color="terracotta"
+              data-hex="#AF5A3F"
+              data-name="Terracotta Canvas"
+              data-desc="Burnt iron oxide Australian clay captured during low tide sunset pools."
+              aria-label="Terracotta Colorway"
+            >
+              <span class="swatch-inner" style="background-color: #AF5A3F;"
+              ></span>
+            </button>
+            <button
+              class="swatch-btn"
+              data-color="eucalyptus"
+              data-hex="#869080"
+              data-name="Eucalyptus Canvas"
+              data-desc="Cool pale green sage leaves from the native coastal scrub framing the sands."
+              aria-label="Eucalyptus Colorway"
+            >
+              <span class="swatch-inner" style="background-color: #869080;"
+              ></span>
+            </button>
+            <button
+              class="swatch-btn"
+              data-color="indigo"
+              data-hex="#2E3A4E"
+              data-name="Indigo Canvas"
+              data-desc="Deep basalt blue-grey representing high waters crushing off Werri Reef."
+              aria-label="Indigo Colorway"
+            >
+              <span class="swatch-inner" style="background-color: #2E3A4E;"
+              ></span>
+            </button>
+          </div>
+
+          <button
+            type="button"
+            class="btn btn--solid"
+            id="showcase-add-to-cart"
+            style="width: 100%; margin-top: 32px;"
+          >
+            Add to selection — $249
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Founder's Journey Teaser Section -->
+  <section class="founders-section" aria-labelledby="founders-heading">
+    <div class="container founders-grid">
+      <div class="founders-image">
+        <svg
+          viewBox="0 0 550 400"
+          aria-label="Natalie & Pat building prototypes at the kitchen table"
+          role="img"
+        >
+          <rect width="550" height="400" fill="var(--paper-dark)"></rect>
+          <!-- Abstract representation of parent-designers sketch notes -->
+          <circle
+            cx="275"
+            cy="200"
+            r="140"
+            fill="none"
+            stroke="var(--border)"
+            stroke-width="1"></circle>
+          <path
+            d="M 120 180 Q 200 80, 420 120"
+            stroke="var(--ink)"
+            stroke-width="1.5"
+            stroke-dasharray="5 5"
+            fill="none"
+            opacity="0.3"></path>
+          <path
+            d="M 120 220 C 200 320, 300 300, 420 280"
+            stroke="var(--accent)"
+            stroke-width="1"
+            fill="none"
+            opacity="0.4"></path>
+
+          <!-- Focal point graphic overlay -->
+          <line
+            x1="275"
+            y1="50"
+            x2="275"
+            y2="350"
+            stroke="var(--border)"
+            stroke-width="1"
+            opacity="0.5"></line>
+          <line
+            x1="50"
+            y1="200"
+            x2="500"
+            y2="200"
+            stroke="var(--border)"
+            stroke-width="1"
+            opacity="0.5"></line>
+
+          <!-- Graphic Text overlay -->
+          <text
+            x="275"
+            y="205"
+            font-family="var(--font-display)"
+            font-size="32"
+            font-weight="300"
+            text-anchor="middle"
+            fill="var(--ink)">Natalie & Pat</text
+          >
+          <text
+            x="275"
+            y="240"
+            font-family="var(--font-mono)"
+            font-size="11"
+            letter-spacing="0.2em"
+            text-anchor="middle"
+            fill="var(--accent)">DESIGNERS & FOUNDERS</text
+          >
+        </svg>
+      </div>
+
+      <div class="founders-content">
+        <span
+          class="text-label"
+          style="color: var(--ink-soft); display: block; margin-bottom: 16px;"
+          >The Hamo Origin</span
+        >
+        <h2
+          class="display-m"
+          id="founders-heading"
+          style="margin-bottom: 24px; text-transform: lowercase;"
+        >
+          Two parents, one kitchen table, three years.
+        </h2>
+        <p
+          class="text-body"
+          style="color: var(--ink-soft); margin-bottom: 32px;"
+        >
+          Hammo didn’t start in a sterile industrial complex. It was birthed in
+          a cottage in Gerringong, NSW, out of sheer parental frustration.
+          Between corralling three kids and dragging bulky wood loungers across
+          high dunes, Natalie and Pat decided there had to be a way to build a
+          premium chair that collapsed flat and felt lighter than air.
+        </p>
+        <a href="/about" class="btn btn--outline">Read the Design Story</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Asymmetric Hero Styling */
+  .hero-section {
+    padding-block: 40px;
+    background-color: var(--paper);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-media {
+    width: 100%;
+  }
+
+  .media-frame {
+    border: 1.5px solid var(--border);
+    background-color: var(--paper-soft);
+    padding: 12px;
+    transition: border-color 0.3s ease;
+  }
+
+  .media-frame:hover {
+    border-color: var(--ink);
+  }
+
+  .hero-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Interactive Showcase Card */
+  .interactive-display-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    background-color: var(--paper);
+    border: 1.5px solid var(--border);
+    padding: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .interactive-display-card {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      padding: 48px;
+    }
+  }
+
+  .showcase-visual {
+    border: 1.5px solid var(--border);
+    background-color: var(--paper-soft);
+    overflow: hidden;
+  }
+
+  .showcase-visual svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .showcase-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .swatch-details {
+    margin-bottom: 24px;
+  }
+
+  .swatches-selector-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* Founders Teaser Spread */
+  .founders-section {
+    padding-block: 80px;
+    border-top: 1.5px solid var(--border);
+    background-color: var(--paper);
+  }
+
+  .founders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (min-width: 992px) {
+    .founders-grid {
+      grid-template-columns: 6fr 5fr;
+      gap: 80px;
+    }
+  }
+
+  .founders-image {
+    border: 1.5px solid var(--border);
+    background-color: var(--paper-soft);
+    padding: 12px;
+  }
+
+  .founders-image svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .founders-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. Dynamic Showcase Swatches Toggle
+    const swatches = document.querySelectorAll(".swatch-btn[data-color]");
+    const activeBadge = document.getElementById("active-swatch-badge");
+    const activeTitle = document.getElementById("active-swatch-title");
+    const activeDesc = document.getElementById("active-swatch-desc");
+    const chairSling = document.getElementById("showcase-canvas-path");
+    const addToCartBtn = document.getElementById("showcase-add-to-cart");
+
+    let activeColor = "bone";
+    let activeColorName = "Bone Canvas";
+    let activeHex = "#EBE6DD";
+
+    swatches.forEach((swatch, idx) => {
+      swatch.addEventListener("click", () => {
+        // Toggle active classes
+        swatches.forEach((s) => s.classList.remove("is-active"));
+        swatch.classList.add("is-active");
+
+        // Extract metadata attributes
+        const color = swatch.getAttribute("data-color") || "bone";
+        const hex = swatch.getAttribute("data-hex") || "#EBE6DD";
+        const name = swatch.getAttribute("data-name") || "Bone Canvas";
+        const desc = swatch.getAttribute("data-desc") || "";
+
+        // Update local memory
+        activeColor = color;
+        activeColorName = name;
+        activeHex = hex;
+
+        // Animate/Modify DOM Details
+        if (activeBadge) activeBadge.textContent = `Variant 0${idx + 1}`;
+        if (activeTitle) activeTitle.textContent = name;
+        if (activeDesc) activeDesc.textContent = desc;
+
+        // Transition the Canvas Sling path stroke color
+        if (chairSling) {
+          chairSling.style.stroke = hex;
+        }
+      });
+    });
+
+    // 2. Add To Cart Integration from Showcase
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener("click", () => {
+        const hState = (window as any).HamoCart;
+        if (hState) {
+          hState.addItem(
+            `hamo-chair-${activeColor}`,
+            "The Hamo Chair",
+            activeColor,
+            activeColorName,
+            249,
+            "" // Will display clean custom SVG fallback inside cart drawer
+          );
+
+          // Open Cart Drawer overlay
+          window.dispatchEvent(new CustomEvent("hamo-cart-open"));
+        }
+      });
+    }
+  });
+</script>

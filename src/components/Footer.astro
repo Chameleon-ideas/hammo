@@ -1,0 +1,290 @@
+---
+import Logo from './Logo.astro';
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Footer Primary Grid -->
+    <div class="footer-grid">
+      <!-- Newsletter Subscription (60% width on tablet/desktop) -->
+      <div class="footer-col footer-newsletter-col">
+        <h4 class="text-label">The Slow Letter</h4>
+        <p class="text-body" style="font-size: 14px; color: var(--ink-soft); margin-block: 12px 20px; max-width: 32ch;">
+          Slow updates. New colour chapters, care guides, and the occasional weekend south coast escape.
+        </p>
+        <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter Subscription Form">
+          <div class="newsletter-input-group">
+            <input 
+              type="email" 
+              placeholder="your@email.com" 
+              required 
+              aria-label="Email Address for newsletter" 
+              class="newsletter-input" 
+            />
+            <button type="submit" class="newsletter-submit-btn text-label">Subscribe</button>
+          </div>
+          <p class="newsletter-status hidden" id="newsletter-status"></p>
+        </form>
+      </div>
+
+      <!-- Shop Column -->
+      <div class="footer-col">
+        <h4 class="text-label">Shop</h4>
+        <ul class="footer-links">
+          <li><a href="/shop" class="footer-link">The Hamo Chair</a></li>
+          <li><a href="/shop" class="footer-link">The Canvas Tote</a></li>
+          <li><a href="/shop" class="footer-link">Gift Vouchers</a></li>
+          <li><a href="/shop" class="footer-link">Care Products</a></li>
+        </ul>
+      </div>
+
+      <!-- About Column -->
+      <div class="footer-col">
+        <h4 class="text-label">Our Journal</h4>
+        <ul class="footer-links">
+          <li><a href="/about" class="footer-link">Meet Natalie & Pat</a></li>
+          <li><a href="/about" class="footer-link">Our Design Philosophy</a></li>
+          <li><a href="/about" class="footer-link">Gerringong Context</a></li>
+          <li><a href="/about" class="footer-link">Sustainability</a></li>
+        </ul>
+      </div>
+
+      <!-- Help Column -->
+      <div class="footer-col">
+        <h4 class="text-label">Support</h4>
+        <ul class="footer-links">
+          <li><a href="/contact" class="footer-link">Shipping & Returns</a></li>
+          <li><a href="/contact" class="footer-link">Care Guide</a></li>
+          <li><a href="/contact" class="footer-link">2-Year Warranty</a></li>
+          <li><a href="/contact" class="footer-link">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Huge Stylized Accent Brandmark -->
+    <div class="footer-accent-brandmark" aria-hidden="true">
+      Hamo
+    </div>
+
+    <!-- Footer Copyright & Base Elements -->
+    <div class="footer-base">
+      <div class="footer-base-left">
+        <span>&copy; 2026 Hamo Pty Ltd &middot; Gerringong NSW</span>
+        <span class="attribution">
+          Designed and Developed by <a href="https://chameleon-ideas.com" target="_blank" rel="noopener noreferrer" class="attribution-link">Chameleon Ideas</a>
+        </span>
+      </div>
+      <div class="footer-base-right">
+        <a href="https://instagram.com" class="footer-social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <span>&middot;</span>
+        <a href="https://tiktok.com" class="footer-social-link" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <span>&middot;</span>
+        <a href="https://pinterest.com" class="footer-social-link" target="_blank" rel="noopener noreferrer">Pinterest</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--paper-dark);
+    border-top: 1.5px solid var(--border);
+    padding-block: 80px 40px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .footer-container {
+    max-width: var(--site-width);
+    margin-inline: auto;
+    padding-inline: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Footer Primary Grid */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+    }
+  }
+
+  .footer-col h4 {
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-link {
+    color: var(--ink);
+    font-size: 15px;
+    opacity: 0.85;
+  }
+
+  .footer-link:hover {
+    opacity: 1;
+    color: var(--accent);
+  }
+
+  /* Newsletter Form Styling */
+  .newsletter-form {
+    max-width: 400px;
+  }
+
+  .newsletter-input-group {
+    display: flex;
+    border: 1.5px solid var(--ink);
+    background-color: var(--paper-soft);
+    padding: 4px;
+    height: 52px;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    padding-inline: 16px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .newsletter-input::placeholder {
+    color: var(--ink-mute);
+  }
+
+  .newsletter-submit-btn {
+    background-color: var(--ink);
+    color: var(--paper);
+    padding-inline: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 11px;
+    height: 100%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .newsletter-submit-btn:hover {
+    background-color: var(--accent);
+    color: var(--paper);
+  }
+
+  .newsletter-status {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    margin-top: 10px;
+    color: var(--accent);
+  }
+
+  /* Accent Brandmark */
+  .footer-accent-brandmark {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 14vw, 150px);
+    font-weight: 300;
+    line-height: 0.9;
+    color: var(--ink);
+    opacity: 0.04;
+    user-select: none;
+    margin-block: 48px 24px;
+    letter-spacing: -0.02em;
+  }
+
+  /* Footer Base Info */
+  .footer-base {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  @media (min-width: 768px) {
+    .footer-base {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .footer-base-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  @media (min-width: 576px) {
+    .footer-base-left {
+      flex-direction: row;
+      gap: 16px;
+      align-items: center;
+    }
+  }
+
+  .attribution-link {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .attribution-link:hover {
+    color: var(--accent);
+  }
+
+  .footer-base-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-social-link {
+    color: var(--ink-soft);
+  }
+
+  .footer-social-link:hover {
+    color: var(--ink);
+  }
+</style>
+
+<script>
+  // Newsletter Form Reactive Feedbacks
+  document.addEventListener('DOMContentLoaded', () => {
+    const newsletterForm = document.getElementById('newsletter-form');
+    const statusEl = document.getElementById('newsletter-status');
+    
+    if (newsletterForm && statusEl) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = newsletterForm.querySelector('input');
+        if (input) {
+          const email = input.value.trim();
+          statusEl.textContent = "Welcome to the Slow Letter. We will keep in touch.";
+          statusEl.classList.remove('hidden');
+          input.value = "";
+          
+          setTimeout(() => {
+            statusEl.classList.add('hidden');
+          }, 8000);
+        }
+      });
+    }
+  });
+</script>

@@ -1,0 +1,195 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { 
+  title, 
+  description = "Hamo — A premium foldable beach chair built for the Australian coastal lifestyle. Single product, five colourways, designed in Gerringong, NSW.",
+  ogImage = "/images/share-preview.jpg"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://hamo.com.au");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Technical Standards & SEO -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <title>{title} · Hamo Australia</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} · Hamo`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, canonicalURL.origin)} />
+
+    <!-- Keyboard & Accessibility Navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only" style="position: absolute; top: 12px; left: 12px; background: var(--accent); color: var(--paper); padding: 10px 16px; z-index: 99999; border: 1.5px solid var(--ink); text-transform: uppercase; font-family: var(--font-mono); font-size: 12px;">
+      Skip to content
+    </a>
+
+    <!-- Immediate theme loader to completely prevent flashing of light mode on dark mode settings -->
+    <script is:inline>
+      (() => {
+        const theme = (() => {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('hamo-theme')) {
+            return localStorage.getItem('hamo-theme');
+          }
+          if (window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+          }
+          return 'light';
+        })();
+        
+        if (theme === 'dark') {
+          document.documentElement.classList.add('theme-dark');
+        } else {
+          document.documentElement.classList.remove('theme-dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Cart State & UI Managers -->
+    <CartDrawer />
+
+    <!-- Structural Layout System -->
+    <Header />
+
+    <main id="main-content" tabindex="-1" style="outline: none;">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- E-Commerce Core Cart State Engine -->
+    <script>
+      // Reactive state management using Vanilla JS & CustomEvents
+      interface CartItem {
+        id: string;
+        name: string;
+        color: string;
+        colorName: string;
+        price: number;
+        quantity: number;
+        image: string;
+      }
+
+      class CartState {
+        private items: CartItem[] = [];
+        private expressShipping: boolean = false;
+
+        constructor() {
+          this.load();
+        }
+
+        private load() {
+          if (typeof window !== 'undefined') {
+            const stored = localStorage.getItem('hamo-cart');
+            if (stored) {
+              try {
+                this.items = JSON.parse(stored);
+              } catch (e) {
+                this.items = [];
+              }
+            }
+            this.expressShipping = localStorage.getItem('hamo-shipping-express') === 'true';
+          }
+        }
+
+        private save() {
+          if (typeof window !== 'undefined') {
+            localStorage.setItem('hamo-cart', JSON.stringify(this.items));
+            localStorage.setItem('hamo-shipping-express', String(this.expressShipping));
+            window.dispatchEvent(new CustomEvent('hamo-cart-updated', { 
+              detail: { items: this.items, expressShipping: this.expressShipping } 
+            }));
+          }
+        }
+
+        public getItems(): CartItem[] {
+          return this.items;
+        }
+
+        public getExpressShipping(): boolean {
+          return this.expressShipping;
+        }
+
+        public setExpressShipping(val: boolean) {
+          this.expressShipping = val;
+          this.save();
+        }
+
+        public addItem(id: string, name: string, color: string, colorName: string, price: number, image: string) {
+          const existing = this.items.find(item => item.id === id);
+          if (existing) {
+            existing.quantity += 1;
+          } else {
+            this.items.push({ id, name, color, colorName, price, quantity: 1, image });
+          }
+          this.save();
+        }
+
+        public updateQty(id: string, qty: number) {
+          const index = this.items.findIndex(item => item.id === id);
+          if (index !== -1) {
+            if (qty <= 0) {
+              this.items.splice(index, 1);
+            } else {
+              this.items[index].quantity = qty;
+            }
+            this.save();
+          }
+        }
+
+        public removeItem(id: string) {
+          this.items = this.items.filter(item => item.id !== id);
+          this.save();
+        }
+
+        public getCount(): number {
+          return this.items.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        public getSubtotal(): number {
+          return this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        }
+
+        public getShippingCost(): number {
+          if (this.items.length === 0) return 0;
+          return this.expressShipping ? 12 : 0;
+        }
+
+        public getTotal(): number {
+          return this.getSubtotal() + this.getShippingCost();
+        }
+        
+        public clearCart() {
+          this.items = [];
+          this.expressShipping = false;
+          this.save();
+        }
+      }
+
+      // Attach state to window for global access across dynamic components
+      (window as any).HamoCart = new CartState();
+    </script>
+  </body>
+</html>

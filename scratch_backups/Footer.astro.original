@@ -1,0 +1,112 @@
+---
+import Logo from './Logo.astro';
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Footer Primary Grid -->
+    <div class="footer-grid">
+      <!-- Newsletter Subscription (60% width on tablet/desktop) -->
+      <div class="footer-col footer-newsletter-col">
+        <h4 class="text-label">The Slow Letter</h4>
+        <p class="text-body" style="font-size: 14px; color: var(--ink-soft); margin-block: 12px 20px; max-width: 32ch;">
+          Slow updates. New colour chapters, care guides, and the occasional weekend south coast escape.
+        </p>
+        <form class="newsletter-form" id="newsletter-form" aria-label="Newsletter Subscription Form">
+          <div class="newsletter-input-group">
+            <input 
+              type="email" 
+              placeholder="your@email.com" 
+              required 
+              aria-label="Email Address for newsletter" 
+              class="newsletter-input" 
+            />
+            <button type="submit" class="newsletter-submit-btn text-label">Subscribe</button>
+          </div>
+          <p class="newsletter-status hidden" id="newsletter-status"></p>
+        </form>
+      </div>
+
+      <!-- Shop Column -->
+      <div class="footer-col">
+        <h4 class="text-label">Shop</h4>
+        <ul class="footer-links">
+          <li><a href="/shop" class="footer-link">The Hamo Chair</a></li>
+          <li><a href="/shop" class="footer-link">The Canvas Tote</a></li>
+          <li>
+<truncated 5510 bytes>
+   }
+
+  @media (min-width: 768px) {
+    .footer-base {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .footer-base-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  @media (min-width: 576px) {
+    .footer-base-left {
+      flex-direction: row;
+      gap: 16px;
+      align-items: center;
+    }
+  }
+
+  .attribution-link {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .attribution-link:hover {
+    color: var(--accent);
+  }
+
+  .footer-base-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-social-link {
+    color: var(--ink-soft);
+  }
+
+  .footer-social-link:hover {
+    color: var(--ink);
+  }
+</style>
+
+<script>
+  // Newsletter Form Reactive Feedbacks
+  document.addEventListener('DOMContentLoaded', () => {
+    const newsletterForm = document.getElementById('newsletter-form');
+    const statusEl = document.getElementById('newsletter-status');
+    
+    if (newsletterForm && statusEl) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = newsletterForm.querySelector('input');
+        if (input) {
+          const email = input.value.trim();
+          statusEl.textContent = "Welcome to the Slow Letter. We will keep in touch.";
+          statusEl.classList.remove('hidden');
+          input.value = "";
+          
+          setTimeout(() => {
+            statusEl.classList.add('hidden');
+          }, 8000);
+        }
+      });
+    }
+  });
+</script>

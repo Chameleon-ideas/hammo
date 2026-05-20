@@ -1,0 +1,126 @@
+<!-- src/components/Showcase.astro -->
+---
+// No props needed – static showcase with dynamic swatch selection
+---
+<section class="showcase-section" aria-labelledby="showcase-heading" style="background-color: var(--paper-soft); border-block: 1.5px solid var(--border); padding-block: 80px;">
+  <div class="container" style="max-width: 960px;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <span class="text-label" style="color: var(--ink-soft);">Color Chapters</span>
+      <h2 class="display-l" id="showcase-heading" style="margin-top: 12px; text-transform: lowercase;">Find your beach tone.</h2>
+    </div>
+
+    <!-- Large Interactive Display Panel -->
+    <div class="interactive-display-card">
+      <div class="showcase-visual">
+        <!-- Dynamic SVG Chair Frame showing active color -->
+        <svg viewBox="0 0 500 380" id="showcase-chair-svg" aria-label="Dynamic representation of the Selected Hamo Chair" role="img">
+          <rect width="500" height="380" fill="var(--paper)" style="transition: fill 0.3s ease;" />
+          <ellipse cx="250" cy="310" rx="160" ry="10" fill="var(--ink)" opacity="0.06" />
+          <g transform="translate(110, 80)">
+            <!-- Rear Leg frame -->
+            <line x1="40" y1="200" x2="160" y2="40" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" />
+            <line x1="40" y1="200" x2="160" y2="40" stroke="var(--paper-soft)" stroke-width="2.5" stroke-linecap="round" />
+            <!-- Front Leg frame -->
+            <line x1="180" y1="200" x2="30" y2="90" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" />
+            <line x1="180" y1="200" x2="30" y2="90" stroke="var(--paper-soft)" stroke-width="2.5" stroke-linecap="round" />
+            <!-- Rear connector -->
+            <line x1="40" y1="200" x2="180" y2="200" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+            <!-- Joint center -->
+            <circle cx="103" cy="142" r="10" fill="var(--ink)" />
+            <circle cx="103" cy="142" r="6" fill="var(--accent)" />
+            <!-- Canvas sling – styled via JS -->
+            <path id="showcase-canvas-path" d="M 152,50 C 130,80 75,130 42,100" fill="none" stroke="#EBE6DD" stroke-width="13" stroke-linecap="round" style="transition: stroke 0.4s ease;" />
+            <!-- Seat bar -->
+            <path d="M 70,60 L 150,60" stroke="var(--ink)" stroke-width="8" stroke-linecap="round" />
+            <path d="M 70,60 L 150,60" stroke="var(--paper-dark)" stroke-width="4" stroke-linecap="round" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="showcase-controls">
+        <div class="swatch-details">
+          <span class="text-label" id="active-swatch-badge">Variant 01</span>
+          <h3 class="display-m" id="active-swatch-title" style="margin-block: 8px 12px; text-transform: lowercase;">Bone Canvas</h3>
+          <p class="text-body" id="active-swatch-desc" style="color: var(--ink-soft); font-size: 15px; margin-bottom: 24px; min-height: 50px;">
+            Soft salt-brushed ivory inspired by the bleached shells of Seven Mile Beach.
+          </p>
+        </div>
+
+        <!-- Circular swatches selector -->
+        <div class="swatches-selector-row" role="radiogroup" aria-label="Select Hamo Chair Colourway">
+          <button class="swatch-btn is-active" data-color="bone" data-hex="#EBE6DD" data-name="Bone Canvas" data-desc="Soft salt-brushed ivory inspired by the bleached shells of Seven Mile Beach." aria-label="Bone Colorway">
+            <span class="swatch-inner" style="background-color: #EBE6DD;"></span>
+          </button>
+          <button class="swatch-btn" data-color="dune" data-hex="#D2C9B9" data-name="Dune Canvas" data-desc="Warm beach grass beige that blends seamlessly with coastal granite headlands." aria-label="Dune Colorway">
+            <span class="swatch-inner" style="background-color: #D2C9B9;"></span>
+          </button>
+          <button class="swatch-btn" data-color="terracotta" data-hex="#AF5A3F" data-name="Terracotta Canvas" data-desc="Burnt iron oxide Australian clay captured during low tide sunset pools." aria-label="Terracotta Colorway">
+            <span class="swatch-inner" style="background-color: #AF5A3F;"></span>
+          </button>
+          <button class="swatch-btn" data-color="eucalyptus" data-hex="#869080" data-name="Eucalyptus Canvas" data-desc="Cool pale green sage leaves from the native coastal scrub framing the sands." aria-label="Eucalyptus Colorway">
+            <span class="swatch-inner" style="background-color: #869080;"></span>
+          </button>
+          <button class="swatch-btn" data-color="indigo" data-hex="#2E3A4E" data-name="Indigo Canvas" data-desc="Deep basalt blue-grey representing high waters crushing off Werri Reef." aria-label="Indigo Colorway">
+            <span class="swatch-inner" style="background-color: #2E3A4E;"></span>
+          </button>
+        </div>
+
+        <button type="button" class="btn btn--solid" id="showcase-add-to-cart" style="width: 100%; margin-top: 32px;">Add to selection — $249</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Styles are already defined globally – no extra CSS needed here */
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const swatches = document.querySelectorAll('.swatch-btn[data-color]');
+    const activeBadge = document.getElementById('active-swatch-badge');
+    const activeTitle = document.getElementById('active-swatch-title');
+    const activeDesc = document.getElementById('active-swatch-desc');
+    const chairSling = document.getElementById('showcase-canvas-path');
+    const addToCartBtn = document.getElementById('showcase-add-to-cart');
+
+    let activeColor = 'bone';
+    let activeColorName = 'Bone Canvas';
+    let activeHex = '#EBE6DD';
+
+    swatches.forEach((swatch, idx) => {
+      swatch.addEventListener('click', () => {
+        swatches.forEach(s => s.classList.remove('is-active'));
+        swatch.classList.add('is-active');
+        const color = swatch.getAttribute('data-color') || 'bone';
+        const hex = swatch.getAttribute('data-hex') || '#EBE6DD';
+        const name = swatch.getAttribute('data-name') || 'Bone Canvas';
+        const desc = swatch.getAttribute('data-desc') || '';
+        activeColor = color;
+        activeColorName = name;
+        activeHex = hex;
+        if (activeBadge) activeBadge.textContent = `Variant 0${idx + 1}`;
+        if (activeTitle) activeTitle.textContent = name;
+        if (activeDesc) activeDesc.textContent = desc;
+        if (chairSling) chairSling.style.stroke = hex;
+      });
+    });
+
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', () => {
+        const hState = (window as any).HamoCart;
+        if (hState) {
+          hState.addItem(
+            `hamo-chair-${activeColor}`,
+            'The Hamo Chair',
+            activeColor,
+            activeColorName,
+            249,
+            ''
+          );
+          window.dispatchEvent(new CustomEvent('hamo-cart-open'));
+        }
+      });
+    }
+  });
+</script>

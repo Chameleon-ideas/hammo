@@ -1,0 +1,57 @@
+<!-- src/components/FeatureBlock.astro -->
+---
+export interface Props {
+  /** Image URL or path */
+  imageSrc: string;
+  /** Alt text for the image */
+  imageAlt?: string;
+  /** Heading text (benefit title) */
+  title: string;
+  /** Body copy */
+  description: string;
+  /** If true, image appears on the right (default left) */
+  reverse?: boolean;
+}
+---
+<div class="feature-block {reverse ? 'reverse' : ''}">
+  <div class="feature-image">
+    <img src={imageSrc} alt={imageAlt ?? title} loading="lazy" width="600" height="400" />
+  </div>
+  <div class="feature-content">
+    <span class="text-label" style="color: var(--ink-soft); display: block; margin-bottom: 12px;">{title}</span>
+    <h2 class="display-m" style="margin-bottom: 20px; text-transform: lowercase;">{title}</h2>
+    <p class="text-body" style="color: var(--ink-soft); margin-bottom: 24px; max-width: 48ch;">{description}</p>
+  </div>
+</div>
+
+<style>
+  .feature-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .feature-block {
+      grid-template-columns: 6fr 6fr;
+    }
+    .feature-block.reverse {
+      direction: rtl;
+    }
+    .feature-block.reverse .feature-content {
+      text-align: right;
+    }
+    .feature-block.reverse .feature-image {
+      direction: ltr;
+    }
+  }
+  .feature-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .feature-content {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

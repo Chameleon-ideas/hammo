@@ -1,0 +1,72 @@
+<!-- src/components/Showcase.astro -->
+---
+// No props needed – static showcase with dynamic swatch selection
+---
+<section class="showcase-section" aria-labelledby="showcase-heading" style="background-color: var(--paper-soft); border-block: 1.5px solid var(--border); padding-block: 80px;">
+  <div class="container" style="max-width: 960px;">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <span class="text-label" style="color: var(--ink-soft);">Color Chapters</span>
+      <h2 class="display-l" id="showcase-heading" style="margin-top: 12px; text-transform: lowercase;">Find your beach tone.</h2>
+    </div>
+
+    <!-- Large Interactive Display Panel -->
+    <div class="interactive-display-card">
+      <div class="showcase-visual">
+        <!-- Dynamic SVG Chair Frame showing active color -->
+        <svg viewBox="0 0 500 380" id="showcase-chair-svg" aria-label="Dynamic representation of the Selected Hamo Chair" role="img">
+          <rect width="500" height="380" fill="var(--paper)" style="transition: fill 0.3s ease;" />
+          <ellipse cx="250" cy="310" rx="160" ry="10" fill="var(--ink)" opacity="0.06" />
+          <g transform="translate(110, 80)">
+            <!-- Rear Leg frame -->
+            <line x1="40" y1="200" x2="160" y2="40" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" />
+            <line x1="40" y1="200" x2="160" y2="40" stroke="var(--paper-soft)" stroke-width="2.5" stroke-linecap="round" />
+            <!-- Front Leg frame -->
+            <line x1="180
+<truncated 4030 bytes>
+swatch-btn[data-color]');
+    const activeBadge = document.getElementById('active-swatch-badge');
+    const activeTitle = document.getElementById('active-swatch-title');
+    const activeDesc = document.getElementById('active-swatch-desc');
+    const chairSling = document.getElementById('showcase-canvas-path');
+    const addToCartBtn = document.getElementById('showcase-add-to-cart');
+
+    let activeColor = 'bone';
+    let activeColorName = 'Bone Canvas';
+    let activeHex = '#EBE6DD';
+
+    swatches.forEach((swatch, idx) => {
+      swatch.addEventListener('click', () => {
+        swatches.forEach(s => s.classList.remove('is-active'));
+        swatch.classList.add('is-active');
+        const color = swatch.getAttribute('data-color') || 'bone';
+        const hex = swatch.getAttribute('data-hex') || '#EBE6DD';
+        const name = swatch.getAttribute('data-name') || 'Bone Canvas';
+        const desc = swatch.getAttribute('data-desc') || '';
+        activeColor = color;
+        activeColorName = name;
+        activeHex = hex;
+        if (activeBadge) activeBadge.textContent = `Variant 0${idx + 1}`;
+        if (activeTitle) activeTitle.textContent = name;
+        if (activeDesc) activeDesc.textContent = desc;
+        if (chairSling) chairSling.style.stroke = hex;
+      });
+    });
+
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', () => {
+        const hState = (window as any).HamoCart;
+        if (hState) {
+          hState.addItem(
+            `hamo-chair-${activeColor}`,
+            'The Hamo Chair',
+            activeColor,
+            activeColorName,
+            249,
+            ''
+          );
+          window.dispatchEvent(new CustomEvent('hamo-cart-open'));
+        }
+      });
+    }
+  });
+</script>

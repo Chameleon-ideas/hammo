@@ -1,0 +1,90 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Satoshi', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* HSL Tailored Brand Colors - Sand Light Mode */
+  --paper: #f5f1e8;         /* curated sand beige */
+  --paper-soft: #fbf9f3;    /* off-white beach pebble */
+  --paper-dark: #ebe5d6;    /* dune grass tan */
+  --ink: #181715;           /* warm basalt charcoal */
+  --ink-soft: #4a4844;      /* soft volcanic stone */
+  --ink-mute: #8a857c;      /* salt-brushed grey */
+  --accent: #af5a3f;        /* Australian Terracotta - solid only */
+  --accent-soft: rgba(175, 90, 63, 0.08);
+  --border: rgba(24, 23, 21, 0.16);
+  --border-focus: #af5a3f;
+
+  --site-width: 1280px;
+}
+
+:root.theme-dark {
+  /* HSL Tailored Brand Colors - Deep Charcoal Dark Mode */
+  --paper: #121110;         /* volcanic ash black */
+  --paper-soft: #1d1c1b;    /* deep wet granite slate */
+  --paper-dark: #090908;    /* pure coal black */
+  --ink: #f5f1e8;           /* warm sand white */
+  --ink-soft: #d5cfc3;      /* cream silt */
+  --ink-mute: #807a70;      /* dark dune sand */
+  --accent: #c97155;        /* brightened Terracotta for WCAG AA contrast */
+  --accent-soft:
+<truncated 13382 bytes>
+x solid var(--ink);
+}
+
+/* ============================================================
+   Annotations and squiggles
+   ============================================================ */
+
+.squiggle-link {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.squiggle-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 4px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'><path d='M0 2 Q 5 0 10 2 T 20 2' fill='none' stroke='%23af5a3f' stroke-width='1.25'/></svg>") repeat-x;
+  background-size: 10px 4px;
+}
+
+:root.theme-dark .squiggle-link::after {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'><path d='M0 2 Q 5 0 10 2 T 20 2' fill='none' stroke='%23c97155' stroke-width='1.25'/></svg>") repeat-x;
+  background-size: 10px 4px;
+}
+
+/* ============================================================
+   Visual Placeholders for AI Photos & SVG Diagrams
+   ============================================================ */
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background-color: var(--paper-dark);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 48%, var(--border) 49%, var(--border) 51%, transparent 52%),
+              linear-gradient(45deg, transparent 48%, var(--border) 49%, var(--border) 51%, transparent 52%);
+  opacity: 0.3;
+}

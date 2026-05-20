@@ -1,0 +1,24 @@
+# Hammo Astro Web App Revamp Task Tracker
+
+- `[x]` Phase 1: Project Setup & Initialization
+    - `[x]` Initialize Astro minimal project framework
+    - `[x]` Install icon libraries (lucide-astro or use native inline SVGs for premium control)
+    - `[x]` Define custom design system tokens in `src/styles/global.css` (fonts, dark/light theme, custom scrollbars, typography scales)
+- `[x]` Phase 2: Core Components Development
+    - `[x]` `Header.astro`: Custom SVG logo, responsive mobile‑first navigation, dark mode sun/moon switch toggle
+    - `[x]` `Footer.astro`: High‑quality newsletter section, legal, social profiles, and Chameleon Ideas attributions
+    - `[x]` `CartDrawer.astro`: Slides out side panel, lists cart state items, handles shipping calculation, express upcharges, and cross‑sell totes
+    - `[x]` E‑Commerce State Management: LocalStorage‑backed reactive JS for add‑to‑cart, cart updates, and cart counts
+- `[x]` Phase 3: Page Assembly & Premium Copywriting
+    - `[x]` `index.astro` (Home): Asymmetric hero, staggered details block, interactive dynamic color showcase, founders narrative
+    - `[x]` `about.astro` (About): Visual intro, timeline chapter spreads, large quote callouts
+    - `[x]` `shop.astro` (Shop): Sticky PDP layout, high‑res AI‑enhanced imagery, technical specification comparison tables
+    - `[x]` `contact.astro` (Contact): Minimal support form with bottom‑border styles, localized brand coordinates
+- `[x]` Phase 4: Transaction & Payment Flow
+    - `[x]` `checkout.astro`: Integrated single‑screen, three‑step checkout grid (Info, Shipping, Payment AUD input)
+    - `[x]` `confirmation.astro`: Elegant post‑purchase order card, receipt summaries, custom shipping timetables
+- `[x]` Phase 5: Verification & Polishing
+    - `[x]` Validate responsive layouts (375px through 1440px)
+    - `[x]` Verify WCAG contrast levels on all interactive Terracotta triggers
+    - `[x]` Execute manual testing of cart drawer quantities, theme persistent states, and shipping calculations
+    - `[x]` Deliver final walkthrough verification notes

@@ -1,0 +1,295 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Our Story — Crafted in Gerringong">
+  <!-- Introduction Spread Header -->
+  <section class="about-hero" aria-labelledby="about-hero-heading">
+    <div class="container">
+      <div class="about-hero-grid">
+        <div class="about-hero-text">
+          <span class="text-label" style="color: var(--accent); display: block; margin-bottom: 16px;">The Hamo Legacy</span>
+          <h1 class="display-xl" id="about-hero-heading" style="margin-bottom: 24px; text-transform: lowercase;">
+            Born from a simple sand walk.
+          </h1>
+          <p class="text-body" style="font-size: 18px; color: var(--ink-soft); line-height: 1.7; max-width: 48ch;">
+            We believe that high summer shouldn’t be hard work. Hamo was founded in Gerringong on the south coast of New South Wales by Natalie and Pat, a husband-and-wife team seeking a lighter, stronger, and more beautiful way to sit by the waves.
+          </p>
+        </div>
+        <div class="about-hero-visual">
+          <div class="media-frame">
+            <!-- Scenic SVG Graphic representing Gerringong Headlands, Werri Beach reef, sand waves -->
+            <svg viewBox="0 0 600 350" aria-label="Scenic graphic of Seven Mile Beach and Gerringong headlands" role="img">
+              <defs>
+                <linearGradient id="sand-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="var(--paper-soft)" />
+                  <stop offset="100%" stop-color="var(--paper-dark)" />
+                </linearGradient>
+              </defs>
+              <rect width="600" height="350" fill="var(--paper-soft)" />
+              
+              <!-- Soft atmospheric gradients -->
+              <path d="M 0 200 C 150 180, 200 240, 400 210 C 500 190, 550 220, 600 200 L 600 350 L 0 350 Z" fill="url(#sand-grad)" />
+              <!-- Sea Reef Line Art -->
+              <path d="M 0 240 Q 180 200, 360 260 T 600 220" fill="none" stroke="var(--ink-mute)" stroke-width="1.25" opacity="0.3" />
+              <path d="M 0 265 Q 220 230, 440 280 T 600 245" fill="none" stroke="var(--border)" stroke-width="1" />
+              
+              <!-- Giant Minimalist Sun -->
+              <circle cx="300" cy="130" r="50" fill="var(--accent)" opacity="0.08" />
+              
+              <!-- Gerringong Cliffs outline (stylized asymmetric line art) -->
+              <path d="M 450 210 L 510 140 L 540 145 L 600 90 L 600 350 L 450 350 Z" fill="var(--paper-dark)" opacity="0.75" />
+              <path d="M 450 210 L 510 140 L 540 145 L 600 90" stroke="var(--ink)" stroke-width="1.5" fill="none" />
+              
+              <text x="32" y="318" font-family="var(--font-mono)" font-size="11" fill="var(--ink-soft)">COORD: 34.7297° S, 150.8294° E</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full-Width Quote Section -->
+  <section class="brand-mission-quote" aria-label="Brand Philosophy Quote">
+    <div class="container" style="max-width: 800px;">
+      <blockquote style="margin: 0; padding: 0; text-align: left;">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <p class="display-m" style="line-height: 1.45; font-style: italic; font-weight: 300; margin-bottom: 24px;">
+          If you cannot comfortably carry a beach chair one kilometre down the sand while carrying a sleeping toddler and a cooler bag, it is not really a beach chair. It is just furniture with a handle.
+        </p>
+        <cite class="text-label" style="font-style: normal; color: var(--accent); display: block;">— Natalie, Co-Founder of Hamo</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Philosophy & Design Chapters Timeline -->
+  <section class="timeline-section" aria-labelledby="timeline-heading">
+    <div class="container">
+      <div style="max-width: 600px; margin-bottom: 64px;">
+        <span class="text-label" style="color: var(--ink-soft); display: block; margin-bottom: 12px;">Engineering Chapter</span>
+        <h2 class="display-l" id="timeline-heading" style="text-transform: lowercase;">From prototype to salt air.</h2>
+        <p class="text-body" style="color: var(--ink-soft); margin-top: 16px;">
+          Natalie and Pat spent three full years iterating, testing structural tube joints, and throwing chairs into the Werri Beach breakers to ensure their design would survive coastal environments.
+        </p>
+      </div>
+
+      <div class="timeline-flow">
+        
+        <!-- Chapter 1 -->
+        <article class="timeline-node">
+          <div class="timeline-number-col">
+            <span class="node-number font-display">01</span>
+          </div>
+          <div class="timeline-content-col">
+            <h3 class="display-m" style="margin-bottom: 16px; text-transform: lowercase;">The kitchen table sketches (2023)</h3>
+            <p class="text-body" style="color: var(--ink-soft); margin-bottom: 24px;">
+              The first proof-of-concept wasn't built in a professional studio. Pat cut up a bent garden umbrella frame and hand-stitched offcuts of canvas sailcloth to find the optimal lounge seating angle.
+            </p>
+            <div class="node-drawing">
+              <svg viewBox="0 0 450 180" aria-label="Line sketch of early prototype" role="img">
+                <rect width="450" height="180" fill="var(--paper-soft)" />
+                <path d="M 50 140 Q 150 100, 220 120 T 380 90" stroke="var(--ink-mute)" stroke-width="1.25" stroke-dasharray="3 3" fill="none" />
+                <path d="M 120 150 L 260 40" stroke="var(--ink-soft)" stroke-width="2" stroke-linecap="round" />
+                <path d="M 280 150 L 100 80" stroke="var(--ink-soft)" stroke-width="2" stroke-linecap="round" />
+                <text x="20" y="32" font-family="var(--font-mono)" font-size="10" fill="var(--accent)">DRAFT V0.1 — UMBRELLA WIRE MOCKUP</text>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 2 -->
+        <article class="timeline-node">
+          <div class="timeline-number-col">
+            <span class="node-number font-display">02</span>
+          </div>
+          <div class="timeline-content-col">
+            <h3 class="display-m" style="margin-bottom: 16px; text-transform: lowercase;">The Gerringong ocean test (2024)</h3>
+            <p class="text-body" style="color: var(--ink-soft); margin-bottom: 24px;">
+              To validate the structural durability of the custom linkages, Natalie tied the second-generation aluminium prototypes to their ocean deck and left them fully exposed to salt winds and rain for nine months.
+            </p>
+            <div class="node-drawing">
+              <svg viewBox="0 0 450 180" aria-label="Corrosion and exposure testing diagram" role="img">
+                <rect width="450" height="180" fill="var(--paper-soft)" />
+                <circle cx="225" cy="90" r="50" fill="none" stroke="var(--accent)" stroke-width="1.5" />
+                <path d="M 175 90 L 275 90 M 225 40 L 225 140" stroke="var(--border)" stroke-width="1" />
+                <text x="20" y="32" font-family="var(--font-mono)" font-size="10" fill="var(--ink-soft)">EXPOSURE MATRIX: 270 DAYS OF SALT WATER RESISTANCE</text>
+                <text x="225" y="105" font-family="var(--font-mono)" font-size="11" text-anchor="middle" fill="var(--ink)">0.00% CORROSION</text>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chapter 3 -->
+        <article class="timeline-node">
+          <div class="timeline-number-col">
+            <span class="node-number font-display">03</span>
+          </div>
+          <div class="timeline-content-col">
+            <h3 class="display-m" style="margin-bottom: 16px; text-transform: lowercase;">The flat-folding standard (2025)</h3>
+            <p class="text-body" style="color: var(--ink-soft); margin-bottom: 24px;">
+              By shifting the leg pivots into a single plane, the final Hamo chair design folds down to a completely flat profile of just 5.5 cm. Five distinct beach-inspired colour chapters were launched shortly after.
+            </p>
+            <div class="node-drawing">
+              <svg viewBox="0 0 450 180" aria-label="Flat folding profile diagram" role="img">
+                <rect width="450" height="180" fill="var(--paper-soft)" />
+                <!-- Thin flat profile drawing -->
+                <rect x="50" y="80" width="350" height="12" rx="4" fill="var(--paper-dark)" stroke="var(--ink)" stroke-width="1.5" />
+                <circle cx="90" cy="86" r="4" fill="var(--accent)" />
+                <circle cx="360" cy="86" r="4" fill="var(--accent)" />
+                
+                <!-- Dimension bracket -->
+                <path d="M 410 76 L 415 76 L 415 96 L 410 96" fill="none" stroke="var(--ink)" stroke-width="1" />
+                <text x="425" y="90" font-family="var(--font-mono)" font-size="11" fill="var(--ink)">5.5 cm</text>
+                <text x="20" y="32" font-family="var(--font-mono)" font-size="10" fill="var(--ink-soft)">FINAL DIMENSIONS: FOLDED FLAT SYSTEM</text>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Hero section split style */
+  .about-hero {
+    padding-block: 60px 40px;
+    background-color: var(--paper);
+  }
+
+  .about-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (min-width: 992px) {
+    .about-hero-grid {
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+    }
+  }
+
+  .about-hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-hero-visual {
+    width: 100%;
+  }
+
+  .media-frame {
+    border: 1.5px solid var(--border);
+    background-color: var(--paper-soft);
+    padding: 12px;
+  }
+
+  .media-frame svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Typography quote section styling */
+  .brand-mission-quote {
+    padding-block: 80px;
+    background-color: var(--paper-dark);
+    border-block: 1.5px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 140px;
+    font-weight: 300;
+    line-height: 1;
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    color: var(--accent);
+    opacity: 0.08;
+    user-select: none;
+  }
+
+  /* Timeline Flow Design */
+  .timeline-section {
+    padding-block: 80px;
+    background-color: var(--paper);
+  }
+
+  .timeline-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    border-left: 1.5px solid var(--border);
+    padding-left: 24px;
+    margin-left: 12px;
+  }
+
+  @media (min-width: 768px) {
+    .timeline-flow {
+      padding-left: 48px;
+      margin-left: 24px;
+    }
+  }
+
+  .timeline-node {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    position: relative;
+  }
+
+  /* Custom graphic node bullet marker */
+  .timeline-node::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -32.5px; /* Centers back into the border track */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1.5px var(--ink);
+  }
+
+  @media (min-width: 768px) {
+    .timeline-node::before {
+      left: -56.5px;
+    }
+  }
+
+  .node-number {
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 300;
+    color: var(--ink-mute);
+    opacity: 0.35;
+    line-height: 0.9;
+  }
+
+  .timeline-content-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .node-drawing {
+    width: 100%;
+    max-width: 500px;
+    border: 1.5px solid var(--border);
+    background-color: var(--paper-soft);
+    padding: 8px;
+  }
+
+  .node-drawing svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

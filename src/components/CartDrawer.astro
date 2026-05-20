@@ -1,0 +1,376 @@
+---
+---
+
+<!-- Drawer Overlay (backdrop) -->
+<div class="drawer-overlay" id="cart-drawer-overlay" aria-hidden="true"></div>
+
+<!-- Shopping Cart Slide-out Drawer Panel -->
+<div class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+  <!-- Drawer Header -->
+  <div class="drawer-header">
+    <div>
+      <span class="text-label" style="color: var(--ink-soft);">Your bag</span>
+      <h2 class="display-m" id="drawer-title" style="margin-top: 4px; font-size: 24px;">Your selection</h2>
+    </div>
+    <button 
+      type="button" 
+      class="drawer-close" 
+      id="cart-drawer-close" 
+      aria-label="Close Shopping Cart"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Drawer Scrollable Body -->
+  <div class="drawer-body" id="cart-drawer-body">
+    <!-- Dynamic item list rendered by JS -->
+    <div id="cart-items-container">
+      <p class="text-body" style="text-align: center; color: var(--ink-mute); margin-top: 48px; font-style: italic;">
+        Your bag is currently empty.
+      </p>
+    </div>
+
+    <!-- Minimal Cross-sell module -->
+    <div class="cross-sell-container hidden" id="cross-sell-section">
+      <span class="text-label" style="display: block; border-top: 1px dashed var(--border); padding-top: 24px; margin-top: 24px;">
+        Complete the set
+      </span>
+      <div class="cross-sell-card">
+        <div class="cross-sell-image">
+          <!-- Visual representation of canvas tote -->
+          <svg viewBox="0 0 80 80" width="100%" height="100%" style="display:block;">
+            <rect width="80" height="80" fill="var(--paper-dark)" />
+            <path d="M25,35 L25,25 C25,17 31,15 40,15 C49,15 55,17 55,25 L55,35" fill="none" stroke="var(--ink)" stroke-width="1.5" />
+            <rect x="20" y="32" width="40" height="38" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5" />
+            <line x1="30" y1="42" x2="50" y2="42" stroke="var(--accent)" stroke-width="2" />
+          </svg>
+        </div>
+        <div class="cross-sell-details">
+          <h4 class="font-display" style="font-size: 16px; margin: 0;">The Hamo Tote</h4>
+          <p class="text-annotation" style="font-size: 11px; margin: 2px 0 0;">Matching heavy-duty marine canvas carry tote.</p>
+          <div class="cross-sell-price-row">
+            <span class="font-display" style="font-size: 16px;">$59</span>
+            <button type="button" class="cross-sell-add-btn text-label" id="add-cross-sell-btn">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawer Footer (Calculations & Checkout CTA) -->
+  <div class="drawer-footer" id="cart-drawer-footer">
+    <div class="summary-rows">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      
+      <!-- Shipping dropdown selector inside the cart drawer -->
+      <div class="summary-row" style="align-items: center;">
+        <span>Shipping (AU)</span>
+        <select id="cart-shipping-selector" aria-label="Select Shipping Method" class="shipping-dropdown">
+          <option value="standard">Standard Delivery — Free</option>
+          <option value="express">Express Delivery — $12.00</option>
+        </select>
+      </div>
+      
+      <div class="summary-row summary-row--total">
+        <span>Total</span>
+        <span id="cart-total-price">$0.00 AUD</span>
+      </div>
+    </div>
+
+    <!-- Transaction Checkout CTA triggers -->
+    <a href="/checkout" class="btn btn--solid checkout-cta-btn" id="cart-checkout-btn">
+      Proceed to checkout
+    </a>
+    
+    <!-- reassurance footer text -->
+    <p class="text-annotation" style="font-size: 11px; text-align: center; margin-top: 14px; color: var(--ink-mute);">
+      Ships within 1-2 days &middot; 30-day risk-free trials
+    </p>
+  </div>
+</div>
+
+<style>
+  .cross-sell-container {
+    transition: opacity 0.3s ease;
+  }
+  
+  .cross-sell-card {
+    display: flex;
+    gap: 16px;
+    background-color: var(--paper);
+    border: 1.5px solid var(--border);
+    padding: 16px;
+    margin-top: 12px;
+    align-items: center;
+  }
+
+  .cross-sell-image {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .cross-sell-details {
+    flex: 1;
+  }
+
+  .cross-sell-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+  }
+
+  .cross-sell-add-btn {
+    border: 1.5px solid var(--ink);
+    padding: 4px 12px;
+    font-size: 11px;
+    cursor: pointer;
+    background-color: var(--paper-soft);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .cross-sell-add-btn:hover {
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+
+  /* Summary Footers */
+  .summary-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .shipping-dropdown {
+    border: none;
+    border-bottom: 1.5px solid var(--ink);
+    background-color: transparent;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--ink);
+    padding: 4px 0;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .summary-row--total {
+    border-top: 1.5px solid var(--ink);
+    padding-top: 16px;
+    margin-top: 4px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .checkout-cta-btn {
+    width: 100%;
+    min-height: 52px;
+  }
+
+  /* Remove cart item link styling */
+  .remove-item-btn {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    cursor: pointer;
+    padding-top: 4px;
+  }
+
+  .remove-item-btn:hover {
+    color: var(--accent);
+  }
+</style>
+
+<script>
+  // Vanilla dynamic cart drawer manager
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('cart-drawer-overlay');
+    const drawer = document.getElementById('cart-drawer');
+    const closeBtn = document.getElementById('cart-drawer-close');
+    const itemsContainer = document.getElementById('cart-items-container');
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const totalEl = document.getElementById('cart-total-price');
+    const shippingSelector = document.getElementById('cart-shipping-selector') as HTMLSelectElement;
+    const checkoutBtn = document.getElementById('cart-checkout-btn') as HTMLAnchorElement;
+    const crossSellSec = document.getElementById('cross-sell-section');
+    const addCrossSellBtn = document.getElementById('add-cross-sell-btn');
+
+    // Open/Close toggle methods
+    const openDrawer = () => {
+      drawer?.classList.add('is-active');
+      overlay?.classList.add('is-active');
+      document.body.style.overflow = 'hidden'; // Lock back scroll
+    };
+
+    const closeDrawer = () => {
+      drawer?.classList.remove('is-active');
+      overlay?.classList.remove('is-active');
+      document.body.style.overflow = '';
+    };
+
+    window.addEventListener('hamo-cart-open', openDrawer);
+    closeBtn?.addEventListener('click', closeDrawer);
+    overlay?.addEventListener('click', closeDrawer);
+
+    // Dynamic drawer rendering on state updates
+    const renderCart = (event?: any) => {
+      const hState = (window as any).HamoCart;
+      if (!hState) return;
+
+      const items = hState.getItems();
+      const isExpress = hState.getExpressShipping();
+
+      // Sync Shipping Dropdown UI
+      if (shippingSelector) {
+        shippingSelector.value = isExpress ? 'express' : 'standard';
+      }
+
+      // Check if empty
+      if (items.length === 0) {
+        if (itemsContainer) {
+          itemsContainer.innerHTML = `
+            <p class="text-body" style="text-align: center; color: var(--ink-mute); margin-top: 64px; font-style: italic;">
+              Your bag is currently empty.
+            </p>
+          `;
+        }
+        if (subtotalEl) subtotalEl.textContent = "$0.00";
+        if (totalEl) totalEl.textContent = "$0.00 AUD";
+        if (checkoutBtn) {
+          checkoutBtn.classList.add('btn--disabled');
+          checkoutBtn.style.pointerEvents = 'none';
+          checkoutBtn.style.opacity = '0.5';
+        }
+        crossSellSec?.classList.add('hidden');
+        return;
+      }
+
+      // Re-enable checkout button
+      if (checkoutBtn) {
+        checkoutBtn.classList.remove('btn--disabled');
+        checkoutBtn.style.pointerEvents = '';
+        checkoutBtn.style.opacity = '';
+      }
+
+      // Render Item rows
+      if (itemsContainer) {
+        itemsContainer.innerHTML = items.map((item: any) => {
+          return `
+            <div class="cart-item" data-id="${item.id}">
+              <div class="cart-item-image">
+                ${item.image ? `<img src="${item.image}" alt="${item.name} thumbnail" style="width:100%; height:100%; object-fit:cover;"/>` : `
+                  <!-- Standard geometric SVG if image is empty -->
+                  <svg viewBox="0 0 80 80" width="100%" height="100%" style="display:block;">
+                    <rect width="80" height="80" fill="var(--paper-dark)" />
+                    <line x1="10" y1="10" x2="70" y2="70" stroke="var(--border)" stroke-width="1"/>
+                    <line x1="70" y1="10" x2="10" y2="70" stroke="var(--border)" stroke-width="1"/>
+                  </svg>
+                `}
+              </div>
+              <div style="display:flex; flex-direction:column; gap:4px;">
+                <h3 class="font-display" style="font-size: 18px; margin: 0;">${item.name}</h3>
+                <span class="text-label" style="font-size:10px; color:var(--ink-soft);">${item.colorName}</span>
+                <button type="button" class="remove-item-btn" style="text-align: left;" data-action="remove">Remove</button>
+              </div>
+              <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+                <span class="font-display" style="font-size:18px;">$${item.price * item.quantity}</span>
+                <div class="qty-counter">
+                  <button type="button" data-action="dec" aria-label="Decrease quantity">−</button>
+                  <span>${item.quantity}</span>
+                  <button type="button" data-action="inc" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Wire click triggers inside list container
+        itemsContainer.querySelectorAll('.cart-item').forEach(row => {
+          const id = row.getAttribute('data-id');
+          if (!id) return;
+
+          // Quantity Adjustments
+          row.querySelector('[data-action="inc"]')?.addEventListener('click', () => {
+            const currentItem = hState.getItems().find((item: any) => item.id === id);
+            if (currentItem) hState.updateQty(id, currentItem.quantity + 1);
+          });
+
+          row.querySelector('[data-action="dec"]')?.addEventListener('click', () => {
+            const currentItem = hState.getItems().find((item: any) => item.id === id);
+            if (currentItem) hState.updateQty(id, currentItem.quantity - 1);
+          });
+
+          row.querySelector('[data-action="remove"]')?.addEventListener('click', () => {
+            hState.removeItem(id);
+          });
+        });
+      }
+
+      // Render calculations & cross sell checks
+      if (subtotalEl) subtotalEl.textContent = `$${hState.getSubtotal()}.00`;
+      if (totalEl) totalEl.textContent = `$${hState.getTotal()}.00 AUD`;
+
+      // Tote Bag Cross-sell visibility logic (show if they bought a chair, but not a tote yet)
+      const hasChair = items.some((item: any) => item.id.includes('chair'));
+      const hasTote = items.some((item: any) => item.id === 'hamo-tote');
+      
+      if (hasChair && !hasTote) {
+        crossSellSec?.classList.remove('hidden');
+      } else {
+        crossSellSec?.classList.add('hidden');
+      }
+    };
+
+    // React to Shipping Dropdown updates
+    shippingSelector?.addEventListener('change', () => {
+      const isExpress = shippingSelector.value === 'express';
+      const hState = (window as any).HamoCart;
+      if (hState) {
+        hState.setExpressShipping(isExpress);
+      }
+    });
+
+    // React to matching tote add click
+    addCrossSellBtn?.addEventListener('click', () => {
+      const hState = (window as any).HamoCart;
+      if (hState) {
+        hState.addItem(
+          'hamo-tote',
+          'The Hamo Tote',
+          'bone',
+          'Bone Canvas',
+          59,
+          '' // Let standard geometric rendering handle tote thumbnail
+        );
+      }
+    });
+
+    // Bind reactive rendering custom listeners
+    window.addEventListener('hamo-cart-updated', renderCart);
+    
+    // Initial sync
+    setTimeout(renderCart, 150);
+  });
+</script>

@@ -1,0 +1,85 @@
+---
+import Logo from './Logo.astro';
+---
+
+<header class="site-header">
+  <div class="header-container">
+    <!-- Mobile Menu Toggle Button (Touch target 48x48px) -->
+    <button 
+      type="button" 
+      class="mobile-menu-toggle md:hidden" 
+      aria-label="Toggle Navigation Menu" 
+      aria-expanded="false"
+      id="mobile-nav-toggle"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="icon-menu">
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="6" x2="20" y2="6"></line>
+        <line x1="4" y1="18" x2="20" y2="18"></line>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="icon-close hidden">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Desktop Navigation Links (Left side) -->
+    <nav class="desktop-nav left-nav hidden md:flex" aria-label="Desktop Primary Navigation">
+      <a href="/shop" class="nav-link text-nav">Shop</a>
+      <a href="/about" class="nav-link text-nav">About</a>
+      <a href="/contact" class="nav-link text-nav">Contact</a>
+    </nav>
+
+    <!-- Brand Custom SVG Logo (Centered) -->
+    <a href="/" class="brand-link" aria-label="Hamo Home Page">
+      <Logo width={160} height={48} />
+    </a>
+
+<truncated 8017 bytes>
+av-toggle');
+    const mobilePanel = document.getElementById('mobile-nav-panel');
+    if (mobileToggle && mobilePanel) {
+      const iconMenu = mobileToggle.querySelector('.icon-menu');
+      const iconClose = mobileToggle.querySelector('.icon-close');
+      
+      mobileToggle.addEventListener('click', () => {
+        const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+        mobileToggle.setAttribute('aria-expanded', String(!expanded));
+        
+        if (expanded) {
+          mobilePanel.classList.add('hidden');
+          iconMenu?.classList.remove('hidden');
+          iconClose?.classList.add('hidden');
+          document.body.style.overflow = '';
+        } else {
+          mobilePanel.classList.remove('hidden');
+          iconMenu?.classList.add('hidden');
+          iconClose?.classList.remove('hidden');
+          document.body.style.overflow = 'hidden'; // Lock background scroll
+        }
+      });
+    }
+
+    // 3. Cart Trigger Integration
+    const cartTrigger = document.getElementById('cart-trigger');
+    if (cartTrigger) {
+      cartTrigger.addEventListener('click', () => {
+        // Dispatch open event to CartDrawer component
+        window.dispatchEvent(new CustomEvent('hamo-cart-open'));
+      });
+    }
+
+    // 4. Update Header Cart Count dynamically
+    const updateHeaderCount = () => {
+      const countEl = document.getElementById('header-cart-count');
+      if (countEl && (window as any).HamoCart) {
+        countEl.textContent = String((window as any).HamoCart.getCount());
+      }
+    };
+
+    window.addEventListener('hamo-cart-updated', updateHeaderCount);
+    
+    // Initial load sync after HamoCart exists
+    setTimeout(updateHeaderCount, 100);
+  });
+</script>
