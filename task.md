@@ -1,4 +1,4 @@
-# Hammo Astro Web App Revamp Task Tracker
+# Hamo Astro Web App Revamp Task Tracker
 
 - `[x]` Phase 1: Project Setup & Initialization
     - `[x]` Initialize Astro minimal project framework

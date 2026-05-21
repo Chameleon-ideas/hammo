@@ -1,31 +1,52 @@
 ---
-import Logo from './Logo.astro';
-import ThemeToggle from './ThemeToggle.astro';
+import Logo from "./Logo.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header class="site-header">
   <div class="header-container">
     <!-- Mobile Menu Toggle Button (Touch target 48x48px) -->
-    <button 
-      type="button" 
-      class="mobile-menu-toggle md:hidden" 
-      aria-label="Toggle Navigation Menu" 
+    <button
+      type="button"
+      class="mobile-menu-toggle md:hidden"
+      aria-label="Toggle Navigation Menu"
       aria-expanded="false"
       id="mobile-nav-toggle"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="icon-menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        class="icon-menu"
+      >
         <line x1="4" y1="12" x2="20" y2="12"></line>
         <line x1="4" y1="6" x2="20" y2="6"></line>
         <line x1="4" y1="18" x2="20" y2="18"></line>
       </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" class="icon-close hidden">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        class="icon-close hidden"
+      >
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
 
     <!-- Desktop Navigation Links (Left side) -->
-    <nav class="desktop-nav left-nav hidden md:flex" aria-label="Desktop Primary Navigation">
+    <nav
+      class="desktop-nav left-nav hidden md:flex"
+      aria-label="Desktop Primary Navigation"
+    >
       <a href="/shop" class="nav-link text-nav">Shop</a>
       <a href="/about" class="nav-link text-nav">About</a>
       <a href="/contact" class="nav-link text-nav">Contact</a>
@@ -42,10 +63,10 @@ import ThemeToggle from './ThemeToggle.astro';
       <ThemeToggle />
 
       <!-- Cart Drawer Trigger Button -->
-      <button 
-        type="button" 
-        class="cart-trigger-btn text-nav" 
-        id="cart-trigger" 
+      <button
+        type="button"
+        class="cart-trigger-btn text-nav"
+        id="cart-trigger"
         aria-label="Open Shopping Cart"
       >
         <span>Cart</span>
@@ -73,7 +94,7 @@ import ThemeToggle from './ThemeToggle.astro';
     z-index: 900;
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
-  
+
   .header-container {
     max-width: var(--site-width);
     margin-inline: auto;
@@ -96,11 +117,11 @@ import ThemeToggle from './ThemeToggle.astro';
   .nav-link {
     color: var(--ink-soft);
     position: relative;
-    padding-block: 8px;
+    padding-block: 5px;
   }
 
   .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -157,11 +178,19 @@ import ThemeToggle from './ThemeToggle.astro';
   }
 
   /* Icon theme visibility hooks */
-  .icon-sun { display: none; }
-  .icon-moon { display: block; }
+  .icon-sun {
+    display: none;
+  }
+  .icon-moon {
+    display: block;
+  }
 
-  :root.theme-dark .icon-sun { display: block; }
-  :root.theme-dark .icon-moon { display: none; }
+  :root.theme-dark .icon-sun {
+    display: block;
+  }
+  :root.theme-dark .icon-moon {
+    display: none;
+  }
 
   .cart-trigger-btn {
     display: inline-flex;
@@ -187,7 +216,7 @@ import ThemeToggle from './ThemeToggle.astro';
     background-color: var(--accent);
     color: var(--paper);
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     display: inline-flex;
     align-items: center;
@@ -217,11 +246,17 @@ import ThemeToggle from './ThemeToggle.astro';
     border-color: var(--ink);
   }
 
-  .hidden { display: none !important; }
-  
+  .hidden {
+    display: none !important;
+  }
+
   @media (min-width: 768px) {
-    .md\:flex { display: flex !important; }
-    .md\:hidden { display: none !important; }
+    .md\:flex {
+      display: flex !important;
+    }
+    .md\:hidden {
+      display: none !important;
+    }
   }
 
   /* Mobile Navigation Dropdown */
@@ -259,66 +294,67 @@ import ThemeToggle from './ThemeToggle.astro';
 
 <script>
   // Dynamic client-side interactions
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     // 1. Theme Toggle Mechanic
-    const themeToggle = document.getElementById('theme-toggler');
+    const themeToggle = document.getElementById("theme-toggler");
     if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.contains('theme-dark');
+      themeToggle.addEventListener("click", () => {
+        const isDark =
+          document.documentElement.classList.contains("theme-dark");
         if (isDark) {
-          document.documentElement.classList.remove('theme-dark');
-          localStorage.setItem('hamo-theme', 'light');
+          document.documentElement.classList.remove("theme-dark");
+          localStorage.setItem("hamo-theme", "light");
         } else {
-          document.documentElement.classList.add('theme-dark');
-          localStorage.setItem('hamo-theme', 'dark');
+          document.documentElement.classList.add("theme-dark");
+          localStorage.setItem("hamo-theme", "dark");
         }
       });
     }
 
     // 2. Mobile Menu Toggle
-    const mobileToggle = document.getElementById('mobile-nav-toggle');
-    const mobilePanel = document.getElementById('mobile-nav-panel');
+    const mobileToggle = document.getElementById("mobile-nav-toggle");
+    const mobilePanel = document.getElementById("mobile-nav-panel");
     if (mobileToggle && mobilePanel) {
-      const iconMenu = mobileToggle.querySelector('.icon-menu');
-      const iconClose = mobileToggle.querySelector('.icon-close');
-      
-      mobileToggle.addEventListener('click', () => {
-        const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-        mobileToggle.setAttribute('aria-expanded', String(!expanded));
-        
+      const iconMenu = mobileToggle.querySelector(".icon-menu");
+      const iconClose = mobileToggle.querySelector(".icon-close");
+
+      mobileToggle.addEventListener("click", () => {
+        const expanded = mobileToggle.getAttribute("aria-expanded") === "true";
+        mobileToggle.setAttribute("aria-expanded", String(!expanded));
+
         if (expanded) {
-          mobilePanel.classList.add('hidden');
-          iconMenu?.classList.remove('hidden');
-          iconClose?.classList.add('hidden');
-          document.body.style.overflow = '';
+          mobilePanel.classList.add("hidden");
+          iconMenu?.classList.remove("hidden");
+          iconClose?.classList.add("hidden");
+          document.body.style.overflow = "";
         } else {
-          mobilePanel.classList.remove('hidden');
-          iconMenu?.classList.add('hidden');
-          iconClose?.classList.remove('hidden');
-          document.body.style.overflow = 'hidden'; // Lock background scroll
+          mobilePanel.classList.remove("hidden");
+          iconMenu?.classList.add("hidden");
+          iconClose?.classList.remove("hidden");
+          document.body.style.overflow = "hidden"; // Lock background scroll
         }
       });
     }
 
     // 3. Cart Trigger Integration
-    const cartTrigger = document.getElementById('cart-trigger');
+    const cartTrigger = document.getElementById("cart-trigger");
     if (cartTrigger) {
-      cartTrigger.addEventListener('click', () => {
+      cartTrigger.addEventListener("click", () => {
         // Dispatch open event to CartDrawer component
-        window.dispatchEvent(new CustomEvent('hamo-cart-open'));
+        window.dispatchEvent(new CustomEvent("hamo-cart-open"));
       });
     }
 
     // 4. Update Header Cart Count dynamically
     const updateHeaderCount = () => {
-      const countEl = document.getElementById('header-cart-count');
+      const countEl = document.getElementById("header-cart-count");
       if (countEl && (window as any).HamoCart) {
         countEl.textContent = String((window as any).HamoCart.getCount());
       }
     };
 
-    window.addEventListener('hamo-cart-updated', updateHeaderCount);
-    
+    window.addEventListener("hamo-cart-updated", updateHeaderCount);
+
     // Initial load sync after HamoCart exists
     setTimeout(updateHeaderCount, 100);
   });

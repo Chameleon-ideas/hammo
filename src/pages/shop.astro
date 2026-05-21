@@ -1,147 +1,362 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Shop the Hamo Chair — Premium Outdoor Lounge">
   <section class="pdp-section" aria-label="Product Showcase and Configuration">
     <div class="container pdp-grid">
-      
       <!-- Left Column: Scrollable Visual Gallery -->
       <div class="pdp-gallery" aria-label="Product Image Gallery">
-        
         <!-- Main Interactive Visual Frame (Syncs with swatch selection) -->
         <div class="main-gallery-frame">
-          <svg viewBox="0 0 500 400" id="main-pdp-svg" aria-label="Selected Hamo Chair rendering" role="img">
-            <rect width="500" height="400" fill="var(--paper-soft)" />
+          <svg
+            viewBox="0 0 500 400"
+            id="main-pdp-svg"
+            aria-label="Selected Hamo Chair rendering"
+            role="img"
+          >
+            <rect width="500" height="400" fill="var(--paper-soft)"></rect>
             <!-- Soft ground shadow -->
-            <ellipse cx="250" cy="330" rx="140" ry="8" fill="var(--ink)" opacity="0.05" />
-            
+            <ellipse
+              cx="250"
+              cy="330"
+              rx="140"
+              ry="8"
+              fill="var(--ink)"
+              opacity="0.05"></ellipse>
+
             <g transform="translate(100, 70)">
               <!-- Frame Tubes -->
-              <line x1="40" y1="220" x2="180" y2="40" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" />
-              <line x1="40" y1="220" x2="180" y2="40" stroke="var(--paper-soft)" stroke-width="3" stroke-linecap="round" />
-              
-              <line x1="200" y1="220" x2="30" y2="100" stroke="var(--ink)" stroke-width="7" stroke-linecap="round" />
-              <line x1="200" y1="220" x2="30" y2="100" stroke="var(--paper-soft)" stroke-width="3" stroke-linecap="round" />
-              
-              <line x1="40" y1="220" x2="200" y2="220" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round" />
-              
+              <line
+                x1="40"
+                y1="220"
+                x2="180"
+                y2="40"
+                stroke="var(--ink)"
+                stroke-width="7"
+                stroke-linecap="round"></line>
+              <line
+                x1="40"
+                y1="220"
+                x2="180"
+                y2="40"
+                stroke="var(--paper-soft)"
+                stroke-width="3"
+                stroke-linecap="round"></line>
+
+              <line
+                x1="200"
+                y1="220"
+                x2="30"
+                y2="100"
+                stroke="var(--ink)"
+                stroke-width="7"
+                stroke-linecap="round"></line>
+              <line
+                x1="200"
+                y1="220"
+                x2="30"
+                y2="100"
+                stroke="var(--paper-soft)"
+                stroke-width="3"
+                stroke-linecap="round"></line>
+
+              <line
+                x1="40"
+                y1="220"
+                x2="200"
+                y2="220"
+                stroke="var(--ink)"
+                stroke-width="4.5"
+                stroke-linecap="round"></line>
+
               <!-- Anodised Hub Linkage -->
-              <circle cx="116" cy="156" r="11" fill="var(--ink)" />
-              <circle cx="116" cy="156" r="7" fill="var(--accent)" />
-              
+              <circle cx="116" cy="156" r="11" fill="var(--ink)"></circle>
+              <circle cx="116" cy="156" r="7" fill="var(--accent)"></circle>
+
               <!-- DYNAMIC CANVAS SLING -->
-              <path id="pdp-canvas-path" d="M 172,50 C 145,85 85,140 45,110" fill="none" stroke="#EBE6DD" stroke-width="14" stroke-linecap="round" style="transition: stroke 0.4s ease;" />
-              
+              <path
+                id="pdp-canvas-path"
+                d="M 172,50 C 145,85 85,140 45,110"
+                fill="none"
+                stroke="#EBE6DD"
+                stroke-width="14"
+                stroke-linecap="round"
+                style="transition: stroke 0.4s ease;"></path>
+
               <!-- Timber Armrest accent -->
-              <path d="M 75,70 L 165,70" stroke="var(--ink)" stroke-width="9" stroke-linecap="round" />
-              <path d="M 75,70 L 165,70" stroke="var(--paper-dark)" stroke-width="4.5" stroke-linecap="round" />
+              <path
+                d="M 75,70 L 165,70"
+                stroke="var(--ink)"
+                stroke-width="9"
+                stroke-linecap="round"></path>
+              <path
+                d="M 75,70 L 165,70"
+                stroke="var(--paper-dark)"
+                stroke-width="4.5"
+                stroke-linecap="round"></path>
             </g>
-            <text x="24" y="370" font-family="var(--font-mono)" font-size="11" fill="var(--ink-soft)">100% RECYCLABLE ALUMINIUM CORE</text>
+            <text
+              x="24"
+              y="370"
+              font-family="var(--font-mono)"
+              font-size="11"
+              fill="var(--ink-soft)">100% RECYCLABLE ALUMINIUM CORE</text
+            >
           </svg>
         </div>
 
         <!-- Thumbnails / Closeups vertical loop (High-fidelity inline SVGs) -->
         <div class="gallery-thumbs-grid">
-          
           <div class="thumb-card" aria-label="Frame Linkage Closeup">
             <svg viewBox="0 0 160 120" style="display:block; width:100%;">
-              <rect width="160" height="120" fill="var(--paper-soft)" />
-              <circle cx="80" cy="60" r="28" fill="none" stroke="var(--ink)" stroke-width="1.5" />
-              <circle cx="80" cy="60" r="6" fill="var(--accent)" />
-              <line x1="40" y1="100" x2="120" y2="20" stroke="var(--ink)" stroke-width="4" />
-              <line x1="40" y1="20" x2="120" y2="100" stroke="var(--ink)" stroke-width="4" />
+              <rect width="160" height="120" fill="var(--paper-soft)"></rect>
+              <circle
+                cx="80"
+                cy="60"
+                r="28"
+                fill="none"
+                stroke="var(--ink)"
+                stroke-width="1.5"></circle>
+              <circle cx="80" cy="60" r="6" fill="var(--accent)"></circle>
+              <line
+                x1="40"
+                y1="100"
+                x2="120"
+                y2="20"
+                stroke="var(--ink)"
+                stroke-width="4"></line>
+              <line
+                x1="40"
+                y1="20"
+                x2="120"
+                y2="100"
+                stroke="var(--ink)"
+                stroke-width="4"></line>
             </svg>
-            <span class="text-annotation" style="font-size:9px; display:block; margin-top:4px; text-align:center;">Joint Lock</span>
+            <span
+              class="text-annotation"
+              style="font-size:9px; display:block; margin-top:4px; text-align:center;"
+              >Joint Lock</span
+            >
           </div>
 
           <div class="thumb-card" aria-label="Flat Folded Profile Detail">
             <svg viewBox="0 0 160 120" style="display:block; width:100%;">
-              <rect width="160" height="120" fill="var(--paper-soft)" />
-              <rect x="20" y="55" width="120" height="10" rx="3" fill="var(--paper-dark)" stroke="var(--ink)" stroke-width="1.5" />
-              <line x1="20" y1="75" x2="140" y2="75" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3" />
-              <text x="80" y="40" font-family="var(--font-mono)" font-size="9" text-anchor="middle" fill="var(--accent)">5.5 CM FLAT</text>
+              <rect width="160" height="120" fill="var(--paper-soft)"></rect>
+              <rect
+                x="20"
+                y="55"
+                width="120"
+                height="10"
+                rx="3"
+                fill="var(--paper-dark)"
+                stroke="var(--ink)"
+                stroke-width="1.5"></rect>
+              <line
+                x1="20"
+                y1="75"
+                x2="140"
+                y2="75"
+                stroke="var(--border)"
+                stroke-width="1"
+                stroke-dasharray="3 3"></line>
+              <text
+                x="80"
+                y="40"
+                font-family="var(--font-mono)"
+                font-size="9"
+                text-anchor="middle"
+                fill="var(--accent)">5.5 CM FLAT</text
+              >
             </svg>
-            <span class="text-annotation" style="font-size:9px; display:block; margin-top:4px; text-align:center;">Flat Profile</span>
+            <span
+              class="text-annotation"
+              style="font-size:9px; display:block; margin-top:4px; text-align:center;"
+              >Flat Profile</span
+            >
           </div>
 
           <div class="thumb-card" aria-label="Carry Strap Assembly">
             <svg viewBox="0 0 160 120" style="display:block; width:100%;">
-              <rect width="160" height="120" fill="var(--paper-soft)" />
+              <rect width="160" height="120" fill="var(--paper-soft)"></rect>
               <!-- Handwoven shoulder strap -->
-              <path d="M 30,80 Q 80,20 130,80" fill="none" stroke="var(--ink)" stroke-width="6" stroke-dasharray="4 2" />
-              <line x1="26" y1="80" x2="34" y2="80" stroke="var(--accent)" stroke-width="3" />
-              <line x1="126" y1="80" x2="134" y2="80" stroke="var(--accent)" stroke-width="3" />
+              <path
+                d="M 30,80 Q 80,20 130,80"
+                fill="none"
+                stroke="var(--ink)"
+                stroke-width="6"
+                stroke-dasharray="4 2"></path>
+              <line
+                x1="26"
+                y1="80"
+                x2="34"
+                y2="80"
+                stroke="var(--accent)"
+                stroke-width="3"></line>
+              <line
+                x1="126"
+                y1="80"
+                x2="134"
+                y2="80"
+                stroke="var(--accent)"
+                stroke-width="3"></line>
             </svg>
-            <span class="text-annotation" style="font-size:9px; display:block; margin-top:4px; text-align:center;">Shoulder Loop</span>
+            <span
+              class="text-annotation"
+              style="font-size:9px; display:block; margin-top:4px; text-align:center;"
+              >Shoulder Loop</span
+            >
           </div>
-
         </div>
       </div>
 
       <!-- Right Column: Sticky Checkout Config Panel -->
       <div class="pdp-details">
         <div class="details-sticky-wrapper">
-          
           <!-- Product Title and Pricing -->
           <div class="pdp-header">
-            <span class="text-label" style="color: var(--ink-soft); display: block; margin-bottom: 8px;">Model 01</span>
-            <h1 class="display-l" style="margin-bottom: 8px; text-transform: lowercase;">The Hamo Chair</h1>
+            <span
+              class="text-label"
+              style="color: var(--ink-soft); display: block; margin-bottom: 8px;"
+              >Model 01</span
+            >
+            <h1
+              class="display-l"
+              style="margin-bottom: 8px; text-transform: lowercase;"
+            >
+              The Hamo Chair
+            </h1>
             <div class="price-row">
               <span class="price-val font-display">$249.00</span>
               <span class="price-currency text-label">AUD</span>
             </div>
-            <p class="text-annotation" style="margin-top: 12px; color: var(--accent);">★ Free Standard AU Shipping Included</p>
+            <p
+              class="text-annotation"
+              style="margin-top: 12px; color: var(--accent);"
+            >
+              ★ Free Standard AU Shipping Included
+            </p>
           </div>
 
           <!-- Colourways Config selector -->
           <div class="pdp-configurator">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <div
+              style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;"
+            >
               <span class="text-label">Select Canvas Tone</span>
-              <span class="text-annotation" id="selected-color-label" style="font-weight: 700; color: var(--ink);">Bone Canvas</span>
+              <span
+                class="text-annotation"
+                id="selected-color-label"
+                style="font-weight: 700; color: var(--ink);">Bone Canvas</span
+              >
             </div>
 
-            <div class="swatches-selector-row" role="radiogroup" aria-label="Select Hamo Chair Colourway">
-              <button class="swatch-btn is-active" data-color="bone" data-hex="#EBE6DD" data-name="Bone Canvas" data-desc="Soft salt-brushed ivory" aria-label="Bone Colorway">
-                <span class="swatch-inner" style="background-color: #EBE6DD;"></span>
+            <div
+              class="swatches-selector-row"
+              role="radiogroup"
+              aria-label="Select Hamo Chair Colourway"
+            >
+              <button
+                class="swatch-btn is-active"
+                data-color="bone"
+                data-hex="#EBE6DD"
+                data-name="Bone Canvas"
+                data-desc="Soft salt-brushed ivory"
+                aria-label="Bone Colorway"
+              >
+                <span class="swatch-inner" style="background-color: #EBE6DD;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="dune" data-hex="#D2C9B9" data-name="Dune Canvas" data-desc="Warm sand grass dune" aria-label="Dune Colorway">
-                <span class="swatch-inner" style="background-color: #D2C9B9;"></span>
+              <button
+                class="swatch-btn"
+                data-color="dune"
+                data-hex="#D2C9B9"
+                data-name="Dune Canvas"
+                data-desc="Warm sand grass dune"
+                aria-label="Dune Colorway"
+              >
+                <span class="swatch-inner" style="background-color: #D2C9B9;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="terracotta" data-hex="#AF5A3F" data-name="Terracotta Canvas" data-desc="Burnt Australian red clay" aria-label="Terracotta Colorway">
-                <span class="swatch-inner" style="background-color: #AF5A3F;"></span>
+              <button
+                class="swatch-btn"
+                data-color="ochre"
+                data-hex="#E19E2B"
+                data-name="Ochre Canvas"
+                data-desc="Warm coastal ochre gold inspired by afternoon sunshine hitting sandstone cliffs."
+                aria-label="Ochre Colorway"
+              >
+                <span class="swatch-inner" style="background-color: #E19E2B;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="eucalyptus" data-hex="#869080" data-name="Eucalyptus Canvas" data-desc="Cool coastal sage green" aria-label="Eucalyptus Colorway">
-                <span class="swatch-inner" style="background-color: #869080;"></span>
+              <button
+                class="swatch-btn"
+                data-color="eucalyptus"
+                data-hex="#869080"
+                data-name="Eucalyptus Canvas"
+                data-desc="Cool coastal sage green"
+                aria-label="Eucalyptus Colorway"
+              >
+                <span class="swatch-inner" style="background-color: #869080;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="indigo" data-hex="#2E3A4E" data-name="Indigo Canvas" data-desc="Deep basalt ocean dusk" aria-label="Indigo Colorway">
-                <span class="swatch-inner" style="background-color: #2E3A4E;"></span>
+              <button
+                class="swatch-btn"
+                data-color="indigo"
+                data-hex="#2E3A4E"
+                data-name="Indigo Canvas"
+                data-desc="Deep basalt ocean dusk"
+                aria-label="Indigo Colorway"
+              >
+                <span class="swatch-inner" style="background-color: #2E3A4E;"
+                ></span>
               </button>
             </div>
-            
-            <p class="text-body" id="selected-color-desc" style="color: var(--ink-soft); font-size:14px; margin-top:14px; font-style:italic;">
+
+            <p
+              class="text-body"
+              id="selected-color-desc"
+              style="color: var(--ink-soft); font-size:14px; margin-top:14px; font-style:italic;"
+            >
               Soft salt-brushed ivory inspired by bleached shoreline shells.
             </p>
           </div>
 
           <!-- Checkout CTA -->
           <div class="pdp-actions">
-            <button type="button" class="btn btn--solid pdp-add-to-cart-btn" id="pdp-add-btn">
+            <button
+              type="button"
+              class="btn btn--solid pdp-add-to-cart-btn"
+              id="pdp-add-btn"
+            >
               Add to Bag — $249.00
             </button>
           </div>
 
           <!-- Expandable Technical Accordion system -->
           <div class="pdp-accordions">
-            
             <details open class="accordion-item">
               <summary class="accordion-title text-label">
                 Materials & Care
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="arrow-icon"
+                  ><polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
               </summary>
               <div class="accordion-content text-body">
                 <p>
-                  Built using structural T6 anodised aluminium tubing, marine-grade stainless hardware, and custom plantation ashwood armrests treated with high-durability timber oils. Wash off with fresh water after heavy sand usage.
+                  Built using structural T6 anodised aluminium tubing,
+                  marine-grade stainless hardware, and custom plantation ashwood
+                  armrests treated with high-durability timber oils. Wash off
+                  with fresh water after heavy sand usage.
                 </p>
               </div>
             </details>
@@ -149,12 +364,23 @@ import Layout from '../layouts/Layout.astro';
             <details class="accordion-item">
               <summary class="accordion-title text-label">
                 Portability Dimensions
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="arrow-icon"
+                  ><polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
               </summary>
               <div class="accordion-content text-body">
                 <p>
                   <strong>Folded flat:</strong> 68 cm × 55 cm × 5.5 cm.<br />
-                  <strong>Open set:</strong> 64 cm high, 55 cm wide seat base.<br />
+                  <strong>Open set:</strong> 64 cm high, 55 cm wide seat base.<br
+                  />
                   <strong>Total dry weight:</strong> exactly 1.9 kg over the shoulder.
                 </p>
               </div>
@@ -163,20 +389,30 @@ import Layout from '../layouts/Layout.astro';
             <details class="accordion-item">
               <summary class="accordion-title text-label">
                 Delivery & 30-Day trial
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="arrow-icon"
+                  ><polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
               </summary>
               <div class="accordion-content text-body">
                 <p>
-                  Standard domestic shipping is completely free across Australia. If your Hamo chair doesn't elevate your coastal experience within 30 days, we'll arrange a return shipment for a full, unconditioned refund.
+                  Standard domestic shipping is completely free across
+                  Australia. If your Hamo chair doesn't elevate your coastal
+                  experience within 30 days, we'll arrange a return shipment for
+                  a full, unconditioned refund.
                 </p>
               </div>
             </details>
-
           </div>
-
         </div>
       </div>
-      
     </div>
   </section>
 
@@ -184,15 +420,25 @@ import Layout from '../layouts/Layout.astro';
   <section class="specs-section" aria-label="Technical Specification Details">
     <div class="container" style="max-width: 960px;">
       <div style="margin-bottom: 40px;">
-        <span class="text-label" style="color: var(--ink-soft);">No shortcuts</span>
-        <h2 class="display-m" style="margin-top: 8px; text-transform: lowercase;">Engineering blueprints.</h2>
+        <span class="text-label" style="color: var(--ink-soft);"
+          >No shortcuts</span
+        >
+        <h2
+          class="display-m"
+          style="margin-top: 8px; text-transform: lowercase;"
+        >
+          Engineering blueprints.
+        </h2>
       </div>
 
-      <table class="specs-table" aria-label="Hamo Chair Technical Blueprints Matrix">
+      <table
+        class="specs-table"
+        aria-label="Hamo Chair Technical Blueprints Matrix"
+      >
         <thead>
           <tr>
             <th scope="col" class="text-label">Attribute Specification</th>
-            <th scope="col" class="text-label">Hammo Design Standard</th>
+            <th scope="col" class="text-label">Hamo Design Standard</th>
           </tr>
         </thead>
         <tbody>
@@ -233,21 +479,39 @@ import Layout from '../layouts/Layout.astro';
   <section class="reassurances-section" aria-label="Purchase Assurances">
     <div class="container assurance-grid">
       <div class="assurance-card">
-        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">Free AU Shipping</h3>
-        <p class="text-body" style="font-size: 15px; color: var(--ink-soft); margin: 0;">
-          Ships directly out of the NSW coast with fully tracked carbon-neutral standard couriers.
+        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">
+          Free AU Shipping
+        </h3>
+        <p
+          class="text-body"
+          style="font-size: 15px; color: var(--ink-soft); margin: 0;"
+        >
+          Ships directly out of the NSW coast with fully tracked carbon-neutral
+          standard couriers.
         </p>
       </div>
       <div class="assurance-card">
-        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">30-Day Coastal Trial</h3>
-        <p class="text-body" style="font-size: 15px; color: var(--ink-soft); margin: 0;">
-          Take it down Seven Mile or Werri. If you don't love the lightness, send it back for a full refund.
+        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">
+          30-Day Coastal Trial
+        </h3>
+        <p
+          class="text-body"
+          style="font-size: 15px; color: var(--ink-soft); margin: 0;"
+        >
+          Take it down Seven Mile or Werri. If you don't love the lightness,
+          send it back for a full refund.
         </p>
       </div>
       <div class="assurance-card">
-        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">Built to Last</h3>
-        <p class="text-body" style="font-size: 15px; color: var(--ink-soft); margin: 0;">
-          Supported by a full 2-year warranty covering frame structural failure and fabric seams.
+        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">
+          Built to Last
+        </h3>
+        <p
+          class="text-body"
+          style="font-size: 15px; color: var(--ink-soft); margin: 0;"
+        >
+          Supported by a full 2-year warranty covering frame structural failure
+          and fabric seams.
         </p>
       </div>
     </div>
@@ -454,41 +718,44 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const swatches = document.querySelectorAll('.swatch-btn[data-color]');
-    const colorLabel = document.getElementById('selected-color-label');
-    const colorDesc = document.getElementById('selected-color-desc');
-    const pdpCanvas = document.getElementById('pdp-canvas-path');
-    const pdpAddBtn = document.getElementById('pdp-add-btn');
+  document.addEventListener("DOMContentLoaded", () => {
+    const swatches = document.querySelectorAll(".swatch-btn[data-color]");
+    const colorLabel = document.getElementById("selected-color-label");
+    const colorDesc = document.getElementById("selected-color-desc");
+    const pdpCanvas = document.getElementById("pdp-canvas-path");
+    const pdpAddBtn = document.getElementById("pdp-add-btn");
 
-    let activeColor = 'bone';
-    let activeColorName = 'Bone Canvas';
-    let activeHex = '#EBE6DD';
+    let activeColor = "bone";
+    let activeColorName = "Bone Canvas";
+    let activeHex = "#EBE6DD";
 
     const colorDescs: Record<string, string> = {
       bone: "Soft salt-brushed ivory inspired by bleached Seven Mile Beach shells.",
       dune: "Warm beach grass beige that blends seamlessly with coastal granite headlands.",
-      terracotta: "Burnt iron oxide Australian clay captured during low tide sunset pools.",
-      eucalyptus: "Cool pale green sage leaves from the native coastal scrub framing the sands.",
-      indigo: "Deep basalt blue-grey representing high waters crushing off Werri Reef."
+      ochre:
+        "Warm coastal ochre gold inspired by afternoon sunshine hitting sandstone cliffs.",
+      eucalyptus:
+        "Cool pale green sage leaves from the native coastal scrub framing the sands.",
+      indigo:
+        "Deep basalt blue-grey representing high waters crushing off Werri Reef.",
     };
 
-    swatches.forEach(swatch => {
-      swatch.addEventListener('click', () => {
-        swatches.forEach(s => s.classList.remove('is-active'));
-        swatch.classList.add('is-active');
+    swatches.forEach((swatch) => {
+      swatch.addEventListener("click", () => {
+        swatches.forEach((s) => s.classList.remove("is-active"));
+        swatch.classList.add("is-active");
 
-        const color = swatch.getAttribute('data-color') || 'bone';
-        const hex = swatch.getAttribute('data-hex') || '#EBE6DD';
-        const name = swatch.getAttribute('data-name') || 'Bone Canvas';
+        const color = swatch.getAttribute("data-color") || "bone";
+        const hex = swatch.getAttribute("data-hex") || "#EBE6DD";
+        const name = swatch.getAttribute("data-name") || "Bone Canvas";
 
         activeColor = color;
         activeColorName = name;
         activeHex = hex;
 
         if (colorLabel) colorLabel.textContent = name;
-        if (colorDesc) colorDesc.textContent = colorDescs[color] || '';
-        
+        if (colorDesc) colorDesc.textContent = colorDescs[color] || "";
+
         if (pdpCanvas) {
           pdpCanvas.style.stroke = hex;
         }
@@ -496,19 +763,19 @@ import Layout from '../layouts/Layout.astro';
     });
 
     if (pdpAddBtn) {
-      pdpAddBtn.addEventListener('click', () => {
+      pdpAddBtn.addEventListener("click", () => {
         const hState = (window as any).HamoCart;
         if (hState) {
           hState.addItem(
             `hamo-chair-${activeColor}`,
-            'The Hamo Chair',
+            "The Hamo Chair",
             activeColor,
             activeColorName,
             249,
-            '' // displays high-fidelity fallback SVG in cart
+            "" // displays high-fidelity fallback SVG in cart
           );
-          
-          window.dispatchEvent(new CustomEvent('hamo-cart-open'));
+
+          window.dispatchEvent(new CustomEvent("hamo-cart-open"));
         }
       });
     }

@@ -1,12 +1,12 @@
-# Hammo Web App Revamp Progress Report
+# Hamo Web App Revamp Progress Report
 
-The premium, high-fidelity revamp of the Hammo Astro site is complete and fully verified. The system aligns precisely with the design guidelines and includes a bespoke, robust mock e-commerce system.
+The premium, high-fidelity revamp of the Hamo Astro site is complete and fully verified. The system aligns precisely with the design guidelines and includes a bespoke, robust mock e-commerce system.
 
 ### 🌟 Completed Work Items
 
 1. **Homepage Bugfix & Restoration (`src/pages/index.astro`)**
    - Removed the irrelevant, placeholder meal-kit component (`Hero.astro`).
-   - Restored Natalie's stunning, hand-drawn vector blueprints and asymmetric layouts for the Hammo beach chair.
+   - Restored Natalie's stunning, hand-drawn vector blueprints and asymmetric layouts for the Hamo beach chair.
    - Fixed mismatched semantic tags by replacing `<Hero />` with proper `<section>` elements.
 
 2. **Dynamic Cart & Checkout Integration (`src/pages/checkout.astro`)**
