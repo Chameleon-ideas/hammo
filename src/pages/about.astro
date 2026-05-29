@@ -21,7 +21,7 @@ import Layout from "../layouts/Layout.astro";
             id="about-hero-heading"
             style="margin-bottom: 24px;"
           >
-            Nat and Marc.<br /><em>From Brisbane.</em>
+            Nat and Marc.<br />From Brisbane.
           </h1>
           <p
             class="text-body"
@@ -33,16 +33,14 @@ import Layout from "../layouts/Layout.astro";
           </p>
         </div>
         <div class="about-hero-visual">
-          <div class="media-frame">
-            <img
-              src="/images/about.png"
-              alt="Nat and Marc — Founders of Hammo Australia"
-              width="600"
-              height="350"
-              style="width: 100%; height: auto; object-fit: cover; display: block;"
-              loading="eager"
-            />
-          </div>
+          <img
+            src="/images/about-img.png"
+            alt="Nat and Marc — Founders of Hammo Australia"
+            width="600"
+            height="350"
+            style="width: 100%; height: auto; object-fit: cover; display: block;"
+            loading="eager"
+          />
         </div>
       </div>
     </div>
@@ -69,13 +67,12 @@ import Layout from "../layouts/Layout.astro";
       </blockquote>
     </div>
   </section>
-
 </Layout>
 
 <style>
   /* Hero section */
   .about-hero {
-    padding-block: 80px 60px;
+    padding-block: 50px 60px;
     background-color: var(--paper);
     border-bottom: 1px solid var(--border);
   }
