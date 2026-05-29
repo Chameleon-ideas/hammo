@@ -9,15 +9,18 @@ import Layout from '../layouts/Layout.astro';
       <!-- Left Column: Coordinates & Studio Details -->
       <div class="contact-details">
         <span class="text-label" style="color: var(--accent); display: block; margin-bottom: 12px;">Get in Touch</span>
-        <h1 class="display-l" id="contact-heading" style="margin-bottom: 32px;">Coastal HQ.</h1>
-        <p class="text-body" style="color: var(--ink-soft); margin-bottom: 48px; max-width: 36ch;">
+        <h1 class="display-l" id="contact-heading" style="margin-bottom: 24px;">Coastal HQ.</h1>
+        <p class="text-body" style="color: var(--ink-soft); margin-bottom: 48px; max-width: 38ch; font-size: 17px; line-height: 1.65;">
           Whether you want to query standard transit times to Western Australia or ask about custom corporate order customisations, our kitchen table is always open.
         </p>
 
         <div class="info-blocks">
           <div class="info-block">
-            <h4 class="text-label">Studio coordinates</h4>
-            <p class="text-body">
+            <div class="info-title-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <h4 class="text-label" style="margin: 0; text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px;">Studio coordinates</h4>
+            </div>
+            <p class="text-body" style="margin-top: 8px;">
               Hamo Pty Ltd<br />
               Seven Mile beach road<br />
               Gerringong, NSW 2534
@@ -25,16 +28,22 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <div class="info-block">
-            <h4 class="text-label">Customer support</h4>
-            <p class="text-body">
+            <div class="info-title-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <h4 class="text-label" style="margin: 0; text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px;">Customer support</h4>
+            </div>
+            <p class="text-body" style="margin-top: 8px;">
               <a href="mailto:hello@hamochairs.com.au" class="squiggle-link">hello@hamochairs.com.au</a><br />
-              Care hours: Mon – Fri, 9am – 5pm AEST
+              <span style="color: var(--ink-soft); font-size: 15px;">Care hours: Mon – Fri, 9am – 5pm AEST</span>
             </p>
           </div>
 
           <div class="info-block">
-            <h4 class="text-label">Social channels</h4>
-            <p class="text-body" style="display:flex; gap:16px;">
+            <div class="info-title-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              <h4 class="text-label" style="margin: 0; text-transform: uppercase; letter-spacing: 0.12em; font-size: 12px;">Social channels</h4>
+            </div>
+            <p class="text-body" style="display:flex; gap:20px; margin-top: 8px;">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="squiggle-link">Instagram</a>
               <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="squiggle-link">Pinterest</a>
             </p>
@@ -44,7 +53,7 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- Right Column: Sleek Editorial Form -->
       <div class="contact-form-wrapper">
-        <h2 class="display-m" style="margin-bottom: 36px;">Send an inquiry.</h2>
+        <h2 class="display-m" style="margin-bottom: 32px;">Send an inquiry.</h2>
         
         <form class="contact-form" id="contact-inquiry-form" aria-label="Hamo Inquiry Submission Form">
           
@@ -95,14 +104,14 @@ import Layout from '../layouts/Layout.astro';
             ></textarea>
           </div>
 
-          <div class="form-checkbox">
+          <div class="form-checkbox" style="margin-block: 24px 16px;">
             <input type="checkbox" id="contact-optin" name="optin" class="sr-only" />
             <label for="contact-optin" class="checkbox-box" tabindex="0" role="checkbox" aria-checked="false"></label>
-            <span>Subscribe to the Slow Letter for colour chapter alerts.</span>
+            <span style="font-size: 14px; user-select: none;">Subscribe to the Slow Letter for colour chapter alerts.</span>
           </div>
 
-          <div style="margin-top: 40px;">
-            <button type="submit" class="btn btn--solid" style="width: 100%; min-height: 52px;">
+          <div style="margin-top: 32px;">
+            <button type="submit" class="btn btn--solid" style="width: 100%; min-height: 52px; font-weight: 600; letter-spacing: 0.12em;">
               Submit Inquiry
             </button>
           </div>
@@ -122,7 +131,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   .contact-section {
-    padding-block: 80px 100px;
+    padding-block: 100px 120px;
     background-color: var(--paper);
   }
 
@@ -130,12 +139,13 @@ import Layout from '../layouts/Layout.astro';
     display: grid;
     grid-template-columns: 1fr;
     gap: 64px;
+    align-items: start;
   }
 
   @media (min-width: 992px) {
     .contact-grid {
       grid-template-columns: 5fr 7fr;
-      gap: 96px;
+      gap: 120px;
     }
   }
 
@@ -148,26 +158,35 @@ import Layout from '../layouts/Layout.astro';
   .info-blocks {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 40px;
     width: 100%;
   }
 
-  .info-block h4 {
-    color: var(--ink-soft);
-    margin-bottom: 12px;
+  .info-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .info-icon {
+    color: var(--accent);
+    opacity: 0.85;
+    flex-shrink: 0;
   }
 
   .info-block p {
-    color: var(--ink);
+    color: var(--ink-soft);
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   /* Simple underline link instead of squiggle */
   .squiggle-link {
+    color: var(--ink);
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
     font-weight: 500;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
   }
 
   .squiggle-link:hover {
@@ -179,6 +198,16 @@ import Layout from '../layouts/Layout.astro';
     background-color: var(--paper-soft);
     border: 1px solid var(--border);
     padding: 32px;
+    box-shadow: 0 4px 30px rgba(14, 14, 13, 0.02);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .contact-form-wrapper:hover {
+    box-shadow: 0 12px 40px rgba(14, 14, 13, 0.05);
+  }
+
+  :root.theme-dark .contact-form-wrapper:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   }
 
   @media (min-width: 768px) {
@@ -190,6 +219,38 @@ import Layout from '../layouts/Layout.astro';
   .contact-form {
     display: flex;
     flex-direction: column;
+  }
+
+  .field-group {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .field-group label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .form-control {
+    border: none;
+    border-bottom: 1.5px solid var(--border-strong);
+    background-color: transparent;
+    padding: 12px 4px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--ink);
+    width: 100%;
+    transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 0;
+  }
+
+  .form-control:focus {
+    border-bottom-color: var(--accent);
   }
 
   .select-control {
@@ -207,7 +268,7 @@ import Layout from '../layouts/Layout.astro';
 
   .text-control {
     resize: vertical;
-    min-height: 100px;
+    min-height: 120px;
   }
 
   .form-result-message {

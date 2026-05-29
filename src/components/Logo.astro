@@ -1,55 +1,18 @@
 ---
+
 ---
 
 <!--
-  Hammo Australia — Accurate SVG wordmark recreation.
-  Matches the real brand logo: Bold geometric HAMMO + horizontal rule + spaced AUSTRALIA.
-  Uses CSS var(--ink) so it automatically inverts in dark mode.
+  Hammo Australia — Brand PNG Logo.
+  Uses the official hammo-logo copy.png brand image.
 -->
 <a href="/" class="logo-link" aria-label="Hammo Australia — Back to homepage">
-  <svg
-    viewBox="0 0 200 56"
-    width="140"
-    height="40"
-    role="img"
-    aria-label="Hammo Australia"
-    xmlns="http://www.w3.org/2000/svg"
-    class="logo-svg"
-  >
-    <!-- HAMMO wordmark — bold geometric caps -->
-    <text
-      x="100"
-      y="35"
-      text-anchor="middle"
-      font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif"
-      font-weight="800"
-      font-size="33"
-      letter-spacing="0.04em"
-      fill="var(--ink)"
-    >HAMMO</text>
-
-    <!-- Horizontal rule -->
-    <line
-      x1="2"
-      y1="41"
-      x2="198"
-      y2="41"
-      stroke="var(--ink)"
-      stroke-width="1.2"
-    />
-
-    <!-- AUSTRALIA — widely spaced small caps -->
-    <text
-      x="102"
-      y="54"
-      text-anchor="middle"
-      font-family="'DM Sans', 'Helvetica Neue', Arial, sans-serif"
-      font-weight="500"
-      font-size="8.5"
-      letter-spacing="0.48em"
-      fill="var(--ink)"
-    >AUSTRALIA</text>
-  </svg>
+  <img
+    src="/images/hammo-logo copy.png"
+    alt="Hammo Australia"
+    class="logo-img"
+    loading="eager"
+  />
 </a>
 
 <style>
@@ -59,12 +22,22 @@
     text-decoration: none;
   }
 
-  .logo-svg {
+  .logo-img {
     display: block;
+    height: 130px;
+    width: auto;
+    margin-block: -29px;
     transition: opacity 0.2s ease;
   }
 
-  .logo-link:hover .logo-svg {
+  @media (max-width: 600px) {
+    .logo-img {
+      height: 100px;
+      margin-block: -18px;
+    }
+  }
+
+  .logo-link:hover .logo-img {
     opacity: 0.65;
   }
 </style>

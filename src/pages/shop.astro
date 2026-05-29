@@ -10,8 +10,8 @@ import Layout from "../layouts/Layout.astro";
         <!-- Main product image -->
         <div class="main-gallery-frame" id="main-gallery-frame">
           <img
-            src="/images/hammo-chair-shoal.jpg"
-            alt="The Hammo beach chair"
+            src="/products/hamilton-cream1.png"
+            alt="The Hammo Chair in Hamilton cream colourway"
             id="main-pdp-image"
             width="800"
             height="800"
@@ -20,17 +20,37 @@ import Layout from "../layouts/Layout.astro";
           />
         </div>
 
-        <!-- Thumbnails row -->
-        <div class="gallery-thumbs-grid">
-          <div class="thumb-card" aria-label="Burleigh — navy stripes" id="thumb-burleigh" data-img="/images/hammo-chair-burleigh.jpg">
-            <img src="/images/hammo-chair-burleigh.jpg" alt="Hammo chair Burleigh colourway — navy and white stripes" loading="lazy" />
-          </div>
-          <div class="thumb-card" aria-label="Byron — sage stripes" id="thumb-byron" data-img="/images/hammo-chair-byron.jpg">
-            <img src="/images/hammo-chair-byron.jpg" alt="Hammo chair Byron colourway — sage and white stripes" loading="lazy" />
-          </div>
-          <div class="thumb-card" aria-label="Shoal — yellow stripes" id="thumb-shoal" data-img="/images/hammo-chair-shoal.jpg">
-            <img src="/images/hammo-chair-shoal.jpg" alt="Hammo chair Shoal colourway — pastel yellow and white stripes" loading="lazy" />
-          </div>
+        <!-- 2 images for selected colour -->
+        <div class="gallery-thumbs-grid" id="gallery-thumbs-grid">
+          <button
+            type="button"
+            class="thumb-card is-active"
+            aria-label="Hamilton image 1"
+            data-thumb-index="0"
+            data-img="/products/hamilton-cream1.png"
+          >
+            <img
+              src="/products/hamilton-cream1.png"
+              alt="Hammo chair Hamilton cream image 1"
+              loading="lazy"
+              id="thumb-img-1"
+            />
+          </button>
+
+          <button
+            type="button"
+            class="thumb-card"
+            aria-label="Hamilton image 2"
+            data-thumb-index="1"
+            data-img="/products/hamilton-cream2.png"
+          >
+            <img
+              src="/products/hamilton-cream2.png"
+              alt="Hammo chair Hamilton cream image 2"
+              loading="lazy"
+              id="thumb-img-2"
+            />
+          </button>
         </div>
       </div>
 
@@ -42,15 +62,19 @@ import Layout from "../layouts/Layout.astro";
             <span
               class="text-label"
               style="color: var(--ink-soft); display: block; margin-bottom: 8px;"
-              >Model 01</span
             >
-              <h1 class="display-l" style="margin-bottom: 8px;">
+              Model 01
+            </span>
+
+            <h1 class="display-l" style="margin-bottom: 8px;">
               The Hammo Chair
             </h1>
+
             <div class="price-row">
               <span class="price-val">$249.00</span>
               <span class="price-currency text-label">AUD</span>
             </div>
+
             <p
               class="text-annotation"
               style="margin-top: 12px; color: var(--accent);"
@@ -68,28 +92,99 @@ import Layout from "../layouts/Layout.astro";
               <span
                 class="text-annotation"
                 id="selected-color-label"
-                style="font-weight: 700; color: var(--ink);">Bone Canvas</span
+                style="font-weight: 700; color: var(--ink);"
               >
+                Hamilton
+              </span>
             </div>
 
-            <div class="swatches-selector-row" role="radiogroup" aria-label="Select Hammo Chair Colourway">
-              <button class="swatch-btn is-active" data-color="hamilton" data-hex="#EDE8DC" data-name="Hamilton" data-desc="Cream and white stripes. Clean and quiet — the colour of morning light through a linen curtain." aria-label="Hamilton colourway" data-img="/images/hammo-chair-shoal.jpg">
-                <span class="swatch-inner" style="background-color: #EDE8DC;"></span>
+            <div
+              class="swatches-selector-row"
+              role="radiogroup"
+              aria-label="Select Hammo Chair Colourway"
+            >
+              <button
+                type="button"
+                class="swatch-btn is-active"
+                data-color="hamilton"
+                data-name="Hamilton"
+                data-desc="Cream and white stripes. Clean and quiet, made for slow summer mornings."
+                data-img1="/products/hamilton-cream1.png"
+                data-img2="/products/hamilton-cream2.png"
+                aria-label="Hamilton cream colourway"
+              >
+                <span class="swatch-inner" style="background-color: #EDE8DC;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="bondi" data-hex="#8B6F5C" data-name="Bondi" data-desc="Brown and white stripes. Warm and grounded — the colour of wet sand just after a wave pulls back." aria-label="Bondi colourway" data-img="/images/hammo-chair-burleigh.jpg">
-                <span class="swatch-inner" style="background-color: #8B6F5C;"></span>
+
+              <button
+                type="button"
+                class="swatch-btn"
+                data-color="bondi"
+                data-name="Bondi"
+                data-desc="Brown and white stripes. Warm and grounded, like wet sand after the tide pulls back."
+                data-img1="/products/bondi-brown1.png"
+                data-img2="/products/bondi-brown2.png"
+                aria-label="Bondi brown colourway"
+              >
+                <span class="swatch-inner" style="background-color: #8B6F5C;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="shoal" data-hex="#E8DBA8" data-name="Shoal" data-desc="Pastel yellow and white stripes. The kind of colour that makes every afternoon feel like a good one." aria-label="Shoal colourway" data-img="/images/hammo-chair-shoal.jpg">
-                <span class="swatch-inner" style="background-color: #E8DBA8;"></span>
+
+              <button
+                type="button"
+                class="swatch-btn"
+                data-color="shoal"
+                data-name="Shoal"
+                data-desc="Pastel yellow and white stripes. Soft, sunny, and made for long afternoons near the water."
+                data-img1="/products/shoal-pastel-yellow1.png"
+                data-img2="/products/shoal-pastel-yellow2.png"
+                aria-label="Shoal pastel yellow colourway"
+              >
+                <span class="swatch-inner" style="background-color: #E8DBA8;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="kira" data-hex="#C4593A" data-name="Kira" data-desc="Rust and white stripes. Deep and confident — for people who know exactly what they like." aria-label="Kira colourway" data-img="/images/hammo-chair-burleigh.jpg">
-                <span class="swatch-inner" style="background-color: #C4593A;"></span>
+
+              <button
+                type="button"
+                class="swatch-btn"
+                data-color="kira"
+                data-name="Kira"
+                data-desc="Rust and white stripes. Confident, warm, and full of coastal character."
+                data-img1="/products/kira-rust1.png"
+                data-img2="/products/kira-rust2.png"
+                aria-label="Kira rust colourway"
+              >
+                <span class="swatch-inner" style="background-color: #C4593A;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="burleigh" data-hex="#3B4A6B" data-name="Burleigh" data-desc="Indigo and white stripes. The colour of the ocean just before it gets dark." aria-label="Burleigh colourway" data-img="/images/hammo-chair-burleigh.jpg">
-                <span class="swatch-inner" style="background-color: #3B4A6B;"></span>
+
+              <button
+                type="button"
+                class="swatch-btn"
+                data-color="burleigh"
+                data-name="Burleigh"
+                data-desc="Indigo and white stripes. Deep, crisp, and inspired by the ocean before dusk."
+                data-img1="/products/burleigh-indigo1.png"
+                data-img2="/products/burleigh-indigo2.png"
+                aria-label="Burleigh indigo colourway"
+              >
+                <span class="swatch-inner" style="background-color: #263B63;"
+                ></span>
               </button>
-              <button class="swatch-btn" data-color="byron" data-hex="#7A9B7A" data-name="Byron" data-desc="Sage and white stripes. Easy and muted — the colour of the bush behind the beach." aria-label="Byron colourway" data-img="/images/hammo-chair-byron.jpg">
-                <span class="swatch-inner" style="background-color: #7A9B7A;"></span>
+
+              <button
+                type="button"
+                class="swatch-btn"
+                data-color="byron"
+                data-name="Byron"
+                data-desc="Sage and white stripes. Easy, muted, and inspired by the bush behind the beach."
+                data-img1="/products/byron-sage1.png"
+                data-img2="/products/byron-sage2.png"
+                aria-label="Byron sage colourway"
+              >
+                <span class="swatch-inner" style="background-color: #7A927A;"
+                ></span>
               </button>
             </div>
 
@@ -98,7 +193,8 @@ import Layout from "../layouts/Layout.astro";
               id="selected-color-desc"
               style="color: var(--ink-soft); font-size:14px; margin-top:14px; font-style:italic;"
             >
-              Soft salt-brushed ivory inspired by bleached shoreline shells.
+              Cream and white stripes. Clean and quiet, made for slow summer
+              mornings.
             </p>
           </div>
 
@@ -127,7 +223,8 @@ import Layout from "../layouts/Layout.astro";
                   stroke="currentColor"
                   stroke-width="2"
                   class="arrow-icon"
-                  ><polyline points="6 9 12 15 18 9"></polyline>
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </summary>
               <div class="accordion-content text-body">
@@ -152,7 +249,8 @@ import Layout from "../layouts/Layout.astro";
                   stroke="currentColor"
                   stroke-width="2"
                   class="arrow-icon"
-                  ><polyline points="6 9 12 15 18 9"></polyline>
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </summary>
               <div class="accordion-content text-body">
@@ -177,13 +275,14 @@ import Layout from "../layouts/Layout.astro";
                   stroke="currentColor"
                   stroke-width="2"
                   class="arrow-icon"
-                  ><polyline points="6 9 12 15 18 9"></polyline>
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </summary>
               <div class="accordion-content text-body">
                 <p>
                   Standard domestic shipping is completely free across
-                  Australia. If your Hamo chair doesn't elevate your coastal
+                  Australia. If your Hammo chair doesn't elevate your coastal
                   experience within 30 days, we'll arrange a return shipment for
                   a full, unconditioned refund.
                 </p>
@@ -197,17 +296,39 @@ import Layout from "../layouts/Layout.astro";
 
   <!-- Technical Spec Sheet (Table layout) -->
   <section class="specs-section" aria-label="Technical Specification Details">
-    <div class="container" style="max-width: 960px;">
-      <div style="margin-bottom: 40px;">
+    <div class="container specs-grid">
+      <div class="specs-header">
         <span class="text-label" style="color: var(--ink-soft);"
           >No shortcuts</span
         >
-        <h2
-          class="display-m"
-          style="margin-top: 8px; text-transform: lowercase;"
-        >
+        <h2 class="display-l" style="margin-top: 12px;  line-height: 1.1;">
           Hammo engineering blueprints.
         </h2>
+        <p
+          class="text-body"
+          style="color: var(--ink-soft); margin-top: 20px; font-size: 16px; max-width: 32ch; line-height: 1.6;"
+        >
+          An ultra-light profile meticulously refined through three cycles of
+          physical prototyping along the South Coast.
+        </p>
+        <div class="specs-badge">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path
+              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+            ></path><path d="m9 12 2 2 4-4"></path></svg
+          >
+          Gerringong Built
+        </div>
       </div>
 
       <table
@@ -258,36 +379,83 @@ import Layout from "../layouts/Layout.astro";
   <section class="reassurances-section" aria-label="Purchase Assurances">
     <div class="container assurance-grid">
       <div class="assurance-card">
-        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="assurance-icon"
+          ><path d="M14 18H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v10"
+          ></path><polygon points="14 18 14 14 19 14 19 18 14 18"
+          ></polygon><circle cx="7.5" cy="18.5" r="2.5"></circle><circle
+            cx="16.5"
+            cy="18.5"
+            r="2.5"></circle></svg
+        >
+        <h3 class="display-m" style="font-size: 20px; font-weight: 500;">
           Free AU Shipping
         </h3>
         <p
           class="text-body"
-          style="font-size: 15px; color: var(--ink-soft); margin: 0;"
+          style="font-size: 15px; color: var(--ink-soft); margin: 0; line-height: 1.6;"
         >
           Ships directly out of the NSW coast with fully tracked carbon-neutral
           standard couriers.
         </p>
       </div>
       <div class="assurance-card">
-        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="assurance-icon"
+          ><path
+            d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.8 17 5 19 5a1 1 0 0 1 1 1z"
+          ></path><path d="m9 12 2 2 4-4"></path></svg
+        >
+        <h3 class="display-m" style="font-size: 20px; font-weight: 500;">
           30-Day Coastal Trial
         </h3>
         <p
           class="text-body"
-          style="font-size: 15px; color: var(--ink-soft); margin: 0;"
+          style="font-size: 15px; color: var(--ink-soft); margin: 0; line-height: 1.6;"
         >
           Take it down Seven Mile or Werri. If you don't love the lightness,
           send it back for a full refund.
         </p>
       </div>
       <div class="assurance-card">
-        <h3 class="display-m" style="font-size: 20px; margin-bottom: 12px;">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="assurance-icon"
+          ><circle cx="12" cy="8" r="7"></circle><path
+            d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"></path></svg
+        >
+        <h3 class="display-m" style="font-size: 20px; font-weight: 500;">
           Built to Last
         </h3>
         <p
           class="text-body"
-          style="font-size: 15px; color: var(--ink-soft); margin: 0;"
+          style="font-size: 15px; color: var(--ink-soft); margin: 0; line-height: 1.6;"
         >
           Supported by a full 2-year warranty covering frame structural failure
           and fabric seams.
@@ -311,8 +479,8 @@ import Layout from "../layouts/Layout.astro";
 
   @media (min-width: 992px) {
     .pdp-grid {
-      grid-template-columns: 1.2fr 1fr;
-      gap: 80px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
     }
   }
 
@@ -320,7 +488,7 @@ import Layout from "../layouts/Layout.astro";
   .pdp-gallery {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
   }
 
   .main-gallery-frame {
@@ -339,18 +507,24 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .gallery-thumbs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    display: flex;
+    gap: 12px;
   }
 
   .thumb-card {
+    appearance: none;
     border: 1px solid var(--border);
     background-color: var(--paper-soft);
     overflow: hidden;
     cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
     aspect-ratio: 1;
+    padding: 0;
+    width: 90px;
+    flex-shrink: 0;
   }
 
   .thumb-card img {
@@ -364,58 +538,43 @@ import Layout from "../layouts/Layout.astro";
   .thumb-card:hover,
   .thumb-card.is-active {
     border-color: var(--ink);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(14, 14, 13, 0.08);
   }
 
-  /* Right sticky column */
-  .details-sticky-wrapper {
-    position: sticky;
-    top: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  .swatch-btn {
+    appearance: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    padding: 4px;
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
-  .pdp-header {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 24px;
+  .swatch-btn:hover,
+  .swatch-btn.is-active {
+    border-color: var(--ink);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(14, 14, 13, 0.08);
   }
 
-  .price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-top: 8px;
-  }
-
-  .price-val {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(28px, 4vw, 40px);
-    color: var(--ink);
-    letter-spacing: -0.02em;
-    font-weight: 400;
-  }
-
-  .pdp-configurator {
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 24px;
-  }
-
-  .swatches-selector-row {
-    display: flex;
-    gap: 12px;
-  }
-
-  .pdp-add-to-cart-btn {
+  .swatch-inner {
+    display: block;
     width: 100%;
-    min-height: 52px;
-    font-size: 14px;
+    height: 100%;
+    border-radius: inherit;
+    border: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  /* Semantic details Accordions */
+  /* Expandable Technical Accordions */
   .pdp-accordions {
-    display: flex;
-    flex-direction: column;
+    margin-top: 40px;
     border-top: 1px solid var(--border);
   }
 
@@ -424,21 +583,29 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .accordion-title {
-    padding-block: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-block: 20px;
     cursor: pointer;
     user-select: none;
-    font-weight: 500;
+    color: var(--ink);
+    transition: color 0.2s ease;
+    list-style: none; /* Hide default triangle */
   }
 
   .accordion-title::-webkit-details-marker {
-    display: none;
+    display: none; /* Hide default triangle in WebKit */
+  }
+
+  .accordion-title:hover {
+    color: var(--accent);
   }
 
   .arrow-icon {
-    transition: transform 0.2s ease;
+    transition: transform 0.25s ease;
+    color: var(--ink-soft);
+    flex-shrink: 0;
   }
 
   .accordion-item[open] .arrow-icon {
@@ -446,16 +613,56 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .accordion-content {
-    padding-bottom: 20px;
+    padding-bottom: 24px;
     color: var(--ink-soft);
     font-size: 15px;
+    line-height: 1.65;
   }
 
-  /* Specs table */
+  .accordion-content p {
+    margin: 0;
+  }
+
+  /* Specs Section Styling */
   .specs-section {
-    padding-block: 80px;
-    border-top: 1px solid var(--border);
+    padding-block: 100px;
     background-color: var(--paper-soft);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (min-width: 992px) {
+    .specs-grid {
+      grid-template-columns: 5fr 7fr;
+      gap: 96px;
+    }
+  }
+
+  .specs-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .specs-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--border-strong);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 24px;
+    font-weight: 600;
   }
 
   .specs-table {
@@ -465,117 +672,196 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .specs-table th {
-    border-bottom: 1px solid var(--ink);
     padding-bottom: 16px;
-    color: var(--ink-soft);
+    border-bottom: 2px solid var(--ink);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 12px;
   }
 
   .specs-table td {
-    padding-block: 16px;
+    padding-block: 18px;
     border-bottom: 1px solid var(--border);
     font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .specs-table td:first-child {
+    font-weight: 500;
+    color: var(--ink);
+    width: 35%;
   }
 
   .specs-table tr:hover td {
-    color: var(--accent);
+    color: var(--ink);
+    border-bottom-color: var(--border-strong);
   }
 
-  /* Reassurance grid */
+  /* Reassurances Section Styling */
   .reassurances-section {
     padding-block: 80px;
-    border-top: 1px solid var(--border);
     background-color: var(--paper);
   }
 
   .assurance-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
   }
 
   @media (min-width: 768px) {
     .assurance-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
     }
   }
 
   .assurance-card {
-    background-color: var(--paper-soft);
-    border: 1px solid var(--border);
-    padding: 32px;
-    transition: box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    position: relative;
   }
 
-  .assurance-card:hover {
-    box-shadow: 0 4px 24px rgba(14, 14, 13, 0.08);
+  @media (min-width: 768px) {
+    .assurance-card:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -24px;
+      width: 1px;
+      height: 100%;
+      background-color: var(--border);
+    }
+  }
+
+  .assurance-icon {
+    color: var(--accent);
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+
+  .assurance-card h3 {
+    margin-bottom: 8px;
+    color: var(--ink);
   }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const swatches = document.querySelectorAll<HTMLButtonElement>(".swatch-btn[data-color]");
+    const swatches = document.querySelectorAll<HTMLButtonElement>(
+      ".swatch-btn[data-color]",
+    );
+
     const colorLabel = document.getElementById("selected-color-label");
     const colorDesc = document.getElementById("selected-color-desc");
     const pdpAddBtn = document.getElementById("pdp-add-btn");
-    const mainImage = document.getElementById("main-pdp-image") as HTMLImageElement | null;
-    const thumbCards = document.querySelectorAll<HTMLElement>(".thumb-card[data-img]");
+
+    const mainImage = document.getElementById(
+      "main-pdp-image",
+    ) as HTMLImageElement | null;
+
+    const thumbCards = document.querySelectorAll<HTMLButtonElement>(
+      ".thumb-card[data-thumb-index]",
+    );
+
+    const thumbImg1 = document.getElementById(
+      "thumb-img-1",
+    ) as HTMLImageElement | null;
+
+    const thumbImg2 = document.getElementById(
+      "thumb-img-2",
+    ) as HTMLImageElement | null;
 
     let activeColor = "hamilton";
     let activeColorName = "Hamilton";
-    let activeHex = "#EDE8DC";
+    let activeImages = [
+      "/products/hamilton-cream1.png",
+      "/products/hamilton-cream2.png",
+    ];
 
-    // --- Thumbnail click: swap main image ---
+    function updateMainImage(src: string, alt: string) {
+      if (!mainImage) return;
+
+      mainImage.style.opacity = "0";
+
+      setTimeout(() => {
+        mainImage.src = src;
+        mainImage.alt = alt;
+        mainImage.style.opacity = "1";
+      }, 150);
+    }
+
+    function updateThumbs(name: string, img1: string, img2: string) {
+      if (thumbImg1) {
+        thumbImg1.src = img1;
+        thumbImg1.alt = `Hammo chair ${name} image 1`;
+      }
+
+      if (thumbImg2) {
+        thumbImg2.src = img2;
+        thumbImg2.alt = `Hammo chair ${name} image 2`;
+      }
+
+      thumbCards.forEach((thumb) => {
+        const index = Number(thumb.dataset.thumbIndex || 0);
+        const image = index === 0 ? img1 : img2;
+
+        thumb.dataset.img = image;
+        thumb.setAttribute("aria-label", `${name} image ${index + 1}`);
+        thumb.classList.toggle("is-active", index === 0);
+      });
+    }
+
+    // Thumbnail click: swap main image between selected colour's 2 images
     thumbCards.forEach((thumb) => {
       thumb.addEventListener("click", () => {
         const img = thumb.dataset.img;
-        if (img && mainImage) {
-          mainImage.style.opacity = "0";
-          setTimeout(() => {
-            mainImage.src = img;
-            mainImage.style.opacity = "1";
-          }, 150);
+        const index = Number(thumb.dataset.thumbIndex || 0);
+
+        if (img) {
+          updateMainImage(
+            img,
+            `The Hammo Chair in ${activeColorName} colourway image ${index + 1}`,
+          );
         }
+
         thumbCards.forEach((t) => t.classList.remove("is-active"));
         thumb.classList.add("is-active");
       });
     });
 
-    // --- Swatch click: update label, desc, main image ---
+    // Swatch click: update colour, main image, thumbnails, label, desc
     swatches.forEach((swatch) => {
       swatch.addEventListener("click", () => {
         swatches.forEach((s) => s.classList.remove("is-active"));
         swatch.classList.add("is-active");
 
         const color = swatch.dataset.color || "hamilton";
-        const hex   = swatch.dataset.hex   || "#EDE8DC";
-        const name  = swatch.dataset.name  || "Hamilton";
-        const desc  = swatch.dataset.desc  || "";
-        const img   = swatch.dataset.img   || "/images/hammo-chair-shoal.jpg";
+        const name = swatch.dataset.name || "Hamilton";
+        const desc = swatch.dataset.desc || "";
+        const img1 = swatch.dataset.img1 || "/products/hamilton-cream1.png";
+        const img2 = swatch.dataset.img2 || "/products/hamilton-cream2.png";
 
         activeColor = color;
         activeColorName = name;
-        activeHex = hex;
+        activeImages = [img1, img2];
 
         if (colorLabel) colorLabel.textContent = name;
         if (colorDesc) colorDesc.textContent = desc;
 
-        // Swap main image to matching colourway
-        if (mainImage) {
-          mainImage.style.opacity = "0";
-          setTimeout(() => {
-            mainImage.src = img;
-            mainImage.alt = `The Hammo Chair in ${name} colourway`;
-            mainImage.style.opacity = "1";
-          }, 150);
-        }
+        updateMainImage(img1, `The Hammo Chair in ${name} colourway`);
+        updateThumbs(name, img1, img2);
       });
     });
 
-    // --- Add to cart ---
+    // Add to cart
     if (pdpAddBtn) {
       pdpAddBtn.addEventListener("click", () => {
         const hState = (window as any).HamoCart;
+
         if (hState) {
           hState.addItem(
             `hammo-chair-${activeColor}`,
@@ -583,8 +869,9 @@ import Layout from "../layouts/Layout.astro";
             activeColor,
             activeColorName,
             249,
-            ""
+            activeImages[0],
           );
+
           window.dispatchEvent(new CustomEvent("hamo-cart-open"));
         }
       });
