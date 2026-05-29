@@ -3,359 +3,436 @@ import Logo from "./Logo.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<header class="site-header">
-  <div class="header-container">
-    <!-- Mobile Menu Toggle Button (Touch target 48x48px) -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <!-- Brand Logo — flush left (link is inside Logo.astro) -->
+    <div class="brand-link">
+      <Logo />
+    </div>
+
+    <!-- Header Right: Theme + Cart + MENU -->
+    <div class="header-actions">
+      <!-- <ThemeToggle /> -->
+
+      <!-- Cart trigger -->
+      <button
+        type="button"
+        class="cart-trigger text-nav"
+        id="cart-trigger"
+        aria-label="Open shopping cart"
+      >
+        Cart
+        <span class="cart-badge" id="header-cart-count">0</span>
+      </button>
+
+      <!-- MENU toggle — Rigas style -->
+      <button
+        type="button"
+        class="menu-trigger"
+        id="menu-trigger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <span class="menu-label text-nav" id="menu-label">Menu</span>
+        <span class="menu-dot" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Full-screen navigation overlay -->
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+  <div class="nav-overlay-inner">
+    <!-- Close button -->
     <button
       type="button"
-      class="mobile-menu-toggle md:hidden"
-      aria-label="Toggle Navigation Menu"
-      aria-expanded="false"
-      id="mobile-nav-toggle"
+      class="nav-close text-nav"
+      id="nav-close"
+      aria-label="Close navigation"
     >
+      Close
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="1.75"
-        class="icon-menu"
-      >
-        <line x1="4" y1="12" x2="20" y2="12"></line>
-        <line x1="4" y1="6" x2="20" y2="6"></line>
-        <line x1="4" y1="18" x2="20" y2="18"></line>
-      </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.75"
-        class="icon-close hidden"
+        stroke-width="1.5"
+        aria-hidden="true"
       >
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
 
-    <!-- Desktop Navigation Links (Left side) -->
-    <nav
-      class="desktop-nav left-nav hidden md:flex"
-      aria-label="Desktop Primary Navigation"
-    >
-      <a href="/shop" class="nav-link text-nav">Shop</a>
-      <a href="/about" class="nav-link text-nav">About</a>
-      <a href="/contact" class="nav-link text-nav">Contact</a>
+    <!-- Primary nav links -->
+    <nav class="overlay-nav" aria-label="Primary navigation">
+      <a href="/shop" class="overlay-link" data-index="0">
+        <span class="overlay-link-num text-label">01</span>
+        Shop the Chair
+      </a>
+      <a href="/about" class="overlay-link" data-index="1">
+        <span class="overlay-link-num text-label">02</span>
+        Our Story
+      </a>
+      <a href="/contact" class="overlay-link" data-index="2">
+        <span class="overlay-link-num text-label">03</span>
+        Get in Touch
+      </a>
     </nav>
 
-    <!-- Brand Custom SVG Logo (Centered) -->
-    <a href="/" class="brand-link" aria-label="Hamo Home Page">
-      <Logo width={160} height={48} />
-    </a>
-
-    <!-- Action Tools (Right side) -->
-    <div class="action-tools">
-      <!-- Theme toggle using ThemeToggle component -->
-      <ThemeToggle />
-
-      <!-- Cart Drawer Trigger Button -->
-      <button
-        type="button"
-        class="cart-trigger-btn text-nav"
-        id="cart-trigger"
-        aria-label="Open Shopping Cart"
-      >
-        <span>Cart</span>
-        <span class="cart-count-badge" id="header-cart-count">0</span>
-      </button>
+    <!-- Footer of the overlay panel -->
+    <div class="overlay-footer">
+      <p class="text-label" style="color: var(--ink-mute);">
+        Brisbane, QLD &mdash; Australia
+      </p>
+      <div class="overlay-social">
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="overlay-social-link text-nav">Instagram</a
+        >
+        <a
+          href="https://pinterest.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="overlay-social-link text-nav">Pinterest</a
+        >
+      </div>
     </div>
   </div>
-
-  <!-- Mobile Dropdown Navigation Menu Overlay -->
-  <div class="mobile-nav-overlay hidden" id="mobile-nav-panel">
-    <nav class="mobile-nav" aria-label="Mobile Navigation Menu">
-      <a href="/shop" class="mobile-nav-link display-m">Shop the Chair</a>
-      <a href="/about" class="mobile-nav-link display-m">Our Story</a>
-      <a href="/contact" class="mobile-nav-link display-m">Get in Touch</a>
-    </nav>
-  </div>
-</header>
+</div>
 
 <style>
+  /* ----------------------------------------
+     Site Header
+     ---------------------------------------- */
   .site-header {
-    background-color: var(--paper-soft);
-    border-bottom: 1.5px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 900;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: var(--paper);
+    border-bottom: 1px solid transparent;
+    transition:
+      background-color 0.35s ease,
+      border-color 0.35s ease;
   }
 
-  .header-container {
+  .site-header.is-scrolled {
+    border-bottom-color: var(--border);
+  }
+
+  .header-inner {
     max-width: var(--site-width);
     margin-inline: auto;
-    padding-inline: 24px;
-    height: 80px;
+    padding-inline: 32px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
   }
 
-  /* Desktop Navigation Links */
-  .desktop-nav {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-    width: 250px; /* Force visual balance across logo */
+  @media (max-width: 600px) {
+    .header-inner {
+      padding-inline: 20px;
+      height: 64px;
+    }
   }
 
-  .nav-link {
-    color: var(--ink-soft);
-    position: relative;
-    padding-block: 5px;
-  }
-
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1.5px;
-    background-color: var(--accent);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.2s ease;
-  }
-
-  .nav-link:hover {
-    color: var(--ink);
-  }
-
-  .nav-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
+  /* Brand link */
   .brand-link {
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-
-  /* Action Tools */
-  .action-tools {
     display: flex;
     align-items: center;
-    gap: 20px;
-    justify-content: flex-end;
-    width: 250px; /* Balance left nav container */
+    flex-shrink: 0;
   }
 
-  .theme-toggle-btn {
-    width: 44px;
-    height: 44px;
-    display: inline-flex;
+  /* Header right actions */
+  .header-actions {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    cursor: pointer;
-    color: var(--ink-soft);
-    border: 1.5px solid transparent;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    gap: 28px;
   }
 
-  .theme-toggle-btn:hover {
-    color: var(--ink);
-    border-color: var(--border);
+  @media (max-width: 480px) {
+    .header-actions {
+      gap: 16px;
+    }
   }
 
-  /* Icon theme visibility hooks */
-  .icon-sun {
-    display: none;
-  }
-  .icon-moon {
-    display: block;
-  }
-
-  :root.theme-dark .icon-sun {
-    display: block;
-  }
-  :root.theme-dark .icon-moon {
-    display: none;
-  }
-
-  .cart-trigger-btn {
+  /* Cart trigger */
+  .cart-trigger {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    color: var(--ink-soft);
     min-height: 44px;
-    padding-inline: 12px;
-    border: 1.5px solid var(--border);
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+
+  .cart-trigger:hover {
     color: var(--ink);
-    transition: border-color 0.2s ease, background-color 0.2s ease;
   }
 
-  .cart-trigger-btn:hover {
-    border-color: var(--ink);
-    background-color: var(--paper-dark);
-  }
-
-  .cart-count-badge {
-    min-width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background-color: var(--accent);
-    color: var(--paper);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 700;
+  .cart-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding-inline: 4px;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: var(--accent-text);
+    font-size: 11px;
+    font-weight: 600;
+    padding-inline: 3px;
     transition: background-color 0.2s ease;
   }
 
-  .cart-trigger-btn:hover .cart-count-badge {
-    background-color: var(--ink);
-  }
-
-  /* Mobile Menus */
-  .mobile-menu-toggle {
-    width: 48px;
-    height: 48px;
-    display: inline-flex;
+  /* MENU trigger — Rigas style */
+  .menu-trigger {
+    display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 12px;
     cursor: pointer;
     color: var(--ink);
-    border: 1.5px solid var(--border);
-    transition: border-color 0.2s ease;
+    min-height: 44px;
+    padding: 0;
+    background: none;
+    border: none;
+    transition: color 0.2s ease;
   }
 
-  .mobile-menu-toggle:hover {
-    border-color: var(--ink);
+  .menu-label {
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    transition: color 0.2s ease;
   }
 
-  .hidden {
-    display: none !important;
+  .menu-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
   }
 
-  @media (min-width: 768px) {
-    .md\:flex {
-      display: flex !important;
-    }
-    .md\:hidden {
-      display: none !important;
-    }
+  .menu-trigger:hover .menu-dot {
+    transform: scale(1.4);
   }
 
-  /* Mobile Navigation Dropdown */
-  .mobile-nav-overlay {
+  /* ----------------------------------------
+     Full-Screen Navigation Overlay
+     ---------------------------------------- */
+  .nav-overlay {
     position: fixed;
-    top: 81px; /* Just below header */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--paper-soft);
-    z-index: 850;
-    padding: 48px 24px;
-    display: block;
-    overflow-y: auto;
-  }
-
-  .mobile-nav {
+    inset: 0;
+    z-index: 950;
+    background-color: var(--paper);
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .mobile-nav-link {
+  .nav-overlay.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-overlay-inner {
+    max-width: var(--site-width);
+    margin-inline: auto;
+    padding-inline: 32px;
+    padding-block: 28px 48px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .nav-overlay-inner {
+      padding-inline: 20px;
+    }
+  }
+
+  /* Close button */
+  .nav-close {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--ink-soft);
+    height: 44px;
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+
+  .nav-close:hover {
     color: var(--ink);
-    font-weight: 300;
-    border-bottom: 1.5px solid var(--border);
-    padding-bottom: 16px;
   }
 
-  .mobile-nav-link:hover {
+  /* Primary nav links — editorial large type */
+  .overlay-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    gap: 12px;
+    padding-block: 32px;
+  }
+
+  .overlay-link {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    font-family: var(--font-display);
+    font-size: clamp(40px, 7vw, 88px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    border-bottom: 1px solid var(--border);
+    padding-block: 20px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition:
+      color 0.2s ease,
+      transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.45s ease;
+  }
+
+  .nav-overlay.is-open .overlay-link {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-overlay.is-open .overlay-link[data-index="0"] {
+    transition-delay: 0.05s;
+  }
+  .nav-overlay.is-open .overlay-link[data-index="1"] {
+    transition-delay: 0.1s;
+  }
+  .nav-overlay.is-open .overlay-link[data-index="2"] {
+    transition-delay: 0.15s;
+  }
+
+  .overlay-link:hover {
     color: var(--accent);
-    border-color: var(--accent);
+  }
+
+  .overlay-link-num {
+    color: var(--ink-mute);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 0.14em;
+    flex-shrink: 0;
+    margin-bottom: 6px;
+  }
+
+  /* Overlay footer */
+  .overlay-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 32px;
+    /* border-top: 1px solid var(--border); */
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .overlay-social {
+    display: flex;
+    gap: 24px;
+  }
+
+  .overlay-social-link {
+    color: var(--ink-mute);
+    transition: color 0.2s ease;
+  }
+
+  .overlay-social-link:hover {
+    color: var(--ink);
   }
 </style>
 
 <script>
-  // Dynamic client-side interactions
   document.addEventListener("DOMContentLoaded", () => {
-    // 1. Theme Toggle Mechanic
-    const themeToggle = document.getElementById("theme-toggler");
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => {
-        const isDark =
-          document.documentElement.classList.contains("theme-dark");
-        if (isDark) {
-          document.documentElement.classList.remove("theme-dark");
-          localStorage.setItem("hamo-theme", "light");
-        } else {
-          document.documentElement.classList.add("theme-dark");
-          localStorage.setItem("hamo-theme", "dark");
-        }
-      });
-    }
-
-    // 2. Mobile Menu Toggle
-    const mobileToggle = document.getElementById("mobile-nav-toggle");
-    const mobilePanel = document.getElementById("mobile-nav-panel");
-    if (mobileToggle && mobilePanel) {
-      const iconMenu = mobileToggle.querySelector(".icon-menu");
-      const iconClose = mobileToggle.querySelector(".icon-close");
-
-      mobileToggle.addEventListener("click", () => {
-        const expanded = mobileToggle.getAttribute("aria-expanded") === "true";
-        mobileToggle.setAttribute("aria-expanded", String(!expanded));
-
-        if (expanded) {
-          mobilePanel.classList.add("hidden");
-          iconMenu?.classList.remove("hidden");
-          iconClose?.classList.add("hidden");
-          document.body.style.overflow = "";
-        } else {
-          mobilePanel.classList.remove("hidden");
-          iconMenu?.classList.add("hidden");
-          iconClose?.classList.remove("hidden");
-          document.body.style.overflow = "hidden"; // Lock background scroll
-        }
-      });
-    }
-
-    // 3. Cart Trigger Integration
+    const header = document.getElementById("site-header");
+    const menuTrigger = document.getElementById("menu-trigger");
+    const navOverlay = document.getElementById("nav-overlay");
+    const navClose = document.getElementById("nav-close");
+    const menuLabel = document.getElementById("menu-label");
     const cartTrigger = document.getElementById("cart-trigger");
-    if (cartTrigger) {
-      cartTrigger.addEventListener("click", () => {
-        // Dispatch open event to CartDrawer component
-        window.dispatchEvent(new CustomEvent("hamo-cart-open"));
-      });
-    }
 
-    // 4. Update Header Cart Count dynamically
-    const updateHeaderCount = () => {
-      const countEl = document.getElementById("header-cart-count");
-      if (countEl && (window as any).HamoCart) {
-        countEl.textContent = String((window as any).HamoCart.getCount());
+    // --- Scroll-aware header border ---
+    const onScroll = () => {
+      if (!header) return;
+      if (window.scrollY > 80) {
+        header.classList.add("is-scrolled");
+      } else {
+        header.classList.remove("is-scrolled");
       }
     };
+    window.addEventListener("scroll", onScroll, { passive: true });
 
-    window.addEventListener("hamo-cart-updated", updateHeaderCount);
+    // --- MENU open/close ---
+    const openMenu = () => {
+      if (!navOverlay || !menuTrigger || !menuLabel) return;
+      navOverlay.classList.add("is-open");
+      navOverlay.setAttribute("aria-hidden", "false");
+      menuTrigger.setAttribute("aria-expanded", "true");
+      menuLabel.textContent = "Close";
+      document.body.style.overflow = "hidden";
+    };
 
-    // Initial load sync after HamoCart exists
-    setTimeout(updateHeaderCount, 100);
+    const closeMenu = () => {
+      if (!navOverlay || !menuTrigger || !menuLabel) return;
+      navOverlay.classList.remove("is-open");
+      navOverlay.setAttribute("aria-hidden", "true");
+      menuTrigger.setAttribute("aria-expanded", "false");
+      menuLabel.textContent = "Menu";
+      document.body.style.overflow = "";
+    };
+
+    menuTrigger?.addEventListener("click", () => {
+      const isOpen = navOverlay?.classList.contains("is-open");
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    navClose?.addEventListener("click", closeMenu);
+
+    // Close on overlay link click
+    navOverlay?.querySelectorAll(".overlay-link").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // --- Cart trigger ---
+    cartTrigger?.addEventListener("click", () => {
+      window.dispatchEvent(new CustomEvent("hamo-cart-open"));
+    });
+
+    // --- Cart count sync ---
+    const updateCount = () => {
+      const el = document.getElementById("header-cart-count");
+      if (el && (window as any).HamoCart) {
+        el.textContent = String((window as any).HamoCart.getCount());
+      }
+    };
+    window.addEventListener("hamo-cart-updated", updateCount);
+    setTimeout(updateCount, 100);
   });
 </script>

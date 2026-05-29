@@ -12,11 +12,11 @@ interface Props {
 
 const { 
   title, 
-  description = "Hamo — A premium foldable beach chair built for the Australian coastal lifestyle. Single product, five colourways, designed in Gerringong, NSW.",
+  description = "Hammo Australia — A foldable beach chair designed by Nat and Marc from Brisbane, QLD. One product, six colours, no shortcuts. Made for the kind of Australian summer that asks nothing of you besides showing up.",
   ogImage = "/images/share-preview.jpg"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://hamo.com.au");
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://hammoaustralia.com.au");
 ---
 
 <!doctype html>
@@ -30,18 +30,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://hamo.com
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
 
-    <title>{title} · Hamo Australia</title>
+    <title>{title} · Hammo Australia</title>
     <meta name="description" content={description} />
 
     <!-- Open Graph Metadata -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={`${title} · Hamo`} />
+    <meta property="og:title" content={`${title} · Hammo`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, canonicalURL.origin)} />
 
     <!-- Keyboard & Accessibility Navigation -->
-    <a href="#main-content" class="sr-only focus:not-sr-only" style="position: absolute; top: 12px; left: 12px; background: var(--accent); color: var(--paper); padding: 10px 16px; z-index: 99999; border: 1.5px solid var(--ink); text-transform: uppercase; font-family: var(--font-mono); font-size: 12px;">
+    <a href="#main-content" class="sr-only focus:not-sr-only" style="position: absolute; top: 12px; left: 12px; background: var(--accent); color: var(--accent-text); padding: 10px 16px; z-index: 99999; border: 1px solid var(--ink); text-transform: uppercase; font-family: var(--font-body); font-size: 12px; letter-spacing: 0.1em;">
       Skip to content
     </a>
 

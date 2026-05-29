@@ -1,73 +1,210 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Checkout — Hamo Australia">
+<Layout title="Checkout — Hammo Australia">
   <section class="checkout-section" aria-labelledby="checkout-heading">
     <div class="container checkout-grid">
-      <h1 class="display-l" id="checkout-heading" style="margin-bottom: 48px; text-transform: lowercase;">Complete your purchase</h1>
+      <h1 class="display-l" id="checkout-heading" style="margin-bottom: 24px;">
+        Complete your purchase
+      </h1>
 
-      <!-- STEP 1 – Contact -->
-      <details open class="checkout-step" id="step-contact">
-        <summary class="step-title text-label">
-          01 / Contact details
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="step-content">
-          <form class="checkout-form" id="checkout-contact-form" aria-label="Contact information form">
+      <!-- Elegant Checkout Progress Tabs -->
+      <div class="checkout-tabs" role="tablist">
+        <button
+          class="checkout-tab-btn active"
+          id="tab-btn-contact"
+          role="tab"
+          aria-selected="true"
+          aria-controls="step-contact"
+          tabindex="0"
+        >
+          <span class="tab-num">01</span>
+          <span class="tab-label-text">Contact</span>
+        </button>
+        <button
+          class="checkout-tab-btn"
+          id="tab-btn-shipping"
+          role="tab"
+          aria-selected="false"
+          aria-controls="step-shipping"
+          tabindex="-1"
+          disabled
+        >
+          <span class="tab-num">02</span>
+          <span class="tab-label-text">Shipping</span>
+        </button>
+        <button
+          class="checkout-tab-btn"
+          id="tab-btn-payment"
+          role="tab"
+          aria-selected="false"
+          aria-controls="step-payment"
+          tabindex="-1"
+          disabled
+        >
+          <span class="tab-num">03</span>
+          <span class="tab-label-text">Payment</span>
+        </button>
+      </div>
+
+      <!-- Tabbed Panel Form Container -->
+      <div class="checkout-form-container">
+        <!-- STEP 1 – Contact Details -->
+        <div
+          class="checkout-panel active"
+          id="step-contact"
+          role="tabpanel"
+          aria-labelledby="tab-btn-contact"
+        >
+          <div class="panel-header">
+            <h2 class="display-m" style="margin-bottom: 24px; font-size: 24px;">
+              Contact details
+            </h2>
+          </div>
+          <form
+            class="checkout-form"
+            id="checkout-contact-form"
+            aria-label="Contact information form"
+          >
             <div class="field-group">
               <label for="checkout-email">Email address</label>
-              <input type="email" id="checkout-email" name="email" placeholder="you@domain.com" required class="form-control" />
+              <input
+                type="email"
+                id="checkout-email"
+                name="email"
+                placeholder="you@domain.com"
+                required
+                class="form-control"
+              />
             </div>
             <div class="field-group">
               <label for="checkout-name">Full name</label>
-              <input type="text" id="checkout-name" name="name" placeholder="Natalie Pat" required class="form-control" />
+              <input
+                type="text"
+                id="checkout-name"
+                name="name"
+                placeholder="Natalie Pat"
+                required
+                class="form-control"
+              />
             </div>
-            <div class="field-group">
-              <input type="checkbox" id="checkout-newsletter" name="newsletter" class="sr-only" />
-              <label for="checkout-newsletter" class="checkbox-box" tabindex="0" role="checkbox" aria-checked="false">Subscribe to the Slow Letter</label>
+            <div class="form-checkbox">
+              <input
+                type="checkbox"
+                id="checkout-newsletter"
+                name="newsletter"
+                class="sr-only"
+              />
+              <label
+                for="checkout-newsletter"
+                class="checkbox-box"
+                tabindex="0"
+                role="checkbox"
+                aria-checked="false"></label>
+              <label
+                for="checkout-newsletter"
+                style="cursor: pointer; font-size: 14px; font-family: var(--font-body); color: var(--ink-soft); user-select: none;"
+              >
+                Subscribe to the Slow Letter
+              </label>
             </div>
-            <button type="button" class="btn btn--solid" id="to-shipping-btn" style="margin-top: 24px; min-height: 48px;">Continue to shipping</button>
+            <button
+              type="button"
+              class="btn btn--solid"
+              id="to-shipping-btn"
+              style="margin-top: 24px; min-height: 48px;"
+              >Continue to shipping</button
+            >
           </form>
         </div>
-      </details>
 
-      <!-- STEP 2 – Shipping -->
-      <details class="checkout-step" id="step-shipping">
-        <summary class="step-title text-label">
-          02 / Shipping
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="step-content hidden" id="shipping-content">
-          <form class="checkout-form" id="checkout-shipping-form" aria-label="Shipping address form">
+        <!-- STEP 2 – Shipping -->
+        <div
+          class="checkout-panel"
+          id="step-shipping"
+          role="tabpanel"
+          aria-labelledby="tab-btn-shipping"
+          style="display: none;"
+        >
+          <div class="panel-header">
+            <h2 class="display-m" style="margin-bottom: 24px; font-size: 24px;">
+              Shipping details
+            </h2>
+          </div>
+          <form
+            class="checkout-form"
+            id="checkout-shipping-form"
+            aria-label="Shipping address form"
+          >
             <div class="field-group">
               <label for="checkout-address1">Address line 1</label>
-              <input type="text" id="checkout-address1" name="address1" placeholder="123 Beachside Rd" required class="form-control" />
+              <input
+                type="text"
+                id="checkout-address1"
+                name="address1"
+                placeholder="123 Beachside Rd"
+                required
+                class="form-control"
+              />
             </div>
             <div class="field-group">
               <label for="checkout-address2">Address line 2 (optional)</label>
-              <input type="text" id="checkout-address2" name="address2" placeholder="Unit 5" class="form-control" />
+              <input
+                type="text"
+                id="checkout-address2"
+                name="address2"
+                placeholder="Unit 5"
+                class="form-control"
+              />
             </div>
             <div class="field-group">
               <label for="checkout-suburb">Suburb / City</label>
-              <input type="text" id="checkout-suburb" name="suburb" placeholder="Gerringong" required class="form-control" />
+              <input
+                type="text"
+                id="checkout-suburb"
+                name="suburb"
+                placeholder="Gerringong"
+                required
+                class="form-control"
+              />
             </div>
             <div class="field-group">
               <label for="checkout-postcode">Postcode</label>
-              <input type="text" id="checkout-postcode" name="postcode" placeholder="2534" required pattern="[0-9]{4}" class="form-control" />
+              <input
+                type="text"
+                id="checkout-postcode"
+                name="postcode"
+                placeholder="2534"
+                required
+                pattern="[0-9]{4}"
+                class="form-control"
+              />
             </div>
             <div class="field-group">
               <label for="checkout-state">State / Territory</label>
-              <select id="checkout-state" name="state" required class="form-control">
+              <select
+                id="checkout-state"
+                name="state"
+                required
+                class="form-control"
+              >
                 <option value="" disabled selected>Select state</option>
-                <option>NSW</option><option>VIC</option><option>QLD</option><option>WA</option><option>SA</option><option>TAS</option><option>NT</option><option>ACT</option>
+                <option>NSW</option><option>VIC</option><option>QLD</option
+                ><option>WA</option><option>SA</option><option>TAS</option
+                ><option>NT</option><option>ACT</option>
               </select>
             </div>
             <div class="field-group">
               <label>Shipping method</label>
               <div class="shipping-options">
                 <label class="radio-option">
-                  <input type="radio" name="shipping" value="standard" checked />
+                  <input
+                    type="radio"
+                    name="shipping"
+                    value="standard"
+                    checked
+                  />
                   Standard (Free – 3‑5 business days)
                 </label>
                 <label class="radio-option">
@@ -76,75 +213,292 @@ import Layout from '../layouts/Layout.astro';
                 </label>
               </div>
             </div>
-            <button type="button" class="btn btn--solid" id="to-payment-btn" style="margin-top: 24px; min-height: 48px;">Continue to payment</button>
+            <div
+              class="button-row"
+              style="display: flex; gap: 16px; margin-top: 24px;"
+            >
+              <button
+                type="button"
+                class="btn btn--outline"
+                id="back-to-contact-btn"
+                style="flex: 1; min-height: 48px;">Back</button
+              >
+              <button
+                type="button"
+                class="btn btn--solid"
+                id="to-payment-btn"
+                style="flex: 2; min-height: 48px;">Continue to payment</button
+              >
+            </div>
           </form>
         </div>
-      </details>
 
-      <!-- STEP 3 – Payment -->
-      <details class="checkout-step" id="step-payment">
-        <summary class="step-title text-label">
-          03 / Payment
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="arrow-icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="step-content hidden" id="payment-content">
-          <form class="checkout-form" id="checkout-payment-form" aria-label="Mock payment form">
+        <!-- STEP 3 – Payment -->
+        <div
+          class="checkout-panel"
+          id="step-payment"
+          role="tabpanel"
+          aria-labelledby="tab-btn-payment"
+          style="display: none;"
+        >
+          <div class="panel-header">
+            <h2 class="display-m" style="margin-bottom: 24px; font-size: 24px;">
+              Payment information
+            </h2>
+          </div>
+          <form
+            class="checkout-form"
+            id="checkout-payment-form"
+            aria-label="Mock payment form"
+          >
             <div class="field-group">
               <label for="checkout-card-number">Card number</label>
-              <input type="text" id="checkout-card-number" name="cardNumber" placeholder="4242 4242 4242 4242" required pattern="[0-9\s]{19,22}" class="form-control" />
+              <input
+                type="text"
+                id="checkout-card-number"
+                name="cardNumber"
+                placeholder="4242 4242 4242 4242"
+                required
+                pattern="[0-9\s]{19,22}"
+                class="form-control"
+              />
             </div>
             <div class="field-group flex-pair">
               <div style="flex:1; margin-right:12px;">
                 <label for="checkout-expiry">Expiry (MM/YY)</label>
-                <input type="text" id="checkout-expiry" name="expiry" placeholder="01/30" required pattern="(0[1-9]|1[0-2])\/\d{2}" class="form-control" />
+                <input
+                  type="text"
+                  id="checkout-expiry"
+                  name="expiry"
+                  placeholder="01/30"
+                  required
+                  pattern="(0[1-9]|1[0-2])\/\d{2}"
+                  class="form-control"
+                />
               </div>
               <div style="flex:1;">
                 <label for="checkout-cvc">CVC</label>
-                <input type="text" id="checkout-cvc" name="cvc" placeholder="123" required pattern="[0-9]{3,4}" class="form-control" />
+                <input
+                  type="text"
+                  id="checkout-cvc"
+                  name="cvc"
+                  placeholder="123"
+                  required
+                  pattern="[0-9]{3,4}"
+                  class="form-control"
+                />
               </div>
             </div>
-            <button type="submit" class="btn btn--solid" id="checkout-pay-btn" style="margin-top: 24px; min-height: 48px;">Pay Now</button>
+            <div
+              class="button-row"
+              style="display: flex; gap: 16px; margin-top: 24px;"
+            >
+              <button
+                type="button"
+                class="btn btn--outline"
+                id="back-to-shipping-btn"
+                style="flex: 1; min-height: 48px;">Back</button
+              >
+              <button
+                type="submit"
+                class="btn btn--solid"
+                id="checkout-pay-btn"
+                style="flex: 2; min-height: 48px;">Pay Now</button
+              >
+            </div>
           </form>
         </div>
-      </details>
-
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .checkout-section { padding-block: 80px 120px; background-color: var(--paper); }
-  .checkout-grid { max-width: 800px; margin-inline: auto; display: flex; flex-direction: column; gap: 48px; }
-  .checkout-step { border: 1.5px solid var(--border); border-radius: 4px; overflow: hidden; }
-  .checkout-step[open] .step-content { display: block; padding: 32px; }
-  .checkout-step .step-content { display: none; }
-  .step-title { padding: 20px; background-color: var(--paper-soft); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-  .arrow-icon { transition: transform 0.2s ease; }
-  .checkout-step[open] .arrow-icon { transform: rotate(180deg); }
-  .checkout-form { display: flex; flex-direction: column; gap: 24px; }
-  .field-group { display: flex; flex-direction: column; }
-  .field-group label { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 6px; }
-  .form-control { border-bottom: 1.5px solid var(--border); padding: 8px 0; font-size: 16px; background: transparent; }
-  .form-control:focus { border-color: var(--border-focus); }
-  .checkbox-box { width: 18px; height: 18px; border: 1.5px solid var(--ink); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; margin-right: 8px; }
-  .checkbox-box[aria-checked="true"] { background-color: var(--ink); color: var(--paper); }
-  .shipping-options .radio-option { display: flex; align-items: center; margin-bottom: 8px; }
-  .shipping-options input { margin-right: 8px; }
-  .flex-pair { display: flex; gap: 12px; }
+  .checkout-section {
+    padding-block: 80px 120px;
+    background-color: var(--paper);
+  }
+  .checkout-grid {
+    max-width: 680px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Modern Tab Bar */
+  .checkout-tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid var(--border);
+    padding-bottom: 12px;
+    margin-bottom: 48px;
+    gap: 12px;
+  }
+  .checkout-tab-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-mute);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    transition: all 0.25s ease;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -14px;
+  }
+  .checkout-tab-btn:disabled {
+    cursor: not-allowed;
+  }
+  .checkout-tab-btn.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+    font-weight: 600;
+  }
+  .checkout-tab-btn.completed {
+    color: var(--accent);
+  }
+  .tab-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    background-color: var(--border);
+    color: var(--ink-soft);
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.25s ease;
+  }
+  .checkout-tab-btn.active .tab-num {
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+  .checkout-tab-btn.completed .tab-num {
+    background-color: var(--accent);
+    color: var(--paper);
+  }
+  .tab-label-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+  .tab-divider {
+    flex: 1;
+    height: 1px;
+    background-color: var(--border);
+  }
+
+  /* Form and Panels styling */
+  .checkout-form-container {
+    background-color: var(--paper-soft);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 6px;
+  }
+  .checkout-panel {
+    animation: checkoutFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes checkoutFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .field-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .field-group label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .form-control {
+    border-bottom: 1.5px solid var(--border);
+    padding: 8px 0;
+    font-size: 16px;
+    background: transparent;
+  }
+  .form-control:focus {
+    border-color: var(--border-strong);
+  }
+  /* Checkbox styling handled by global.css .form-checkbox rules */
+  .shipping-options .radio-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .shipping-options input {
+    margin-right: 8px;
+  }
+  .flex-pair {
+    display: flex;
+    gap: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .checkout-form-container {
+      padding: 24px 16px;
+    }
+    .checkout-tabs {
+      gap: 6px;
+    }
+    .tab-label-text {
+      display: none; /* Hide labels on very narrow viewports to prevent overlap */
+    }
+  }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Step navigation helpers
-    const toShippingBtn = document.getElementById('to-shipping-btn');
-    const toPaymentBtn = document.getElementById('to-payment-btn');
-    const stepContact = document.getElementById('step-contact');
-    const stepShipping = document.getElementById('step-shipping');
-    const stepPayment = document.getElementById('step-payment');
-    const payBtn = document.getElementById('checkout-pay-btn');
+  document.addEventListener("DOMContentLoaded", () => {
+    // Step navigation elements
+    const tabBtns = {
+      contact: document.getElementById("tab-btn-contact"),
+      shipping: document.getElementById("tab-btn-shipping"),
+      payment: document.getElementById("tab-btn-payment"),
+    };
+
+    const panels = {
+      contact: document.getElementById("step-contact"),
+      shipping: document.getElementById("step-shipping"),
+      payment: document.getElementById("step-payment"),
+    };
+
+    const toShippingBtn = document.getElementById("to-shipping-btn");
+    const toPaymentBtn = document.getElementById("to-payment-btn");
+    const backToContactBtn = document.getElementById("back-to-contact-btn");
+    const backToShippingBtn = document.getElementById("back-to-shipping-btn");
+    const payBtn = document.getElementById(
+      "checkout-pay-btn",
+    ) as HTMLButtonElement;
 
     // Helper to safely access HamoCart state
     const getCart = () => (window as any).HamoCart;
+
+    // Tracks step completeness
+    const stepCompleted = {
+      contact: false,
+      shipping: false,
+    };
 
     // Reactively update checkout pay button and shipping selections
     const updateCheckoutSummary = () => {
@@ -162,11 +516,59 @@ import Layout from '../layouts/Layout.astro';
       const cart = getCart();
       if (cart && cart.getItems().length === 0) {
         if (payBtn) {
-          payBtn.setAttribute('disabled', 'true');
-          payBtn.textContent = 'Bag is Empty';
+          payBtn.setAttribute("disabled", "true");
+          payBtn.textContent = "Bag is Empty";
         }
       }
     };
+
+    // Central Tab Switcher
+    const switchTab = (targetKey: "contact" | "shipping" | "payment") => {
+      // Hide all panels & update tab button states
+      Object.keys(panels).forEach((key) => {
+        const pKey = key as "contact" | "shipping" | "payment";
+        if (pKey === targetKey) {
+          panels[pKey].style.display = "block";
+          tabBtns[pKey]?.classList.add("active");
+          tabBtns[pKey]?.setAttribute("aria-selected", "true");
+          tabBtns[pKey]?.setAttribute("tabindex", "0");
+        } else {
+          panels[pKey].style.display = "none";
+          tabBtns[pKey]?.classList.remove("active");
+          tabBtns[pKey]?.setAttribute("aria-selected", "false");
+          tabBtns[pKey]?.setAttribute("tabindex", "-1");
+        }
+      });
+
+      // Update completed visual classes
+      if (stepCompleted.contact) {
+        tabBtns.contact?.classList.add("completed");
+        tabBtns.shipping?.removeAttribute("disabled");
+      } else {
+        tabBtns.contact?.classList.remove("completed");
+      }
+
+      if (stepCompleted.shipping) {
+        tabBtns.shipping?.classList.add("completed");
+        tabBtns.payment?.removeAttribute("disabled");
+      } else {
+        tabBtns.shipping?.classList.remove("completed");
+      }
+    };
+
+    // Setup interactive tab button clicks
+    Object.keys(tabBtns).forEach((key) => {
+      const pKey = key as "contact" | "shipping" | "payment";
+      tabBtns[pKey]?.addEventListener("click", () => {
+        if (pKey === "shipping" && !stepCompleted.contact) return;
+        if (
+          pKey === "payment" &&
+          (!stepCompleted.contact || !stepCompleted.shipping)
+        )
+          return;
+        switchTab(pKey);
+      });
+    });
 
     // Wait slightly for CartState to initialize on window
     setTimeout(() => {
@@ -177,35 +579,41 @@ import Layout from '../layouts/Layout.astro';
       const cart = getCart();
       if (cart) {
         const isExpress = cart.getExpressShipping();
-        const shippingRadios = document.querySelectorAll('input[name="shipping"]');
+        const shippingRadios = document.querySelectorAll(
+          'input[name="shipping"]',
+        );
         shippingRadios.forEach((radio: any) => {
-          if (radio.value === 'express' && isExpress) {
+          if (radio.value === "express" && isExpress) {
             radio.checked = true;
-          } else if (radio.value === 'standard' && !isExpress) {
+          } else if (radio.value === "standard" && !isExpress) {
             radio.checked = true;
           }
         });
       }
     }, 150);
 
-    window.addEventListener('hamo-cart-updated', updateCheckoutSummary);
+    window.addEventListener("hamo-cart-updated", updateCheckoutSummary);
 
     // Sync shipping radios with CartState
     const shippingRadios = document.querySelectorAll('input[name="shipping"]');
-    shippingRadios.forEach(radio => {
-      radio.addEventListener('change', (e: any) => {
+    shippingRadios.forEach((radio) => {
+      radio.addEventListener("change", (e: any) => {
         const cart = getCart();
         if (cart) {
-          cart.setExpressShipping(e.target.value === 'express');
+          cart.setExpressShipping(e.target.value === "express");
         }
       });
     });
 
+    // Validate Contact & Proceed
     if (toShippingBtn) {
-      toShippingBtn.addEventListener('click', () => {
-        // Simple form validation for step 1
-        const email = document.getElementById('checkout-email') as HTMLInputElement;
-        const name = document.getElementById('checkout-name') as HTMLInputElement;
+      toShippingBtn.addEventListener("click", () => {
+        const email = document.getElementById(
+          "checkout-email",
+        ) as HTMLInputElement;
+        const name = document.getElementById(
+          "checkout-name",
+        ) as HTMLInputElement;
         if (email && !email.checkValidity()) {
           email.reportValidity();
           return;
@@ -215,62 +623,129 @@ import Layout from '../layouts/Layout.astro';
           return;
         }
 
-        stepContact.removeAttribute('open');
-        stepShipping.setAttribute('open', '');
-        document.getElementById('shipping-content')?.classList.remove('hidden');
+        stepCompleted.contact = true;
+        switchTab("shipping");
       });
     }
 
+    // Go back buttons
+    backToContactBtn?.addEventListener("click", () => {
+      switchTab("contact");
+    });
+
+    backToShippingBtn?.addEventListener("click", () => {
+      switchTab("shipping");
+    });
+
+    // Validate Shipping & Proceed
     if (toPaymentBtn) {
-      toPaymentBtn.addEventListener('click', () => {
-        // Simple form validation for step 2
-        const addr = document.getElementById('checkout-address1') as HTMLInputElement;
-        const suburb = document.getElementById('checkout-suburb') as HTMLInputElement;
-        const post = document.getElementById('checkout-postcode') as HTMLInputElement;
-        const state = document.getElementById('checkout-state') as HTMLSelectElement;
+      toPaymentBtn.addEventListener("click", () => {
+        const addr = document.getElementById(
+          "checkout-address1",
+        ) as HTMLInputElement;
+        const suburb = document.getElementById(
+          "checkout-suburb",
+        ) as HTMLInputElement;
+        const post = document.getElementById(
+          "checkout-postcode",
+        ) as HTMLInputElement;
+        const state = document.getElementById(
+          "checkout-state",
+        ) as HTMLSelectElement;
 
-        if (addr && !addr.checkValidity()) { addr.reportValidity(); return; }
-        if (suburb && !suburb.checkValidity()) { suburb.reportValidity(); return; }
-        if (post && !post.checkValidity()) { post.reportValidity(); return; }
-        if (state && !state.checkValidity()) { state.reportValidity(); return; }
+        if (addr && !addr.checkValidity()) {
+          addr.reportValidity();
+          return;
+        }
+        if (suburb && !suburb.checkValidity()) {
+          suburb.reportValidity();
+          return;
+        }
+        if (post && !post.checkValidity()) {
+          post.reportValidity();
+          return;
+        }
+        if (state && !state.checkValidity()) {
+          state.reportValidity();
+          return;
+        }
 
-        stepShipping.removeAttribute('open');
-        stepPayment.setAttribute('open', '');
-        document.getElementById('payment-content')?.classList.remove('hidden');
+        stepCompleted.shipping = true;
+        switchTab("payment");
       });
     }
 
     // Mock payment submit – redirect to confirmation page
-    const paymentForm = document.getElementById('checkout-payment-form');
+    const paymentForm = document.getElementById("checkout-payment-form");
     if (paymentForm) {
-      paymentForm.addEventListener('submit', (e) => {
+      paymentForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
         // 1. Save last order details to localStorage for confirmation.astro to display
         const cart = getCart();
         if (cart) {
           const orderId = `HAMO-2026-${Math.floor(10000 + Math.random() * 90000)}`;
-          const emailInput = document.getElementById('checkout-email') as HTMLInputElement;
-          const nameInput = document.getElementById('checkout-name') as HTMLInputElement;
-          
+          const emailInput = document.getElementById(
+            "checkout-email",
+          ) as HTMLInputElement;
+          const nameInput = document.getElementById(
+            "checkout-name",
+          ) as HTMLInputElement;
+
           const orderData = {
             id: orderId,
-            email: emailInput?.value || 'hello@customer.com',
-            customerName: nameInput?.value || 'Valued Customer',
+            email: emailInput?.value || "hello@customer.com",
+            customerName: nameInput?.value || "Valued Customer",
             items: cart.getItems(),
             subtotal: cart.getSubtotal(),
             shippingCost: cart.getShippingCost(),
             expressShipping: cart.getExpressShipping(),
-            total: cart.getTotal()
+            total: cart.getTotal(),
           };
-          localStorage.setItem('hamo-last-order', JSON.stringify(orderData));
-          
+          localStorage.setItem("hamo-last-order", JSON.stringify(orderData));
+
           // 2. Clear the cart
           cart.clearCart();
         }
 
         // 3. Navigate to confirmation
-        window.location.href = '/confirmation';
+        window.location.href = "/confirmation";
+      });
+    }
+
+    // Toggle newsletter custom checkbox accessibility state
+    const newsletterInput = document.getElementById(
+      "checkout-newsletter",
+    ) as HTMLInputElement;
+    const newsletterLabel = document.querySelector(
+      ".form-checkbox .checkbox-box",
+    );
+    if (newsletterInput && newsletterLabel) {
+      const syncAria = () => {
+        newsletterLabel.setAttribute(
+          "aria-checked",
+          String(newsletterInput.checked),
+        );
+      };
+
+      newsletterLabel.addEventListener("click", () => {
+        setTimeout(syncAria, 50);
+      });
+
+      newsletterLabel.addEventListener("keydown", (e: any) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          newsletterInput.checked = !newsletterInput.checked;
+          syncAria();
+        }
+      });
+
+      // text label click sync
+      const textLabel = document.querySelector(
+        "label[for='checkout-newsletter']:not(.checkbox-box)",
+      );
+      textLabel?.addEventListener("click", () => {
+        setTimeout(syncAria, 50);
       });
     }
   });

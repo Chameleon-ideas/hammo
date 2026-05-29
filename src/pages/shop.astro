@@ -2,211 +2,34 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Shop the Hamo Chair — Premium Outdoor Lounge">
+<Layout title="Shop the Hammo Chair">
   <section class="pdp-section" aria-label="Product Showcase and Configuration">
     <div class="container pdp-grid">
-      <!-- Left Column: Scrollable Visual Gallery -->
+      <!-- Left Column: Product Gallery -->
       <div class="pdp-gallery" aria-label="Product Image Gallery">
-        <!-- Main Interactive Visual Frame (Syncs with swatch selection) -->
-        <div class="main-gallery-frame">
-          <svg
-            viewBox="0 0 500 400"
-            id="main-pdp-svg"
-            aria-label="Selected Hamo Chair rendering"
-            role="img"
-          >
-            <rect width="500" height="400" fill="var(--paper-soft)"></rect>
-            <!-- Soft ground shadow -->
-            <ellipse
-              cx="250"
-              cy="330"
-              rx="140"
-              ry="8"
-              fill="var(--ink)"
-              opacity="0.05"></ellipse>
-
-            <g transform="translate(100, 70)">
-              <!-- Frame Tubes -->
-              <line
-                x1="40"
-                y1="220"
-                x2="180"
-                y2="40"
-                stroke="var(--ink)"
-                stroke-width="7"
-                stroke-linecap="round"></line>
-              <line
-                x1="40"
-                y1="220"
-                x2="180"
-                y2="40"
-                stroke="var(--paper-soft)"
-                stroke-width="3"
-                stroke-linecap="round"></line>
-
-              <line
-                x1="200"
-                y1="220"
-                x2="30"
-                y2="100"
-                stroke="var(--ink)"
-                stroke-width="7"
-                stroke-linecap="round"></line>
-              <line
-                x1="200"
-                y1="220"
-                x2="30"
-                y2="100"
-                stroke="var(--paper-soft)"
-                stroke-width="3"
-                stroke-linecap="round"></line>
-
-              <line
-                x1="40"
-                y1="220"
-                x2="200"
-                y2="220"
-                stroke="var(--ink)"
-                stroke-width="4.5"
-                stroke-linecap="round"></line>
-
-              <!-- Anodised Hub Linkage -->
-              <circle cx="116" cy="156" r="11" fill="var(--ink)"></circle>
-              <circle cx="116" cy="156" r="7" fill="var(--accent)"></circle>
-
-              <!-- DYNAMIC CANVAS SLING -->
-              <path
-                id="pdp-canvas-path"
-                d="M 172,50 C 145,85 85,140 45,110"
-                fill="none"
-                stroke="#EBE6DD"
-                stroke-width="14"
-                stroke-linecap="round"
-                style="transition: stroke 0.4s ease;"></path>
-
-              <!-- Timber Armrest accent -->
-              <path
-                d="M 75,70 L 165,70"
-                stroke="var(--ink)"
-                stroke-width="9"
-                stroke-linecap="round"></path>
-              <path
-                d="M 75,70 L 165,70"
-                stroke="var(--paper-dark)"
-                stroke-width="4.5"
-                stroke-linecap="round"></path>
-            </g>
-            <text
-              x="24"
-              y="370"
-              font-family="var(--font-mono)"
-              font-size="11"
-              fill="var(--ink-soft)">100% RECYCLABLE ALUMINIUM CORE</text
-            >
-          </svg>
+        <!-- Main product image -->
+        <div class="main-gallery-frame" id="main-gallery-frame">
+          <img
+            src="/images/hammo-chair-shoal.jpg"
+            alt="The Hammo beach chair"
+            id="main-pdp-image"
+            width="800"
+            height="800"
+            loading="eager"
+            class="pdp-main-image"
+          />
         </div>
 
-        <!-- Thumbnails / Closeups vertical loop (High-fidelity inline SVGs) -->
+        <!-- Thumbnails row -->
         <div class="gallery-thumbs-grid">
-          <div class="thumb-card" aria-label="Frame Linkage Closeup">
-            <svg viewBox="0 0 160 120" style="display:block; width:100%;">
-              <rect width="160" height="120" fill="var(--paper-soft)"></rect>
-              <circle
-                cx="80"
-                cy="60"
-                r="28"
-                fill="none"
-                stroke="var(--ink)"
-                stroke-width="1.5"></circle>
-              <circle cx="80" cy="60" r="6" fill="var(--accent)"></circle>
-              <line
-                x1="40"
-                y1="100"
-                x2="120"
-                y2="20"
-                stroke="var(--ink)"
-                stroke-width="4"></line>
-              <line
-                x1="40"
-                y1="20"
-                x2="120"
-                y2="100"
-                stroke="var(--ink)"
-                stroke-width="4"></line>
-            </svg>
-            <span
-              class="text-annotation"
-              style="font-size:9px; display:block; margin-top:4px; text-align:center;"
-              >Joint Lock</span
-            >
+          <div class="thumb-card" aria-label="Burleigh — navy stripes" id="thumb-burleigh" data-img="/images/hammo-chair-burleigh.jpg">
+            <img src="/images/hammo-chair-burleigh.jpg" alt="Hammo chair Burleigh colourway — navy and white stripes" loading="lazy" />
           </div>
-
-          <div class="thumb-card" aria-label="Flat Folded Profile Detail">
-            <svg viewBox="0 0 160 120" style="display:block; width:100%;">
-              <rect width="160" height="120" fill="var(--paper-soft)"></rect>
-              <rect
-                x="20"
-                y="55"
-                width="120"
-                height="10"
-                rx="3"
-                fill="var(--paper-dark)"
-                stroke="var(--ink)"
-                stroke-width="1.5"></rect>
-              <line
-                x1="20"
-                y1="75"
-                x2="140"
-                y2="75"
-                stroke="var(--border)"
-                stroke-width="1"
-                stroke-dasharray="3 3"></line>
-              <text
-                x="80"
-                y="40"
-                font-family="var(--font-mono)"
-                font-size="9"
-                text-anchor="middle"
-                fill="var(--accent)">5.5 CM FLAT</text
-              >
-            </svg>
-            <span
-              class="text-annotation"
-              style="font-size:9px; display:block; margin-top:4px; text-align:center;"
-              >Flat Profile</span
-            >
+          <div class="thumb-card" aria-label="Byron — sage stripes" id="thumb-byron" data-img="/images/hammo-chair-byron.jpg">
+            <img src="/images/hammo-chair-byron.jpg" alt="Hammo chair Byron colourway — sage and white stripes" loading="lazy" />
           </div>
-
-          <div class="thumb-card" aria-label="Carry Strap Assembly">
-            <svg viewBox="0 0 160 120" style="display:block; width:100%;">
-              <rect width="160" height="120" fill="var(--paper-soft)"></rect>
-              <!-- Handwoven shoulder strap -->
-              <path
-                d="M 30,80 Q 80,20 130,80"
-                fill="none"
-                stroke="var(--ink)"
-                stroke-width="6"
-                stroke-dasharray="4 2"></path>
-              <line
-                x1="26"
-                y1="80"
-                x2="34"
-                y2="80"
-                stroke="var(--accent)"
-                stroke-width="3"></line>
-              <line
-                x1="126"
-                y1="80"
-                x2="134"
-                y2="80"
-                stroke="var(--accent)"
-                stroke-width="3"></line>
-            </svg>
-            <span
-              class="text-annotation"
-              style="font-size:9px; display:block; margin-top:4px; text-align:center;"
-              >Shoulder Loop</span
-            >
+          <div class="thumb-card" aria-label="Shoal — yellow stripes" id="thumb-shoal" data-img="/images/hammo-chair-shoal.jpg">
+            <img src="/images/hammo-chair-shoal.jpg" alt="Hammo chair Shoal colourway — pastel yellow and white stripes" loading="lazy" />
           </div>
         </div>
       </div>
@@ -221,14 +44,11 @@ import Layout from "../layouts/Layout.astro";
               style="color: var(--ink-soft); display: block; margin-bottom: 8px;"
               >Model 01</span
             >
-            <h1
-              class="display-l"
-              style="margin-bottom: 8px; text-transform: lowercase;"
-            >
-              The Hamo Chair
+              <h1 class="display-l" style="margin-bottom: 8px;">
+              The Hammo Chair
             </h1>
             <div class="price-row">
-              <span class="price-val font-display">$249.00</span>
+              <span class="price-val">$249.00</span>
               <span class="price-currency text-label">AUD</span>
             </div>
             <p
@@ -252,65 +72,24 @@ import Layout from "../layouts/Layout.astro";
               >
             </div>
 
-            <div
-              class="swatches-selector-row"
-              role="radiogroup"
-              aria-label="Select Hamo Chair Colourway"
-            >
-              <button
-                class="swatch-btn is-active"
-                data-color="bone"
-                data-hex="#EBE6DD"
-                data-name="Bone Canvas"
-                data-desc="Soft salt-brushed ivory"
-                aria-label="Bone Colorway"
-              >
-                <span class="swatch-inner" style="background-color: #EBE6DD;"
-                ></span>
+            <div class="swatches-selector-row" role="radiogroup" aria-label="Select Hammo Chair Colourway">
+              <button class="swatch-btn is-active" data-color="hamilton" data-hex="#EDE8DC" data-name="Hamilton" data-desc="Cream and white stripes. Clean and quiet — the colour of morning light through a linen curtain." aria-label="Hamilton colourway" data-img="/images/hammo-chair-shoal.jpg">
+                <span class="swatch-inner" style="background-color: #EDE8DC;"></span>
               </button>
-              <button
-                class="swatch-btn"
-                data-color="dune"
-                data-hex="#D2C9B9"
-                data-name="Dune Canvas"
-                data-desc="Warm sand grass dune"
-                aria-label="Dune Colorway"
-              >
-                <span class="swatch-inner" style="background-color: #D2C9B9;"
-                ></span>
+              <button class="swatch-btn" data-color="bondi" data-hex="#8B6F5C" data-name="Bondi" data-desc="Brown and white stripes. Warm and grounded — the colour of wet sand just after a wave pulls back." aria-label="Bondi colourway" data-img="/images/hammo-chair-burleigh.jpg">
+                <span class="swatch-inner" style="background-color: #8B6F5C;"></span>
               </button>
-              <button
-                class="swatch-btn"
-                data-color="ochre"
-                data-hex="#E19E2B"
-                data-name="Ochre Canvas"
-                data-desc="Warm coastal ochre gold inspired by afternoon sunshine hitting sandstone cliffs."
-                aria-label="Ochre Colorway"
-              >
-                <span class="swatch-inner" style="background-color: #E19E2B;"
-                ></span>
+              <button class="swatch-btn" data-color="shoal" data-hex="#E8DBA8" data-name="Shoal" data-desc="Pastel yellow and white stripes. The kind of colour that makes every afternoon feel like a good one." aria-label="Shoal colourway" data-img="/images/hammo-chair-shoal.jpg">
+                <span class="swatch-inner" style="background-color: #E8DBA8;"></span>
               </button>
-              <button
-                class="swatch-btn"
-                data-color="eucalyptus"
-                data-hex="#869080"
-                data-name="Eucalyptus Canvas"
-                data-desc="Cool coastal sage green"
-                aria-label="Eucalyptus Colorway"
-              >
-                <span class="swatch-inner" style="background-color: #869080;"
-                ></span>
+              <button class="swatch-btn" data-color="kira" data-hex="#C4593A" data-name="Kira" data-desc="Rust and white stripes. Deep and confident — for people who know exactly what they like." aria-label="Kira colourway" data-img="/images/hammo-chair-burleigh.jpg">
+                <span class="swatch-inner" style="background-color: #C4593A;"></span>
               </button>
-              <button
-                class="swatch-btn"
-                data-color="indigo"
-                data-hex="#2E3A4E"
-                data-name="Indigo Canvas"
-                data-desc="Deep basalt ocean dusk"
-                aria-label="Indigo Colorway"
-              >
-                <span class="swatch-inner" style="background-color: #2E3A4E;"
-                ></span>
+              <button class="swatch-btn" data-color="burleigh" data-hex="#3B4A6B" data-name="Burleigh" data-desc="Indigo and white stripes. The colour of the ocean just before it gets dark." aria-label="Burleigh colourway" data-img="/images/hammo-chair-burleigh.jpg">
+                <span class="swatch-inner" style="background-color: #3B4A6B;"></span>
+              </button>
+              <button class="swatch-btn" data-color="byron" data-hex="#7A9B7A" data-name="Byron" data-desc="Sage and white stripes. Easy and muted — the colour of the bush behind the beach." aria-label="Byron colourway" data-img="/images/hammo-chair-byron.jpg">
+                <span class="swatch-inner" style="background-color: #7A9B7A;"></span>
               </button>
             </div>
 
@@ -330,7 +109,7 @@ import Layout from "../layouts/Layout.astro";
               class="btn btn--solid pdp-add-to-cart-btn"
               id="pdp-add-btn"
             >
-              Add to Bag — $249.00
+              Add to Bag &mdash; $249
             </button>
           </div>
 
@@ -427,18 +206,18 @@ import Layout from "../layouts/Layout.astro";
           class="display-m"
           style="margin-top: 8px; text-transform: lowercase;"
         >
-          Engineering blueprints.
+          Hammo engineering blueprints.
         </h2>
       </div>
 
       <table
         class="specs-table"
-        aria-label="Hamo Chair Technical Blueprints Matrix"
+        aria-label="Hammo Chair Technical Specifications"
       >
         <thead>
           <tr>
             <th scope="col" class="text-label">Attribute Specification</th>
-            <th scope="col" class="text-label">Hamo Design Standard</th>
+            <th scope="col" class="text-label">Hammo Design Standard</th>
           </tr>
         </thead>
         <tbody>
@@ -545,15 +324,18 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .main-gallery-frame {
-    border: 1.5px solid var(--border);
+    border: 1px solid var(--border);
     background-color: var(--paper-soft);
     overflow: hidden;
+    aspect-ratio: 1;
   }
 
-  .main-gallery-frame svg {
+  .pdp-main-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    transition: opacity 0.3s ease;
   }
 
   .gallery-thumbs-grid {
@@ -563,14 +345,24 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .thumb-card {
-    border: 1.5px solid var(--border);
+    border: 1px solid var(--border);
     background-color: var(--paper-soft);
-    padding: 8px;
+    overflow: hidden;
     cursor: pointer;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    aspect-ratio: 1;
   }
 
-  .thumb-card:hover {
+  .thumb-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  .thumb-card:hover,
+  .thumb-card.is-active {
     border-color: var(--ink);
   }
 
@@ -584,7 +376,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .pdp-header {
-    border-bottom: 1.5px solid var(--border);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 24px;
   }
 
@@ -596,12 +388,16 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .price-val {
-    font-size: clamp(28px, 4vw, 36px);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(28px, 4vw, 40px);
     color: var(--ink);
+    letter-spacing: -0.02em;
+    font-weight: 400;
   }
 
   .pdp-configurator {
-    border-bottom: 1.5px solid var(--border);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 24px;
   }
 
@@ -613,18 +409,18 @@ import Layout from "../layouts/Layout.astro";
   .pdp-add-to-cart-btn {
     width: 100%;
     min-height: 52px;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   /* Semantic details Accordions */
   .pdp-accordions {
     display: flex;
     flex-direction: column;
-    border-top: 1.5px solid var(--border);
+    border-top: 1px solid var(--border);
   }
 
   .accordion-item {
-    border-bottom: 1.5px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
 
   .accordion-title {
@@ -658,7 +454,7 @@ import Layout from "../layouts/Layout.astro";
   /* Specs table */
   .specs-section {
     padding-block: 80px;
-    border-top: 1.5px solid var(--border);
+    border-top: 1px solid var(--border);
     background-color: var(--paper-soft);
   }
 
@@ -669,7 +465,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .specs-table th {
-    border-bottom: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
     padding-bottom: 16px;
     color: var(--ink-soft);
   }
@@ -684,10 +480,10 @@ import Layout from "../layouts/Layout.astro";
     color: var(--accent);
   }
 
-  /* Reassurance grid - asymmetric layout: 3 elements, offset elevations */
+  /* Reassurance grid */
   .reassurances-section {
     padding-block: 80px;
-    border-top: 1.5px solid var(--border);
+    border-top: 1px solid var(--border);
     background-color: var(--paper);
   }
 
@@ -706,75 +502,89 @@ import Layout from "../layouts/Layout.astro";
 
   .assurance-card {
     background-color: var(--paper-soft);
-    border: 1.5px solid var(--border);
+    border: 1px solid var(--border);
     padding: 32px;
-    transition: transform 0.2s ease;
+    transition: box-shadow 0.2s ease;
   }
 
   .assurance-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--ink);
+    box-shadow: 0 4px 24px rgba(14, 14, 13, 0.08);
   }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const swatches = document.querySelectorAll(".swatch-btn[data-color]");
+    const swatches = document.querySelectorAll<HTMLButtonElement>(".swatch-btn[data-color]");
     const colorLabel = document.getElementById("selected-color-label");
     const colorDesc = document.getElementById("selected-color-desc");
-    const pdpCanvas = document.getElementById("pdp-canvas-path");
     const pdpAddBtn = document.getElementById("pdp-add-btn");
+    const mainImage = document.getElementById("main-pdp-image") as HTMLImageElement | null;
+    const thumbCards = document.querySelectorAll<HTMLElement>(".thumb-card[data-img]");
 
-    let activeColor = "bone";
-    let activeColorName = "Bone Canvas";
-    let activeHex = "#EBE6DD";
+    let activeColor = "hamilton";
+    let activeColorName = "Hamilton";
+    let activeHex = "#EDE8DC";
 
-    const colorDescs: Record<string, string> = {
-      bone: "Soft salt-brushed ivory inspired by bleached Seven Mile Beach shells.",
-      dune: "Warm beach grass beige that blends seamlessly with coastal granite headlands.",
-      ochre:
-        "Warm coastal ochre gold inspired by afternoon sunshine hitting sandstone cliffs.",
-      eucalyptus:
-        "Cool pale green sage leaves from the native coastal scrub framing the sands.",
-      indigo:
-        "Deep basalt blue-grey representing high waters crushing off Werri Reef.",
-    };
+    // --- Thumbnail click: swap main image ---
+    thumbCards.forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        const img = thumb.dataset.img;
+        if (img && mainImage) {
+          mainImage.style.opacity = "0";
+          setTimeout(() => {
+            mainImage.src = img;
+            mainImage.style.opacity = "1";
+          }, 150);
+        }
+        thumbCards.forEach((t) => t.classList.remove("is-active"));
+        thumb.classList.add("is-active");
+      });
+    });
 
+    // --- Swatch click: update label, desc, main image ---
     swatches.forEach((swatch) => {
       swatch.addEventListener("click", () => {
         swatches.forEach((s) => s.classList.remove("is-active"));
         swatch.classList.add("is-active");
 
-        const color = swatch.getAttribute("data-color") || "bone";
-        const hex = swatch.getAttribute("data-hex") || "#EBE6DD";
-        const name = swatch.getAttribute("data-name") || "Bone Canvas";
+        const color = swatch.dataset.color || "hamilton";
+        const hex   = swatch.dataset.hex   || "#EDE8DC";
+        const name  = swatch.dataset.name  || "Hamilton";
+        const desc  = swatch.dataset.desc  || "";
+        const img   = swatch.dataset.img   || "/images/hammo-chair-shoal.jpg";
 
         activeColor = color;
         activeColorName = name;
         activeHex = hex;
 
         if (colorLabel) colorLabel.textContent = name;
-        if (colorDesc) colorDesc.textContent = colorDescs[color] || "";
+        if (colorDesc) colorDesc.textContent = desc;
 
-        if (pdpCanvas) {
-          pdpCanvas.style.stroke = hex;
+        // Swap main image to matching colourway
+        if (mainImage) {
+          mainImage.style.opacity = "0";
+          setTimeout(() => {
+            mainImage.src = img;
+            mainImage.alt = `The Hammo Chair in ${name} colourway`;
+            mainImage.style.opacity = "1";
+          }, 150);
         }
       });
     });
 
+    // --- Add to cart ---
     if (pdpAddBtn) {
       pdpAddBtn.addEventListener("click", () => {
         const hState = (window as any).HamoCart;
         if (hState) {
           hState.addItem(
-            `hamo-chair-${activeColor}`,
-            "The Hamo Chair",
+            `hammo-chair-${activeColor}`,
+            "The Hammo Chair",
             activeColor,
             activeColorName,
             249,
-            "" // displays high-fidelity fallback SVG in cart
+            ""
           );
-
           window.dispatchEvent(new CustomEvent("hamo-cart-open"));
         }
       });
