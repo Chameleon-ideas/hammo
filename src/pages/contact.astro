@@ -104,11 +104,7 @@ import Layout from '../layouts/Layout.astro';
             ></textarea>
           </div>
 
-          <div class="form-checkbox" style="margin-block: 24px 16px;">
-            <input type="checkbox" id="contact-optin" name="optin" class="sr-only" />
-            <label for="contact-optin" class="checkbox-box" tabindex="0" role="checkbox" aria-checked="false"></label>
-            <span style="font-size: 14px; user-select: none;">Subscribe to the Slow Letter for colour chapter alerts.</span>
-          </div>
+
 
           <div style="margin-top: 32px;">
             <button type="submit" class="btn btn--solid" style="width: 100%; min-height: 52px; font-weight: 600; letter-spacing: 0.12em;">
@@ -291,48 +287,55 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // 1. Accessibility key bindings for custom checkboxes
-    const checkboxLabel = document.querySelector('.checkbox-box');
-    const checkboxInput = document.getElementById('contact-optin') as HTMLInputElement;
 
-    if (checkboxLabel && checkboxInput) {
-      checkboxLabel.addEventListener('click', () => {
-        const checked = checkboxInput.checked;
-        checkboxInput.checked = !checked;
-        checkboxLabel.setAttribute('aria-checked', String(!checked));
-      });
 
-      checkboxLabel.addEventListener('keydown', (e: any) => {
-        if (e.key === ' ' || e.key === 'Enter') {
-          e.preventDefault();
-          const checked = checkboxInput.checked;
-          checkboxInput.checked = !checked;
-          checkboxLabel.setAttribute('aria-checked', String(!checked));
-        }
-      });
-    }
-
-    // 2. Submit Inquiry validation & feedback simulation
-    const form = document.getElementById('contact-inquiry-form');
+    // 2. Submit Inquiry validation & real Formsubmit.co AJAX pipeline
+    const form = document.getElementById('contact-inquiry-form') as HTMLFormElement | null;
     const successMsg = document.getElementById('form-success-feedback');
+    const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
     if (form && successMsg) {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Show local mock confirmation message
-        successMsg.classList.remove('hidden');
-        
-        // Reset the form fields cleanly
-        (form as HTMLFormElement).reset();
-        if (checkboxLabel) {
-          checkboxLabel.setAttribute('aria-checked', 'false');
+        // Show loading state on the button
+        const originalText = submitBtn ? submitBtn.textContent : "Submit Inquiry";
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
         }
 
-        // Auto hide success overlay after 10 seconds
-        setTimeout(() => {
-          successMsg.classList.add('hidden');
-        }, 10000);
+        fetch("https://formsubmit.co/ajax/hello@hamochairs.com.au", {
+          method: "POST",
+          body: new FormData(form)
+        })
+        .then(response => {
+          if (!response.ok) throw new Error("Network response error");
+          return response.json();
+        })
+        .then(() => {
+          // Show local confirmation message
+          successMsg.classList.remove('hidden');
+          
+          // Reset the form fields cleanly
+          form.reset();
+
+          // Auto hide success overlay after 10 seconds
+          setTimeout(() => {
+            successMsg.classList.add('hidden');
+          }, 10000);
+        })
+        .catch(err => {
+          console.error("Form submission failed:", err);
+          alert("We encountered an issue submitting your inquiry. Please try again or email us directly at hello@hamochairs.com.au");
+        })
+        .finally(() => {
+          // Restore button state
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+        });
       });
     }
   });
