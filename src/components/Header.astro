@@ -148,6 +148,18 @@ import ThemeToggle from "./ThemeToggle.astro";
     flex-shrink: 0;
   }
 
+  .brand-link :global(.logo-img) {
+    height: 160px;
+    margin-block: -44px;
+  }
+
+  @media (max-width: 600px) {
+    .brand-link :global(.logo-img) {
+      height: 120px;
+      margin-block: -28px;
+    }
+  }
+
   /* Header right actions */
   .header-actions {
     display: flex;

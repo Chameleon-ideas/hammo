@@ -89,26 +89,7 @@ import Layout from "../layouts/Layout.astro";
                 class="form-control"
               />
             </div>
-            <div class="form-checkbox">
-              <input
-                type="checkbox"
-                id="checkout-newsletter"
-                name="newsletter"
-                class="sr-only"
-              />
-              <label
-                for="checkout-newsletter"
-                class="checkbox-box"
-                tabindex="0"
-                role="checkbox"
-                aria-checked="false"></label>
-              <label
-                for="checkout-newsletter"
-                style="cursor: pointer; font-size: 14px; font-family: var(--font-body); color: var(--ink-soft); user-select: none;"
-              >
-                Subscribe to the Slow Letter
-              </label>
-            </div>
+
             <button
               type="button"
               class="btn btn--solid"
@@ -259,7 +240,7 @@ import Layout from "../layouts/Layout.astro";
                 name="cardNumber"
                 placeholder="4242 4242 4242 4242"
                 required
-                pattern="[0-9\s]{19,22}"
+                pattern="[0-9 ]{12,19}"
                 class="form-control"
               />
             </div>
@@ -272,7 +253,7 @@ import Layout from "../layouts/Layout.astro";
                   name="expiry"
                   placeholder="01/30"
                   required
-                  pattern="(0[1-9]|1[0-2])\/\d{2}"
+                  pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
                   class="form-control"
                 />
               </div>
@@ -713,40 +694,6 @@ import Layout from "../layouts/Layout.astro";
       });
     }
 
-    // Toggle newsletter custom checkbox accessibility state
-    const newsletterInput = document.getElementById(
-      "checkout-newsletter",
-    ) as HTMLInputElement;
-    const newsletterLabel = document.querySelector(
-      ".form-checkbox .checkbox-box",
-    );
-    if (newsletterInput && newsletterLabel) {
-      const syncAria = () => {
-        newsletterLabel.setAttribute(
-          "aria-checked",
-          String(newsletterInput.checked),
-        );
-      };
 
-      newsletterLabel.addEventListener("click", () => {
-        setTimeout(syncAria, 50);
-      });
-
-      newsletterLabel.addEventListener("keydown", (e: any) => {
-        if (e.key === " " || e.key === "Enter") {
-          e.preventDefault();
-          newsletterInput.checked = !newsletterInput.checked;
-          syncAria();
-        }
-      });
-
-      // text label click sync
-      const textLabel = document.querySelector(
-        "label[for='checkout-newsletter']:not(.checkbox-box)",
-      );
-      textLabel?.addEventListener("click", () => {
-        setTimeout(syncAria, 50);
-      });
-    }
   });
 </script>

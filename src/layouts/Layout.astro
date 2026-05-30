@@ -52,9 +52,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://hammoaus
           if (typeof localStorage !== 'undefined' && localStorage.getItem('hamo-theme')) {
             return localStorage.getItem('hamo-theme');
           }
-          if (window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-          }
           return 'light';
         })();
         
@@ -65,6 +62,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://hammoaus
         }
       })();
     </script>
+
+    <!-- Prevent FOUC for GSAP animated elements -->
+    <script is:inline>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('gs-enabled');
+      }
+    </script>
+    <style is:inline>
+      :root.gs-enabled .hero-copy > *,
+      :root.gs-enabled .about-hero-text > *,
+      :root.gs-enabled .about-hero-visual img,
+      :root.gs-enabled .pdp-gallery,
+      :root.gs-enabled .pdp-details {
+        opacity: 0;
+      }
+    </style>
   </head>
   <body>
     <!-- Cart State & UI Managers -->
@@ -190,6 +203,219 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://hammoaus
 
       // Attach state to window for global access across dynamic components
       (window as any).HamoCart = new CartState();
+    </script>
+
+    <!-- GreenSock Animation Platform (GSAP) & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" is:inline></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" is:inline></script>
+
+    <!-- Centralized Scroll Animation Engine -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. Accessibility Safety Check
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          return; // Respect accessibility settings and skip animations
+        }
+
+        if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+          return; // Graceful fallback if libraries fail to load (e.g. adblock or offline)
+        }
+
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- GLOBAL INITIALIZATIONS ---
+        // Smooth entrance for header
+        gsap.from('.site-header', {
+          y: -20,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out'
+        });
+
+        // --- HOMEPAGE ANIMATIONS (index.astro) ---
+        const isHome = document.querySelector('.hero');
+        if (isHome) {
+          // Hero text reveal
+          gsap.fromTo('.hero-copy > *', 
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              stagger: 0.15,
+              ease: 'power4.out',
+              delay: 0.2
+            }
+          );
+
+          // Hero image zoom-out entrance
+          gsap.from('.hero-image', {
+            scale: 1.08,
+            duration: 1.6,
+            ease: 'power3.out'
+          });
+
+          // Mission statement reveal
+          gsap.from('.mission-body', {
+            scrollTrigger: {
+              trigger: '.mission-section',
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            ease: 'power3.out'
+          });
+
+          // Feature Rows Alternating Slide-ins
+          const featureRows = document.querySelectorAll('.feature-row');
+          featureRows.forEach((row) => {
+            const content = row.querySelector('.feature-row-content');
+            const imgWrap = row.querySelector('.feature-row-image');
+            const img = row.querySelector('.feature-img');
+
+            if (content) {
+              gsap.from(content, {
+                scrollTrigger: {
+                  trigger: row,
+                  start: 'top 80%',
+                  toggleActions: 'play none none none'
+                },
+                x: row.classList.contains('feature-row--odd') ? 40 : -40,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power3.out'
+              });
+            }
+
+            if (imgWrap && img) {
+              gsap.from(img, {
+                scrollTrigger: {
+                  trigger: row,
+                  start: 'top 80%',
+                  toggleActions: 'play none none none'
+                },
+                scale: 1.08,
+                duration: 1.5,
+                ease: 'power2.out'
+              });
+            }
+          });
+
+          // Founders Quote Strip
+          gsap.from('.founders-inner > *', {
+            scrollTrigger: {
+              trigger: '.founders-strip',
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out'
+          });
+        }
+
+        // --- ABOUT PAGE ANIMATIONS (about.astro) ---
+        const isAbout = document.querySelector('.about-hero');
+        if (isAbout) {
+          // About page hero entrance
+          gsap.fromTo('.about-hero-text > *', 
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              stagger: 0.15,
+              ease: 'power4.out',
+              delay: 0.1
+            }
+          );
+
+          // Founder photograph slide-up
+          gsap.fromTo('.about-hero-visual img', 
+            { y: 40, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.2,
+              ease: 'power3.out',
+              delay: 0.3
+            }
+          );
+
+          // Pullquote Section
+          gsap.from('.brand-mission-quote blockquote > *', {
+            scrollTrigger: {
+              trigger: '.brand-mission-quote',
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out'
+          });
+        }
+
+        // --- SHOP PAGE ANIMATIONS (shop.astro) ---
+        const isShop = document.querySelector('.pdp-section');
+        if (isShop) {
+          // PDP Gallery entrance
+          gsap.fromTo('.pdp-gallery', 
+            { x: -30, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 1,
+              ease: 'power3.out'
+            }
+          );
+
+          // PDP details entrance
+          gsap.fromTo('.pdp-details', 
+            { x: 30, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 1,
+              ease: 'power3.out'
+            }
+          );
+
+          // Blueprint/specs section table reveal
+          gsap.from('.specs-header > *, .specs-table tr', {
+            scrollTrigger: {
+              trigger: '.specs-section',
+              start: 'top 80%',
+              toggleActions: 'play none none none'
+            },
+            y: 20,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.08,
+            ease: 'power3.out'
+          });
+
+          // Staggered assurance cards reveal
+          gsap.from('.assurance-card', {
+            scrollTrigger: {
+              trigger: '.reassurances-section',
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.15,
+            ease: 'power3.out'
+          });
+        }
+      });
     </script>
   </body>
 </html>

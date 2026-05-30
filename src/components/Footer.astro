@@ -42,7 +42,6 @@ import Logo from './Logo.astro';
         <ul class="footer-col-list">
           <li><a href="/shop" class="footer-col-link">The Hammo Chair</a></li>
           <li><a href="/shop" class="footer-col-link">The Canvas Carry Bag</a></li>
-          <li><a href="/shop" class="footer-col-link">Gift Cards</a></li>
           <li><a href="/shop" class="footer-col-link">Colour Guide</a></li>
         </ul>
       </div>
@@ -53,7 +52,6 @@ import Logo from './Logo.astro';
           <li><a href="/about" class="footer-col-link">Meet Nat &amp; Marc</a></li>
           <li><a href="/about" class="footer-col-link">Why One Chair</a></li>
           <li><a href="/about" class="footer-col-link">Brisbane Made</a></li>
-          <li><a href="/about" class="footer-col-link">How It's Made</a></li>
         </ul>
       </div>
 
@@ -61,7 +59,6 @@ import Logo from './Logo.astro';
         <p class="footer-col-heading text-label">Support</p>
         <ul class="footer-col-list">
           <li><a href="/contact" class="footer-col-link">Shipping & Returns</a></li>
-          <li><a href="/contact" class="footer-col-link">Care Guide</a></li>
           <li><a href="/contact" class="footer-col-link">2-Year Warranty</a></li>
           <li><a href="/contact" class="footer-col-link">Get in Touch</a></li>
         </ul>
@@ -128,6 +125,18 @@ import Logo from './Logo.astro';
     .footer-top {
       grid-template-columns: 1fr 1fr;
       gap: 80px;
+    }
+  }
+
+  .footer-brand-col :global(.logo-img) {
+    height: 190px;
+    margin-block: -42px;
+  }
+
+  @media (max-width: 600px) {
+    .footer-brand-col :global(.logo-img) {
+      height: 140px;
+      margin-block: -28px;
     }
   }
 
