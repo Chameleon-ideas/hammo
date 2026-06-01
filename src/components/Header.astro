@@ -22,7 +22,7 @@ import ThemeToggle from "./ThemeToggle.astro";
       <!-- Desktop Links -->
       <nav class="desktop-nav desktop-only" aria-label="Left Navigation">
         <a href="/shop" class="nav-link text-nav">Shop</a>
-        <a href="/about" class="nav-link text-nav">About</a>
+        <a href="/about" class="nav-link text-nav">Our Story</a>
       </nav>
     </div>
 
@@ -45,8 +45,7 @@ import ThemeToggle from "./ThemeToggle.astro";
         id="cart-trigger"
         aria-label="Open shopping cart"
       >
-        Cart
-        <span class="cart-badge" id="header-cart-count">0</span>
+        Cart (<span id="header-cart-count">0</span>)
       </button>
     </div>
   </div>
@@ -86,7 +85,7 @@ import ThemeToggle from "./ThemeToggle.astro";
       </a>
       <a href="/about" class="overlay-link" data-index="1">
         <span class="overlay-link-num text-label">02</span>
-        About
+        Our Story
       </a>
       <a href="/contact" class="overlay-link" data-index="2">
         <span class="overlay-link-num text-label">03</span>
@@ -228,14 +227,16 @@ import ThemeToggle from "./ThemeToggle.astro";
   }
 
   .brand-link :global(.logo-img) {
-    height: 110px;
-    margin-block: -20px;
+    height: 130px;
+    margin-block: -29px;
+    transform: translateY(-7px);
   }
 
   @media (max-width: 768px) {
     .brand-link :global(.logo-img) {
-      height: 80px;
-      margin-block: -8px;
+      height: 90px;
+      margin-block: -13px;
+      transform: translateY(-4px);
     }
   }
 
@@ -243,13 +244,19 @@ import ThemeToggle from "./ThemeToggle.astro";
   .cart-trigger {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     cursor: pointer;
     color: var(--ink-soft);
     min-height: 44px;
     padding: 0;
     transition: color 0.2s ease;
     font-size: 14px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
   }
 
   .cart-trigger:hover {
@@ -257,18 +264,12 @@ import ThemeToggle from "./ThemeToggle.astro";
   }
 
   .cart-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--accent);
-    color: var(--accent-text);
-    font-size: 11px;
-    font-weight: 600;
-    padding-inline: 3px;
-    transition: background-color 0.2s ease;
+    display: inline;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    padding: 0;
+    background: none;
   }
 
   /* MENU trigger — Rigas style */
